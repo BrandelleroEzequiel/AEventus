@@ -288,6 +288,7 @@ class _AdminPageWidgetState extends State<AdminPageWidget>
 
                                                 return ListView.separated(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   scrollDirection:
                                                       Axis.vertical,
                                                   itemCount: useritem.length,
@@ -694,6 +695,7 @@ class _AdminPageWidgetState extends State<AdminPageWidget>
 
                                                 return ListView.separated(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   scrollDirection:
                                                       Axis.vertical,
                                                   itemCount: eventitem.length,

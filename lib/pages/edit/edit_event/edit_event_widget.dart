@@ -2328,6 +2328,8 @@ class _EditEventWidgetState extends State<EditEventWidget> {
                                                                   padding:
                                                                       EdgeInsets
                                                                           .zero,
+                                                                  primary:
+                                                                      false,
                                                                   shrinkWrap:
                                                                       true,
                                                                   scrollDirection:

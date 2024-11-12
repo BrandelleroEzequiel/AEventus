@@ -2206,6 +2206,8 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                                                   padding:
                                                                       EdgeInsets
                                                                           .zero,
+                                                                  primary:
+                                                                      false,
                                                                   shrinkWrap:
                                                                       true,
                                                                   scrollDirection:

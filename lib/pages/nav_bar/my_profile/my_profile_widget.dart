@@ -1065,11 +1065,23 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                 final listViewEventRecord =
                                                     listViewEventRecordList[
                                                         listViewIndex];
-                                                return MyeventCreadoWidget(
-                                                  key: Key(
-                                                      'Keyppu_${listViewIndex}_of_${listViewEventRecordList.length}'),
-                                                  objEventoParam:
-                                                      listViewEventRecord,
+                                                return wrapWithModel(
+                                                  model: _model
+                                                      .myeventCreadoModels1
+                                                      .getModel(
+                                                    listViewEventRecord
+                                                        .reference.id,
+                                                    listViewIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: MyeventCreadoWidget(
+                                                    key: Key(
+                                                      'Keyppu_${listViewEventRecord.reference.id}',
+                                                    ),
+                                                    objEventoParam:
+                                                        listViewEventRecord,
+                                                  ),
                                                 );
                                               },
                                             );
@@ -1111,9 +1123,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               );
                                             }
                                             List<EventRecord>
-                                                gridViewEventRecordList =
+                                                contenidoEventosUnidoEventRecordList =
                                                 snapshot.data!;
-                                            if (gridViewEventRecordList
+                                            if (contenidoEventosUnidoEventRecordList
                                                 .isEmpty) {
                                               return Center(
                                                 child: Image.asset(
@@ -1135,13 +1147,14 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               primary: false,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
-                                              itemCount: gridViewEventRecordList
-                                                  .length,
-                                              itemBuilder:
-                                                  (context, gridViewIndex) {
-                                                final gridViewEventRecord =
-                                                    gridViewEventRecordList[
-                                                        gridViewIndex];
+                                              itemCount:
+                                                  contenidoEventosUnidoEventRecordList
+                                                      .length,
+                                              itemBuilder: (context,
+                                                  contenidoEventosUnidoIndex) {
+                                                final contenidoEventosUnidoEventRecord =
+                                                    contenidoEventosUnidoEventRecordList[
+                                                        contenidoEventosUnidoIndex];
                                                 return InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1157,7 +1170,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                       queryParameters: {
                                                         'eventReference':
                                                             serializeParam(
-                                                          gridViewEventRecord
+                                                          contenidoEventosUnidoEventRecord
                                                               .reference,
                                                           ParamType
                                                               .DocumentReference,
@@ -1218,7 +1231,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                                   Image.network(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  gridViewEventRecord
+                                                                  contenidoEventosUnidoEventRecord
                                                                       .imagenesAdicionales
                                                                       .first,
                                                                   'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
@@ -1295,7 +1308,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                                           0.0,
                                                                           20.0),
                                                               child: Text(
-                                                                gridViewEventRecord
+                                                                contenidoEventosUnidoEventRecord
                                                                     .name,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1464,9 +1477,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               );
                                             }
                                             List<EventRecord>
-                                                gridViewEventRecordList =
+                                                contenidoEventosGuardadosEventRecordList =
                                                 snapshot.data!;
-                                            if (gridViewEventRecordList
+                                            if (contenidoEventosGuardadosEventRecordList
                                                 .isEmpty) {
                                               return Center(
                                                 child: Image.asset(
@@ -1488,13 +1501,14 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               primary: false,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
-                                              itemCount: gridViewEventRecordList
-                                                  .length,
-                                              itemBuilder:
-                                                  (context, gridViewIndex) {
-                                                final gridViewEventRecord =
-                                                    gridViewEventRecordList[
-                                                        gridViewIndex];
+                                              itemCount:
+                                                  contenidoEventosGuardadosEventRecordList
+                                                      .length,
+                                              itemBuilder: (context,
+                                                  contenidoEventosGuardadosIndex) {
+                                                final contenidoEventosGuardadosEventRecord =
+                                                    contenidoEventosGuardadosEventRecordList[
+                                                        contenidoEventosGuardadosIndex];
                                                 return InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1510,7 +1524,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                       queryParameters: {
                                                         'eventReference':
                                                             serializeParam(
-                                                          gridViewEventRecord
+                                                          contenidoEventosGuardadosEventRecord
                                                               .reference,
                                                           ParamType
                                                               .DocumentReference,
@@ -1571,7 +1585,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                                   Image.network(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  gridViewEventRecord
+                                                                  contenidoEventosGuardadosEventRecord
                                                                       .imagenesAdicionales
                                                                       .first,
                                                                   'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
@@ -1648,7 +1662,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                                           0.0,
                                                                           20.0),
                                                               child: Text(
-                                                                gridViewEventRecord
+                                                                contenidoEventosGuardadosEventRecord
                                                                     .name,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1696,7 +1710,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ],
                             ),
                           ),
-                        ].addToStart(const SizedBox(height: 40.0)),
+                        ]
+                            .addToStart(const SizedBox(height: 40.0))
+                            .addToEnd(const SizedBox(height: 80.0)),
                       ),
                     );
                   },
@@ -2518,6 +2534,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             16.0,
                                             0,
                                           ),
+                                          primary: false,
                                           scrollDirection: Axis.horizontal,
                                           itemCount: imagenesAdicionales.length,
                                           separatorBuilder: (_, __) =>
@@ -2741,8 +2758,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                       ),
                                     );
                                   }
-                                  int profesionalContenidoCuponesCount =
-                                      snapshot.data!;
+                                  int scrollCuponesCount = snapshot.data!;
 
                                   return Stack(
                                     children: [
@@ -2795,6 +2811,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
 
                                                 return ListView.separated(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   scrollDirection:
                                                       Axis.horizontal,
                                                   itemCount:
@@ -2807,11 +2824,24 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                     final listViewPromocionRecord =
                                                         listViewPromocionRecordList[
                                                             listViewIndex];
-                                                    return MyCuponCreadoWidget(
-                                                      key: Key(
-                                                          'Key6ld_${listViewIndex}_of_${listViewPromocionRecordList.length}'),
-                                                      objCuponParam:
-                                                          listViewPromocionRecord,
+                                                    return wrapWithModel(
+                                                      model: _model
+                                                          .myCuponCreadoModels
+                                                          .getModel(
+                                                        listViewPromocionRecord
+                                                            .reference.id,
+                                                        listViewIndex,
+                                                      ),
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child:
+                                                          MyCuponCreadoWidget(
+                                                        key: Key(
+                                                          'Key6ld_${listViewPromocionRecord.reference.id}',
+                                                        ),
+                                                        objCuponParam:
+                                                            listViewPromocionRecord,
+                                                      ),
                                                     );
                                                   },
                                                 );
@@ -2819,9 +2849,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             ),
                                           ),
                                         ),
-                                      if (profesionalContenidoCuponesCount
-                                              .toString() ==
-                                          '0')
+                                      if (scrollCuponesCount.toString() == '0')
                                         Align(
                                           alignment:
                                               const AlignmentDirectional(-1.0, 0.0),
@@ -2937,11 +2965,22 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             final listViewEventRecord =
                                                 listViewEventRecordList[
                                                     listViewIndex];
-                                            return MyeventCreadoWidget(
-                                              key: Key(
-                                                  'Keywy3_${listViewIndex}_of_${listViewEventRecordList.length}'),
-                                              objEventoParam:
-                                                  listViewEventRecord,
+                                            return wrapWithModel(
+                                              model: _model.myeventCreadoModels2
+                                                  .getModel(
+                                                listViewEventRecord
+                                                    .reference.id,
+                                                listViewIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: MyeventCreadoWidget(
+                                                key: Key(
+                                                  'Keywy3_${listViewEventRecord.reference.id}',
+                                                ),
+                                                objEventoParam:
+                                                    listViewEventRecord,
+                                              ),
                                             );
                                           },
                                         );
@@ -2952,7 +2991,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ),
                             ],
                           ),
-                        ].addToEnd(const SizedBox(height: 150.0)),
+                        ].addToEnd(const SizedBox(height: 90.0)),
                       ),
                     );
                   },

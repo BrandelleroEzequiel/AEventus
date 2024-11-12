@@ -3,11 +3,14 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/componentes/cupon_card/cupon_card_widget.dart';
+import '/pages/componentes/event_card/event_card_widget.dart';
 import '/pages/componentes/list_cupones_user_detail/list_cupones_user_detail_widget.dart';
 import '/pages/componentes/list_seguidores/list_seguidores_widget.dart';
 import '/pages/componentes/list_seguidos/list_seguidos_widget.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +38,12 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UserDetailModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().estado = 'IMAGENES';
+      safeSetState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -439,10 +448,10 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 10.0, 16.0, 0.0),
+                                  16.0, 20.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
-                                height: 30.0,
+                                height: 25.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -549,21 +558,21 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmall
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Lexend Deca',
-                                                                  color: Colors
-                                                                      .white,
+                                                                      'Lexend',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
                                                                   fontSize:
-                                                                      14.0,
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        elevation: 3.0,
                                                         borderSide: const BorderSide(
                                                           color: Colors
                                                               .transparent,
@@ -685,7 +694,7 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                 (userDetailUserRecord.tikTokURL != ''))
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 8.0, 20.0, 20.0),
+                                    20.0, 10.0, 20.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: const BoxDecoration(),
@@ -923,13 +932,14 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                 ),
                               ),
                             Divider(
+                              height: 50.0,
                               thickness: 2.0,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                             ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 20.0, 16.0, 0.0),
+                                  16.0, 0.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -2775,308 +2785,254 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                 ),
                               ),
                             ),
+                            if ((userDetailUserRecord.whatsAppURL != '') ||
+                                (userDetailUserRecord.instagramURL != '') ||
+                                (userDetailUserRecord.xurl != '') ||
+                                (userDetailUserRecord.tikTokURL != ''))
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 7.0, 20.0, 15.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: const BoxDecoration(),
+                                  child: Wrap(
+                                    spacing: 8.0,
+                                    runSpacing: 3.0,
+                                    alignment: WrapAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
+                                    direction: Axis.horizontal,
+                                    runAlignment: WrapAlignment.start,
+                                    verticalDirection: VerticalDirection.down,
+                                    clipBehavior: Clip.none,
+                                    children: [
+                                      if (userDetailUserRecord.whatsAppURL !=
+                                              '')
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await launchURL(userDetailUserRecord
+                                                .whatsAppURL);
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.whatsapp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 21.0,
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'mnhuafcg' /* WhatsApp */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_outward_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 20.0,
+                                              ),
+                                            ].divide(const SizedBox(width: 1.0)),
+                                          ),
+                                        ),
+                                      if (userDetailUserRecord.instagramURL !=
+                                              '')
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await launchURL(userDetailUserRecord
+                                                .instagramURL);
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.instagram,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 21.0,
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'xvithsqi' /* Instagram */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_outward_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 20.0,
+                                              ),
+                                            ].divide(const SizedBox(width: 1.0)),
+                                          ),
+                                        ),
+                                      if (userDetailUserRecord.xurl != '')
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await launchURL(
+                                                userDetailUserRecord.xurl);
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.twitter,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 21.0,
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '0f2qeiw2' /* X */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_outward_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 20.0,
+                                              ),
+                                            ].divide(const SizedBox(width: 1.0)),
+                                          ),
+                                        ),
+                                      if (userDetailUserRecord.tikTokURL != '')
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await launchURL(
+                                                userDetailUserRecord.tikTokURL);
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: Icon(
+                                                  Icons.tiktok,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  size: 21.0,
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'nmhks1au' /* Tik Tok */,
+                                                ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_outward_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 20.0,
+                                              ),
+                                            ].divide(const SizedBox(width: 1.0)),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             if (userDetailUserRecord
                                 .imagenesAdicionales.isNotEmpty)
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if ((userDetailUserRecord.whatsAppURL !=
-                                              '') ||
-                                      (userDetailUserRecord.instagramURL !=
-                                              '') ||
-                                      (userDetailUserRecord.xurl != '') ||
-                                      (userDetailUserRecord.tikTokURL != ''))
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 7.0, 20.0, 15.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: const BoxDecoration(),
-                                        child: Wrap(
-                                          spacing: 8.0,
-                                          runSpacing: 3.0,
-                                          alignment: WrapAlignment.start,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.start,
-                                          direction: Axis.horizontal,
-                                          runAlignment: WrapAlignment.start,
-                                          verticalDirection:
-                                              VerticalDirection.down,
-                                          clipBehavior: Clip.none,
-                                          children: [
-                                            if (userDetailUserRecord
-                                                        .whatsAppURL !=
-                                                    '')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await launchURL(
-                                                      userDetailUserRecord
-                                                          .whatsAppURL);
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  3.0,
-                                                                  0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .whatsapp,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 21.0,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'mnhuafcg' /* WhatsApp */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Icon(
-                                                      Icons.arrow_outward_sharp,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 20.0,
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(width: 1.0)),
-                                                ),
-                                              ),
-                                            if (userDetailUserRecord
-                                                        .instagramURL !=
-                                                    '')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await launchURL(
-                                                      userDetailUserRecord
-                                                          .instagramURL);
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  3.0,
-                                                                  0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .instagram,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 21.0,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'xvithsqi' /* Instagram */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Icon(
-                                                      Icons.arrow_outward_sharp,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 20.0,
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(width: 1.0)),
-                                                ),
-                                              ),
-                                            if (userDetailUserRecord.xurl != '')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await launchURL(
-                                                      userDetailUserRecord
-                                                          .xurl);
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  3.0,
-                                                                  0.0),
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .twitter,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 21.0,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '0f2qeiw2' /* X */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Icon(
-                                                      Icons.arrow_outward_sharp,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 20.0,
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(width: 1.0)),
-                                                ),
-                                              ),
-                                            if (userDetailUserRecord
-                                                        .tikTokURL !=
-                                                    '')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  await launchURL(
-                                                      userDetailUserRecord
-                                                          .tikTokURL);
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  3.0,
-                                                                  0.0),
-                                                      child: Icon(
-                                                        Icons.tiktok,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        size: 21.0,
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'nmhks1au' /* Tik Tok */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend Deca',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    Icon(
-                                                      Icons.arrow_outward_sharp,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 20.0,
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(width: 1.0)),
-                                                ),
-                                              ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
                                   Divider(
                                     thickness: 2.0,
                                     color: FlutterFlowTheme.of(context)
@@ -3129,6 +3085,7 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
 
                                           return ListView.separated(
                                             padding: EdgeInsets.zero,
+                                            primary: false,
                                             scrollDirection: Axis.horizontal,
                                             itemCount:
                                                 imagenesAdicionales.length,
@@ -3278,8 +3235,7 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                       ),
                                     );
                                   }
-                                  int profesionalCoumnCuponesCount =
-                                      snapshot.data!;
+                                  int cuponesCount = snapshot.data!;
 
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -3422,6 +3378,7 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
 
                                               return ListView.separated(
                                                 padding: EdgeInsets.zero,
+                                                primary: false,
                                                 scrollDirection:
                                                     Axis.horizontal,
                                                 itemCount:
@@ -3434,183 +3391,22 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                                   final listViewPromocionRecord =
                                                       listViewPromocionRecordList[
                                                           listViewIndex];
-                                                  return Container(
-                                                    width: 320.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                0.0),
-                                                      ),
+                                                  return wrapWithModel(
+                                                    model: _model
+                                                        .cuponCardModels
+                                                        .getModel(
+                                                      listViewPromocionRecord
+                                                          .reference.id,
+                                                      listViewIndex,
                                                     ),
-                                                    child: Stack(
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              const BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                          ),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              listViewPromocionRecord
-                                                                  .imagen,
-                                                              'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                            ),
-                                                            width:
-                                                                double.infinity,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              context.pushNamed(
-                                                                'PromocionDetail',
-                                                                queryParameters:
-                                                                    {
-                                                                  'promocionReference':
-                                                                      serializeParam(
-                                                                    listViewPromocionRecord
-                                                                        .reference,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
-                                                            },
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 110.0,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                gradient:
-                                                                    LinearGradient(
-                                                                  colors: [
-                                                                    Color(
-                                                                        0x055A5A5A),
-                                                                    Color(
-                                                                        0x64000000)
-                                                                  ],
-                                                                  stops: [
-                                                                    0.0,
-                                                                    1.0
-                                                                  ],
-                                                                  begin:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          -1.0),
-                                                                  end:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          1.0),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  -1.0, 1.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        20.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        18.0),
-                                                            child: Text(
-                                                              listViewPromocionRecord
-                                                                  .name,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                fontFamily:
-                                                                    'Lexend',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                shadows: [
-                                                                  const Shadow(
-                                                                    color: Color(
-                                                                        0x7857636C),
-                                                                    offset:
-                                                                        Offset(
-                                                                            2.0,
-                                                                            2.0),
-                                                                    blurRadius:
-                                                                        2.0,
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                    updateCallback: () =>
+                                                        safeSetState(() {}),
+                                                    child: CuponCardWidget(
+                                                      key: Key(
+                                                        'Key4pv_${listViewPromocionRecord.reference.id}',
+                                                      ),
+                                                      cuponParam:
+                                                          listViewPromocionRecord,
                                                     ),
                                                   );
                                                 },
@@ -3706,190 +3502,21 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                                 final listViewEventRecord =
                                                     listViewEventRecordList[
                                                         listViewIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'EventDetail',
-                                                      queryParameters: {
-                                                        'eventReference':
-                                                            serializeParam(
-                                                          listViewEventRecord
-                                                              .reference,
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: 350.0,
-                                                    height: 200.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                      ),
+                                                return wrapWithModel(
+                                                  model: _model.eventCardModels
+                                                      .getModel(
+                                                    listViewEventRecord
+                                                        .reference.id,
+                                                    listViewIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: EventCardWidget(
+                                                    key: Key(
+                                                      'Keym5y_${listViewEventRecord.reference.id}',
                                                     ),
-                                                    child: SizedBox(
-                                                      width: double.infinity,
-                                                      height: double.infinity,
-                                                      child: Stack(
-                                                        children: [
-                                                          ClipRRect(
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                            ),
-                                                            child:
-                                                                Image.network(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                listViewEventRecord
-                                                                    .imagenesAdicionales
-                                                                    .first,
-                                                                'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                              ),
-                                                              width: double
-                                                                  .infinity,
-                                                              height: double
-                                                                  .infinity,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    0.0, 1.0),
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 80.0,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                gradient:
-                                                                    LinearGradient(
-                                                                  colors: [
-                                                                    Color(
-                                                                        0x0057636C),
-                                                                    Color(
-                                                                        0x9514181B)
-                                                                  ],
-                                                                  stops: [
-                                                                    0.0,
-                                                                    1.0
-                                                                  ],
-                                                                  begin:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          -1.0),
-                                                                  end:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          1.0),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0, 1.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          20.0),
-                                                              child: Text(
-                                                                listViewEventRecord
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                  fontFamily:
-                                                                      'Lexend',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  shadows: [
-                                                                    const Shadow(
-                                                                      color: Color(
-                                                                          0x7857636C),
-                                                                      offset: Offset(
-                                                                          2.0,
-                                                                          2.0),
-                                                                      blurRadius:
-                                                                          2.0,
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
+                                                    eventParam:
+                                                        listViewEventRecord,
                                                   ),
                                                 );
                                               },

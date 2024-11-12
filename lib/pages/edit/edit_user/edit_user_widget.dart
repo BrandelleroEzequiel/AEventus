@@ -2043,6 +2043,8 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                                                   padding:
                                                                       EdgeInsets
                                                                           .zero,
+                                                                  primary:
+                                                                      false,
                                                                   shrinkWrap:
                                                                       true,
                                                                   scrollDirection:
@@ -2141,12 +2143,6 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                             ),
                                           ].divide(const SizedBox(height: 12.0)),
                                         ),
-                                      ),
-                                      Container(
-                                        constraints: const BoxConstraints(
-                                          maxWidth: 570.0,
-                                        ),
-                                        decoration: const BoxDecoration(),
                                       ),
                                     ],
                                   ),

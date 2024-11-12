@@ -7,6 +7,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/componentes/imagen_detail/imagen_detail_widget.dart';
 import '/pages/componentes/list_cupones_user_detail/list_cupones_user_detail_widget.dart';
 import '/pages/componentes/list_participantes_unidos/list_participantes_unidos_widget.dart';
+import '/pages/componentes/my_cupon_creado/my_cupon_creado_widget.dart';
+import '/pages/componentes/myevent_creado/myevent_creado_widget.dart';
+import '/pages/componentes/user_horizontal_card/user_horizontal_card_widget.dart';
 import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -112,7 +115,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                       );
                     }
 
-                    final columnUserRecord = snapshot.data!;
+                    final columnContenidoUserRecord = snapshot.data!;
 
                     return SingleChildScrollView(
                       child: Column(
@@ -274,59 +277,6 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 45.0, 0.0, 0.0),
-                                    child: Container(
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(30.0),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.08, -0.14),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 3.0, 0.0, 0.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.safePop();
-                                                },
-                                                child: Icon(
-                                                  Icons.arrow_back,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 25.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ]
-                                            .divide(const SizedBox(width: 5.0))
-                                            .addToStart(const SizedBox(width: 9.0))
-                                            .addToEnd(const SizedBox(width: 9.0)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
                                   alignment: const AlignmentDirectional(-1.0, 1.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -446,6 +396,54 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                     ),
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 45.0, 0.0, 0.0),
+                                  child: Container(
+                                    width: 45.0,
+                                    height: 45.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.08, -0.14),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 3.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.safePop();
+                                              },
+                                              child: Icon(
+                                                Icons.arrow_back,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 25.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -465,23 +463,28 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                             ),
                           ),
                           if ((myEventDetailEventRecord.fechaInicio != null) ||
-                              (myEventDetailEventRecord.fechaInicio != null) ||
+                              (myEventDetailEventRecord.horaInicio != null) ||
                               (myEventDetailEventRecord.horaFin != null))
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 10.0),
+                                  20.0, 20.0, 20.0, 10.0),
                               child: Container(
                                 width: double.infinity,
+                                height: 42.0,
                                 decoration: const BoxDecoration(),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     if (myEventDetailEventRecord.fechaInicio !=
                                         null)
-                                      Expanded(
+                                      Flexible(
                                         child: Container(
-                                          height: 42.0,
+                                          constraints: const BoxConstraints(
+                                            minWidth: 140.0,
+                                            maxWidth: 190.0,
+                                          ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -494,7 +497,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                             ),
                                           ),
                                           child: Row(
-                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
@@ -515,10 +518,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                       .alternate,
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 0.0, 0.0),
+                                              Expanded(
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     dateTimeFormat(
@@ -532,6 +532,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                     ),
                                                     '24/10/2024',
                                                   ),
+                                                  textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -548,9 +549,11 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                 ),
                                               ),
                                             ]
-                                                .divide(const SizedBox(width: 10.0))
+                                                .divide(const SizedBox(width: 7.0))
                                                 .addToStart(
-                                                    const SizedBox(width: 16.0)),
+                                                    const SizedBox(width: 12.0))
+                                                .addToEnd(
+                                                    const SizedBox(width: 12.0)),
                                           ),
                                         ),
                                       ),
@@ -558,9 +561,12 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                             null) ||
                                         (myEventDetailEventRecord.horaFin !=
                                             null))
-                                      Expanded(
+                                      Flexible(
                                         child: Container(
-                                          height: 42.0,
+                                          constraints: const BoxConstraints(
+                                            minWidth: 140.0,
+                                            maxWidth: 190.0,
+                                          ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -573,9 +579,9 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                             ),
                                           ),
                                           child: Row(
-                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.start,
                                             children: [
                                               Icon(
                                                 Icons.watch_later_outlined,
@@ -594,13 +600,12 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                       .alternate,
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 0.0, 0.0),
+                                              Expanded(
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
                                                   children: [
                                                     if (myEventDetailEventRecord
                                                             .horaInicio !=
@@ -643,7 +648,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '85bu5bl3' /*  -  */,
+                                                          'ha8p2gbb' /*  -  */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -696,11 +701,11 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                 ),
                                               ),
                                             ]
-                                                .divide(const SizedBox(width: 10.0))
+                                                .divide(const SizedBox(width: 7.0))
                                                 .addToStart(
-                                                    const SizedBox(width: 5.0))
+                                                    const SizedBox(width: 12.0))
                                                 .addToEnd(
-                                                    const SizedBox(width: 10.0)),
+                                                    const SizedBox(width: 12.0)),
                                           ),
                                         ),
                                       ),
@@ -841,7 +846,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                               ),
                                               child: Image.network(
                                                 valueOrDefault<String>(
-                                                  columnUserRecord.photoUrl,
+                                                  columnContenidoUserRecord
+                                                      .photoUrl,
                                                   'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
                                                 ),
                                                 fit: BoxFit.cover,
@@ -850,7 +856,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                           ),
                                         ),
                                         Text(
-                                          columnUserRecord.displayName
+                                          columnContenidoUserRecord.displayName
                                               .maybeHandleOverflow(
                                             maxChars: 21,
                                             replacement: '…',
@@ -1256,6 +1262,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
 
                                               return ListView.separated(
                                                 padding: EdgeInsets.zero,
+                                                primary: false,
                                                 shrinkWrap: true,
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: useritem.length,
@@ -1289,296 +1296,26 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                         );
                                                       }
 
-                                                      final containerUserRecord =
+                                                      final userHorizontalCardUserRecord =
                                                           snapshot.data!;
 
-                                                      return Container(
-                                                        width: double.infinity,
-                                                        height: 60.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      14.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                          ),
+                                                      return wrapWithModel(
+                                                        model: _model
+                                                            .userHorizontalCardModels
+                                                            .getModel(
+                                                          userHorizontalCardUserRecord
+                                                              .reference.id,
+                                                          useritemIndex,
                                                         ),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            if (containerUserRecord
-                                                                    .reference ==
-                                                                currentUserReference) {
-                                                              context.pushNamed(
-                                                                  'MyProfile');
-                                                            } else {
-                                                              context.pushNamed(
-                                                                'UserDetail',
-                                                                queryParameters:
-                                                                    {
-                                                                  'objUserParam':
-                                                                      serializeParam(
-                                                                    containerUserRecord,
-                                                                    ParamType
-                                                                        .Document,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                                extra: <String,
-                                                                    dynamic>{
-                                                                  'objUserParam':
-                                                                      containerUserRecord,
-                                                                },
-                                                              );
-                                                            }
-                                                          },
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .min,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          5.0,
-                                                                          8.0,
-                                                                          5.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 45.0,
-                                                                    height:
-                                                                        45.0,
-                                                                    clipBehavior:
-                                                                        Clip.antiAlias,
-                                                                    decoration:
-                                                                        const BoxDecoration(
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child: Image
-                                                                        .network(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        containerUserRecord
-                                                                            .photoUrl,
-                                                                        'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                                      ),
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Expanded(
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          5.0),
-                                                                  child: Text(
-                                                                    containerUserRecord
-                                                                        .displayName
-                                                                        .maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          17,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Lexend Deca',
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Flexible(
-                                                                child: Align(
-                                                                  alignment:
-                                                                      const AlignmentDirectional(
-                                                                          1.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceEvenly,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Flexible(
-                                                                          child:
-                                                                              Container(
-                                                                            width:
-                                                                                110.0,
-                                                                            height:
-                                                                                59.0,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            ),
-                                                                            child:
-                                                                                Visibility(
-                                                                              visible: containerUserRecord.reference != currentUserReference,
-                                                                              child: Stack(
-                                                                                children: [
-                                                                                  if (!containerUserRecord.seguidores.contains(currentUserReference))
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                      child: FFButtonWidget(
-                                                                                        onPressed: () async {
-                                                                                          await containerUserRecord.reference.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'seguidores': FieldValue.arrayUnion([
-                                                                                                  currentUserReference
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-
-                                                                                          await currentUserReference!.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'siguiendo': FieldValue.arrayUnion([
-                                                                                                  containerUserRecord.reference
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-                                                                                        },
-                                                                                        text: FFLocalizations.of(context).getText(
-                                                                                          'b9vpq0se' /* Seguir */,
-                                                                                        ),
-                                                                                        options: FFButtonOptions(
-                                                                                          width: 90.0,
-                                                                                          height: 30.0,
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                          color: FlutterFlowTheme.of(context).primary,
-                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                fontFamily: 'Lexend Deca',
-                                                                                                color: Colors.white,
-                                                                                                fontSize: 5.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w500,
-                                                                                              ),
-                                                                                          elevation: 3.0,
-                                                                                          borderSide: const BorderSide(
-                                                                                            color: Colors.transparent,
-                                                                                            width: 1.0,
-                                                                                          ),
-                                                                                          borderRadius: BorderRadius.circular(24.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  if (containerUserRecord.seguidores.contains(currentUserReference))
-                                                                                    Align(
-                                                                                      alignment: const AlignmentDirectional(1.0, 0.0),
-                                                                                      child: FFButtonWidget(
-                                                                                        onPressed: () async {
-                                                                                          await containerUserRecord.reference.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'seguidores': FieldValue.arrayRemove([
-                                                                                                  currentUserReference
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-
-                                                                                          await currentUserReference!.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'siguiendo': FieldValue.arrayRemove([
-                                                                                                  containerUserRecord.reference
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-                                                                                        },
-                                                                                        text: FFLocalizations.of(context).getText(
-                                                                                          'simts8mv' /* Dejar de seguir */,
-                                                                                        ),
-                                                                                        options: FFButtonOptions(
-                                                                                          width: double.infinity,
-                                                                                          height: 30.0,
-                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                                fontFamily: 'Lexend Deca',
-                                                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                                                fontSize: 3.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.normal,
-                                                                                              ),
-                                                                                          elevation: 0.0,
-                                                                                          borderSide: BorderSide(
-                                                                                            color: FlutterFlowTheme.of(context).primary,
-                                                                                            width: 1.0,
-                                                                                          ),
-                                                                                          borderRadius: BorderRadius.circular(8.0),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                ],
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                        updateCallback: () =>
+                                                            safeSetState(() {}),
+                                                        child:
+                                                            UserHorizontalCardWidget(
+                                                          key: Key(
+                                                            'Key2vm_${userHorizontalCardUserRecord.reference.id}',
                                                           ),
+                                                          userParam:
+                                                              userHorizontalCardUserRecord,
                                                         ),
                                                       );
                                                     },
@@ -1603,8 +1340,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                       const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Container(
-                                                    width: 320.0,
-                                                    height: 35.0,
+                                                    width: double.infinity,
+                                                    height: 30.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1669,14 +1406,20 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmall
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Lexend Deca',
-                                                                  color: Colors
-                                                                      .white,
+                                                                      'Lexend',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
                                                                 ),
                                                         elevation: 3.0,
                                                         borderSide: const BorderSide(
@@ -1700,8 +1443,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                       const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Container(
-                                                    width: 320.0,
-                                                    height: 35.0,
+                                                    width: double.infinity,
+                                                    height: 29.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
@@ -1754,14 +1497,20 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmall
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Lexend Deca',
-                                                                  color: Colors
-                                                                      .white,
+                                                                      'Lexend',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
                                                                 ),
                                                         elevation: 3.0,
                                                         borderSide: const BorderSide(
@@ -1794,7 +1543,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                   queryBuilder: (promocionRecord) =>
                                       promocionRecord.where(
                                     'user_creator',
-                                    isEqualTo: columnUserRecord.reference,
+                                    isEqualTo:
+                                        columnContenidoUserRecord.reference,
                                   ),
                                 ),
                                 builder: (context, snapshot) {
@@ -1812,8 +1562,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                       ),
                                     );
                                   }
-                                  int profesionalCoumnCuponesCount =
-                                      snapshot.data!;
+                                  int cuponesCount = snapshot.data!;
 
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1931,7 +1680,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                   promocionRecord.where(
                                                 'user_creator',
                                                 isEqualTo:
-                                                    columnUserRecord.reference,
+                                                    columnContenidoUserRecord
+                                                        .reference,
                                               ),
                                             ),
                                             builder: (context, snapshot) {
@@ -1957,6 +1707,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
 
                                               return ListView.separated(
                                                 padding: EdgeInsets.zero,
+                                                primary: false,
                                                 scrollDirection:
                                                     Axis.horizontal,
                                                 itemCount:
@@ -1969,398 +1720,22 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                   final listViewPromocionRecord =
                                                       listViewPromocionRecordList[
                                                           listViewIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context.pushNamed(
-                                                        'MyPromocionDetail',
-                                                        queryParameters: {
-                                                          'promocionReference':
-                                                              serializeParam(
-                                                            listViewPromocionRecord
-                                                                .reference,
-                                                            ParamType
-                                                                .DocumentReference,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 320.0,
-                                                      height: 100.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                        ),
+                                                  return wrapWithModel(
+                                                    model: _model
+                                                        .myCuponCreadoModels
+                                                        .getModel(
+                                                      listViewPromocionRecord
+                                                          .reference.id,
+                                                      listViewIndex,
+                                                    ),
+                                                    updateCallback: () =>
+                                                        safeSetState(() {}),
+                                                    child: MyCuponCreadoWidget(
+                                                      key: Key(
+                                                        'Keyru7_${listViewPromocionRecord.reference.id}',
                                                       ),
-                                                      child: StreamBuilder<
-                                                          UserRecord>(
-                                                        stream: UserRecord.getDocument(
-                                                            listViewPromocionRecord
-                                                                .userCreator!),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 50.0,
-                                                                height: 50.0,
-                                                                child:
-                                                                    SpinKitRipple(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 50.0,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          }
-
-                                                          final stackUserRecord =
-                                                              snapshot.data!;
-
-                                                          return Stack(
-                                                            children: [
-                                                              ClipRRect(
-                                                                borderRadius:
-                                                                    const BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                ),
-                                                                child: Image
-                                                                    .network(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    listViewPromocionRecord
-                                                                        .imagen,
-                                                                    'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                                  ),
-                                                                  width: double
-                                                                      .infinity,
-                                                                  height: 200.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 320.0,
-                                                                  height: 110.0,
-                                                                  decoration:
-                                                                      const BoxDecoration(
-                                                                    gradient:
-                                                                        LinearGradient(
-                                                                      colors: [
-                                                                        Color(
-                                                                            0x055A5A5A),
-                                                                        Color(
-                                                                            0x39000000)
-                                                                      ],
-                                                                      stops: [
-                                                                        0.0,
-                                                                        1.0
-                                                                      ],
-                                                                      begin: AlignmentDirectional(
-                                                                          0.0,
-                                                                          -1.0),
-                                                                      end: AlignmentDirectional(
-                                                                          0,
-                                                                          1.0),
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              0.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        1.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          7.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 25.0,
-                                                                    height:
-                                                                        25.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      shape: BoxShape
-                                                                          .circle,
-                                                                    ),
-                                                                    child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        if (stackUserRecord.reference ==
-                                                                            currentUserReference) {
-                                                                          context
-                                                                              .pushNamed('MyProfile');
-                                                                        } else {
-                                                                          context
-                                                                              .pushNamed(
-                                                                            'UserDetail',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'objUserParam': serializeParam(
-                                                                                stackUserRecord,
-                                                                                ParamType.Document,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                            extra: <String,
-                                                                                dynamic>{
-                                                                              'objUserParam': stackUserRecord,
-                                                                            },
-                                                                          );
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            120.0,
-                                                                        height:
-                                                                            120.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
-                                                                        decoration:
-                                                                            const BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child: Image
-                                                                            .network(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            stackUserRecord.photoUrl,
-                                                                            'https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg',
-                                                                          ),
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        1.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          52.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          13.0),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      if (stackUserRecord
-                                                                              .reference ==
-                                                                          currentUserReference) {
-                                                                        context.pushNamed(
-                                                                            'MyProfile');
-                                                                      } else {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'UserDetail',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'objUserParam':
-                                                                                serializeParam(
-                                                                              stackUserRecord,
-                                                                              ParamType.Document,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                          extra: <String,
-                                                                              dynamic>{
-                                                                            'objUserParam':
-                                                                                stackUserRecord,
-                                                                          },
-                                                                        );
-                                                                      }
-                                                                    },
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        stackUserRecord
-                                                                            .displayName,
-                                                                        'Display',
-                                                                      ).maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            25,
-                                                                        replacement:
-                                                                            '…',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                        fontFamily:
-                                                                            'Lexend Deca',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        shadows: [
-                                                                          const Shadow(
-                                                                            color:
-                                                                                Color(0x7857636C),
-                                                                            offset:
-                                                                                Offset(2.0, 2.0),
-                                                                            blurRadius:
-                                                                                2.0,
-                                                                          )
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        1.0),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          38.0),
-                                                                  child: Text(
-                                                                    listViewPromocionRecord
-                                                                        .name,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                      fontFamily:
-                                                                          'Lexend',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryBackground,
-                                                                      fontSize:
-                                                                          16.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      shadows: [
-                                                                        const Shadow(
-                                                                          color:
-                                                                              Color(0x7857636C),
-                                                                          offset: Offset(
-                                                                              2.0,
-                                                                              2.0),
-                                                                          blurRadius:
-                                                                              2.0,
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      ),
+                                                      objCuponParam:
+                                                          listViewPromocionRecord,
                                                     ),
                                                   );
                                                 },
@@ -2520,6 +1895,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
 
                                         return ListView.separated(
                                           padding: EdgeInsets.zero,
+                                          primary: false,
                                           scrollDirection: Axis.horizontal,
                                           itemCount:
                                               listViewEventRecordList.length,
@@ -2530,413 +1906,21 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                             final listViewEventRecord =
                                                 listViewEventRecordList[
                                                     listViewIndex];
-                                            return Container(
-                                              width: 320.0,
-                                              height: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius: const BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
+                                            return wrapWithModel(
+                                              model: _model.myeventCreadoModels
+                                                  .getModel(
+                                                listViewEventRecord
+                                                    .reference.id,
+                                                listViewIndex,
                                               ),
-                                              child: SizedBox(
-                                                width: double.infinity,
-                                                height: double.infinity,
-                                                child: Stack(
-                                                  children: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'MyEventDetail',
-                                                          queryParameters: {
-                                                            'eventReference':
-                                                                serializeParam(
-                                                              listViewEventRecord
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        child: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            listViewEventRecord
-                                                                .imagenesAdicionales
-                                                                .first,
-                                                            'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                          ),
-                                                          width:
-                                                              double.infinity,
-                                                          height:
-                                                              double.infinity,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 1.0),
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: 90.0,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          gradient:
-                                                              LinearGradient(
-                                                            colors: [
-                                                              Color(0x0057636C),
-                                                              Color(0x4814181B)
-                                                            ],
-                                                            stops: [0.0, 1.0],
-                                                            begin:
-                                                                AlignmentDirectional(
-                                                                    0.0, -1.0),
-                                                            end:
-                                                                AlignmentDirectional(
-                                                                    0, 1.0),
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -1.0, 1.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    55.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                              'MyEventDetail',
-                                                              queryParameters: {
-                                                                'eventReference':
-                                                                    serializeParam(
-                                                                  listViewEventRecord
-                                                                      .reference,
-                                                                  ParamType
-                                                                      .DocumentReference,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
-                                                          },
-                                                          child: Text(
-                                                            listViewEventRecord
-                                                                .name,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                              fontFamily:
-                                                                  'Lexend',
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              shadows: [
-                                                                const Shadow(
-                                                                  color: Color(
-                                                                      0x7857636C),
-                                                                  offset:
-                                                                      Offset(
-                                                                          2.0,
-                                                                          2.0),
-                                                                  blurRadius:
-                                                                      2.0,
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -1.0, 1.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    10.0),
-                                                        child: StreamBuilder<
-                                                            UserRecord>(
-                                                          stream: UserRecord
-                                                              .getDocument(
-                                                                  listViewEventRecord
-                                                                      .userCreator!),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return Center(
-                                                                child: SizedBox(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
-                                                                  child:
-                                                                      SpinKitRipple(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 50.0,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }
-
-                                                            final wrapUserRecord =
-                                                                snapshot.data!;
-
-                                                            return Wrap(
-                                                              spacing: 0.0,
-                                                              runSpacing: 0.0,
-                                                              alignment:
-                                                                  WrapAlignment
-                                                                      .start,
-                                                              crossAxisAlignment:
-                                                                  WrapCrossAlignment
-                                                                      .start,
-                                                              direction: Axis
-                                                                  .horizontal,
-                                                              runAlignment:
-                                                                  WrapAlignment
-                                                                      .start,
-                                                              verticalDirection:
-                                                                  VerticalDirection
-                                                                      .down,
-                                                              clipBehavior:
-                                                                  Clip.none,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .min,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    Container(
-                                                                      width:
-                                                                          35.0,
-                                                                      height:
-                                                                          35.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryBackground,
-                                                                        borderRadius:
-                                                                            const BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(40.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(40.0),
-                                                                          topLeft:
-                                                                              Radius.circular(40.0),
-                                                                          topRight:
-                                                                              Radius.circular(40.0),
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          if (wrapUserRecord.reference ==
-                                                                              currentUserReference) {
-                                                                            context.pushNamed('MyProfile');
-                                                                          } else {
-                                                                            context.pushNamed(
-                                                                              'UserDetail',
-                                                                              queryParameters: {
-                                                                                'objUserParam': serializeParam(
-                                                                                  wrapUserRecord,
-                                                                                  ParamType.Document,
-                                                                                ),
-                                                                              }.withoutNulls,
-                                                                              extra: <String, dynamic>{
-                                                                                'objUserParam': wrapUserRecord,
-                                                                              },
-                                                                            );
-                                                                          }
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              120.0,
-                                                                          height:
-                                                                              120.0,
-                                                                          clipBehavior:
-                                                                              Clip.antiAlias,
-                                                                          decoration:
-                                                                              const BoxDecoration(
-                                                                            shape:
-                                                                                BoxShape.circle,
-                                                                          ),
-                                                                          child:
-                                                                              Image.network(
-                                                                            valueOrDefault<String>(
-                                                                              wrapUserRecord.photoUrl,
-                                                                              'https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg',
-                                                                            ),
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Expanded(
-                                                                      child:
-                                                                          Align(
-                                                                        alignment: const AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            if (wrapUserRecord.reference ==
-                                                                                currentUserReference) {
-                                                                              context.pushNamed('MyProfile');
-                                                                            } else {
-                                                                              context.pushNamed(
-                                                                                'UserDetail',
-                                                                                queryParameters: {
-                                                                                  'objUserParam': serializeParam(
-                                                                                    wrapUserRecord,
-                                                                                    ParamType.Document,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                                extra: <String, dynamic>{
-                                                                                  'objUserParam': wrapUserRecord,
-                                                                                },
-                                                                              );
-                                                                            }
-                                                                          },
-                                                                          child:
-                                                                              Text(
-                                                                            wrapUserRecord.displayName,
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                              fontFamily: 'Lexend',
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              fontSize: 12.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w600,
-                                                                              shadows: [
-                                                                                const Shadow(
-                                                                                  color: Color(0x7857636C),
-                                                                                  offset: Offset(2.0, 2.0),
-                                                                                  blurRadius: 2.0,
-                                                                                )
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ].divide(const SizedBox(
-                                                                      width:
-                                                                          10.0)),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: MyeventCreadoWidget(
+                                                key: Key(
+                                                  'Key1rh_${listViewEventRecord.reference.id}',
                                                 ),
+                                                objEventoParam:
+                                                    listViewEventRecord,
                                               ),
                                             );
                                           },
@@ -3495,6 +2479,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
 
                                                     return ListView.separated(
                                                       padding: EdgeInsets.zero,
+                                                      primary: false,
                                                       shrinkWrap: true,
                                                       scrollDirection:
                                                           Axis.vertical,

@@ -154,36 +154,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Ver todos',
       'en': '',
     },
-    'xxw5ekg7': {
-      'es': 'ELECTRO FEST - BZRP',
-      'en': '',
-    },
-    '3a49tstg': {
-      'es': 'Tifosi Futbol Club',
-      'en': '',
-    },
-    'f8h2q30a': {
-      'es': 'ELECTRO FEST - BZRP',
-      'en': '',
-    },
-    '5sr1v0eh': {
-      'es': 'Tifosi Futbol Club',
-      'en': '',
-    },
     '1nbaot11': {
       'es': 'Cupones',
       'en': '',
     },
     '5c174uxr': {
       'es': 'Ver todos',
-      'en': '',
-    },
-    's01yqw7p': {
-      'es': 'Loins y Lomos',
-      'en': '',
-    },
-    '2foesgla': {
-      'es': '1 PINTA GRATIS',
       'en': '',
     },
     'm9t4evsd': {
@@ -308,24 +284,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Lugares destacados',
       'en': '',
     },
-    'z2r769i4': {
-      'es': ' eventos activos',
-      'en': '',
-    },
     'nybcn5sl': {
       'es': 'Usuarios destacados',
-      'en': '',
-    },
-    '0q72oiif': {
-      'es': ' eventos activos',
-      'en': '',
-    },
-    'a80wpzwl': {
-      'es': 'Seguir',
-      'en': '',
-    },
-    '5w6eul5t': {
-      'es': 'Dejar de seguir',
       'en': '',
     },
     'aniyi26o': {
@@ -339,7 +299,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Evento activo',
       'en': '',
     },
-    'imy5n3p0': {
+    '0m628f7r': {
       'es': ' - ',
       'en': '',
     },
@@ -364,34 +324,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'cadwwne0': {
-      'es': 'Participantes unidos',
-      'en': '',
-    },
-    'ztkswoh0': {
-      'es': '(',
-      'en': '',
-    },
-    '3x3t08lt': {
-      'es': ')',
+      'es': 'Participantes unidos al evento',
       'en': '',
     },
     'f4eh9f4p': {
       'es': 'Ver todos',
       'en': '',
     },
-    'q1v5wcf3': {
-      'es': 'Seguir',
-      'en': '',
-    },
-    'kyuvcfu7': {
-      'es': 'Dejar de seguir',
-      'en': '',
-    },
-    'qjvgab9e': {
+    '00w36eyk': {
       'es': 'Unirme al evento',
       'en': '',
     },
-    'oi2psed8': {
+    'dtq8bgoi': {
       'es': 'Salir del evento',
       'en': '',
     },
@@ -409,14 +353,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'emifp2hk': {
       'es': 'Ver todos',
-      'en': '',
-    },
-    'p4zlfk0u': {
-      'es': 'ELECTRO FEST - BZRP',
-      'en': '',
-    },
-    'j1vnkros': {
-      'es': 'Tifosi Futbol Club',
       'en': '',
     },
     'vsg6mshc': {
@@ -1531,14 +1467,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Ver todos',
       'en': '',
     },
-    'ciok6gww': {
-      'es': 'Loins y Lomos',
-      'en': '',
-    },
-    'd721bsbm': {
-      'es': '1 PINTA GRATIS',
-      'en': '',
-    },
     'hii3rlvv': {
       'es': 'Eventos',
       'en': '',
@@ -1752,7 +1680,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'MI EVENTO',
       'en': '',
     },
-    '85bu5bl3': {
+    'ha8p2gbb': {
       'es': ' - ',
       'en': '',
     },
@@ -1784,14 +1712,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Ver todos',
       'en': '',
     },
-    'b9vpq0se': {
-      'es': 'Seguir',
-      'en': '',
-    },
-    'simts8mv': {
-      'es': 'Dejar de seguir',
-      'en': '',
-    },
     '5fyd9jkd': {
       'es': 'Unirme al evento',
       'en': '',
@@ -1814,14 +1734,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ut9tvogc': {
       'es': 'Ver todos',
-      'en': '',
-    },
-    'qkgj3d9m': {
-      'es': 'ELECTRO FEST - BZRP',
-      'en': '',
-    },
-    '73r19j7y': {
-      'es': 'Tifosi Futbol Club',
       'en': '',
     },
     'vav4l9n8': {
@@ -1847,18 +1759,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MyeventCreado
   {
-    '4xtzrit2': {
-      'es': 'Acciones',
-      'en': '',
-    },
-    'fypq12pf': {
-      'es': 'Borrar',
-      'en': '',
-    },
-    '8mxmeh1p': {
-      'es': 'Editar',
-      'en': '',
-    },
     'wdmzok4q': {
       'es': '¿Esta seguro de borrar este evento?',
       'en': '',
@@ -1871,37 +1771,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Borrar',
       'en': '',
     },
-  },
-  // listParticipantesUnidos
-  {
-    'b9q719ra': {
-      'es': 'Seguir',
+    '1gonwaq8': {
+      'es': 'Acciones',
       'en': '',
     },
-    'vmhllfij': {
-      'es': 'Dejar de seguir',
+    '5skhcp5m': {
+      'es': 'Borrar',
       'en': '',
     },
-  },
-  // listSeguidores
-  {
-    '7ti1azx7': {
-      'es': 'Seguir',
-      'en': '',
-    },
-    'w6jvep6e': {
-      'es': 'Dejar de seguir',
-      'en': '',
-    },
-  },
-  // listSeguidos
-  {
-    'qjzdfnh2': {
-      'es': 'Seguir',
-      'en': '',
-    },
-    'f15xn3bb': {
-      'es': 'Dejar de seguir',
+    'oohtz4ca': {
+      'es': 'Editar',
       'en': '',
     },
   },
@@ -1922,14 +1801,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MyCuponCreado
   {
-    'jckkziyf': {
-      'es': 'Borrar',
-      'en': '',
-    },
-    '16dgwzh9': {
-      'es': 'Editar',
-      'en': '',
-    },
     'fnrztc96': {
       'es': '¿Borrar el cupón?',
       'en': '',
@@ -1940,6 +1811,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ppee1xc5': {
       'es': 'Borrar',
+      'en': '',
+    },
+    'dlsw9az1': {
+      'es': 'Borrar',
+      'en': '',
+    },
+    '7yqydf5b': {
+      'es': 'Editar',
+      'en': '',
+    },
+  },
+  // userHorizontalCard
+  {
+    'wgnhgm7s': {
+      'es': 'Seguir',
+      'en': '',
+    },
+    '4czzmzi1': {
+      'es': 'Dejar de seguir',
+      'en': '',
+    },
+  },
+  // userProfesionalCard
+  {
+    'ewmxy7j3': {
+      'es': ' eventos activos',
       'en': '',
     },
   },

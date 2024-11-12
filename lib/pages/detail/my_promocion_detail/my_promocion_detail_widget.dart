@@ -924,6 +924,7 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
 
                                                   return ListView.separated(
                                                     padding: EdgeInsets.zero,
+                                                    primary: false,
                                                     shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
@@ -1430,6 +1431,7 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
 
                                                   return ListView.separated(
                                                     padding: EdgeInsets.zero,
+                                                    primary: false,
                                                     shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
