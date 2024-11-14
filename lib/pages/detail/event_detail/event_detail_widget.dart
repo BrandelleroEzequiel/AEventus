@@ -95,11 +95,11 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: SpinKitRipple(
+                width: 40.0,
+                height: 40.0,
+                child: SpinKitPulse(
                   color: FlutterFlowTheme.of(context).primary,
-                  size: 50.0,
+                  size: 40.0,
                 ),
               ),
             ),
@@ -123,11 +123,11 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: SpinKitRipple(
+                          width: 40.0,
+                          height: 40.0,
+                          child: SpinKitPulse(
                             color: FlutterFlowTheme.of(context).primary,
-                            size: 50.0,
+                            size: 40.0,
                           ),
                         ),
                       );
@@ -1503,13 +1503,13 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                   if (!snapshot.hasData) {
                                                     return Center(
                                                       child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child: SpinKitRipple(
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        child: SpinKitPulse(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          size: 50.0,
+                                                          size: 40.0,
                                                         ),
                                                       ),
                                                     );
@@ -1725,12 +1725,12 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: SpinKitRipple(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      child: SpinKitPulse(
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
-                                        size: 50.0,
+                                        size: 40.0,
                                       ),
                                     ),
                                   );
@@ -1857,14 +1857,14 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                             if (!snapshot.hasData) {
                                               return Center(
                                                 child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child: SpinKitRipple(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  child: SpinKitPulse(
                                                     color:
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .primary,
-                                                    size: 50.0,
+                                                    size: 40.0,
                                                   ),
                                                 ),
                                               );
@@ -2055,13 +2055,13 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                         if (!snapshot.hasData) {
                                           return Center(
                                             child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitRipple(
+                                              width: 40.0,
+                                              height: 40.0,
+                                              child: SpinKitPulse(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                size: 50.0,
+                                                size: 40.0,
                                               ),
                                             ),
                                           );

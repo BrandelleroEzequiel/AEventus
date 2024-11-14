@@ -139,8 +139,8 @@ flutter_launcher_icons:
   ios: true
   web:
     generate: true
-  image_path: 'assets/images/app_launcher_icon.gif'
-  adaptive_icon_background: '#2c1e4a'
+  image_path: 'assets/images/app_launcher_icon.png'
+  adaptive_icon_background: '#00000000'
   adaptive_icon_foreground: 'assets/images/adaptive_foreground_icon.gif'
 
 

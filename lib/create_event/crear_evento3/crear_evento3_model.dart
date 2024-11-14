@@ -13,14 +13,6 @@ class CrearEvento3Model extends FlutterFlowModel<CrearEvento3Widget> {
 
   // State field(s) for switchParticipantes widget.
   bool? switchParticipantesValue;
-  // State field(s) for switchextra widget.
-  bool? switchextraValue;
-  // State field(s) for switchextra2 widget.
-  bool? switchextra2Value1;
-  // State field(s) for switchextra2 widget.
-  bool? switchextra2Value2;
-  // State field(s) for switchextra2 widget.
-  bool? switchextra2Value3;
 
   @override
   void initState(BuildContext context) {}

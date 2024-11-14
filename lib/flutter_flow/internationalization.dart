@@ -1648,24 +1648,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'tds6e92m': {
-      'es':
-          'Permitir unirse al evento y visualizar el listado de participantes unidos',
-      'en': '',
-    },
-    '9egnwfyd': {
-      'es': 'Enlace de una meet o link',
-      'en': '',
-    },
-    '4pl3e5a6': {
-      'es': 'Tickets',
-      'en': '',
-    },
-    'fmo9kdmp': {
-      'es': 'Reservas',
-      'en': '',
-    },
-    '7tdeh9nb': {
-      'es': 'Playlist',
+      'es': 'Habilitar un listado para que los usuarios se puedan unir',
       'en': '',
     },
     '1jdq41jk': {
