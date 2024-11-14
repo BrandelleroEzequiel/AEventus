@@ -165,10 +165,28 @@ class _MyeventCreadoWidgetState extends State<MyeventCreadoWidget> {
                       _model.optionLocalState = !_model.optionLocalState;
                       safeSetState(() {});
                     },
-                    child: Icon(
-                      Icons.more_vert,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      size: 27.0,
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: const CircleBorder(),
+                      child: Container(
+                        width: 30.0,
+                        height: 30.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.more_vert,
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          size: 26.0,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -451,15 +469,15 @@ class _MyeventCreadoWidgetState extends State<MyeventCreadoWidget> {
                                         safeSetState(() {});
 
                                         context.pushNamed(
-                                          'EditEvent',
+                                          'EditarEvento',
                                           queryParameters: {
-                                            'eventoEdit': serializeParam(
+                                            'eventCreado': serializeParam(
                                               widget.objEventoParam,
                                               ParamType.Document,
                                             ),
                                           }.withoutNulls,
                                           extra: <String, dynamic>{
-                                            'eventoEdit':
+                                            'eventCreado':
                                                 widget.objEventoParam,
                                           },
                                         );

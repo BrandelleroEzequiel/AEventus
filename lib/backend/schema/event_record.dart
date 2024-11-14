@@ -121,6 +121,21 @@ class EventRecord extends FirestoreRecord {
   int get id => _id ?? 0;
   bool hasId() => _id != null;
 
+  // "fechaStr" field.
+  String? _fechaStr;
+  String get fechaStr => _fechaStr ?? '';
+  bool hasFechaStr() => _fechaStr != null;
+
+  // "isHoraInicio" field.
+  bool? _isHoraInicio;
+  bool get isHoraInicio => _isHoraInicio ?? false;
+  bool hasIsHoraInicio() => _isHoraInicio != null;
+
+  // "isHoraFin" field.
+  bool? _isHoraFin;
+  bool get isHoraFin => _isHoraFin ?? false;
+  bool hasIsHoraFin() => _isHoraFin != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -143,6 +158,9 @@ class EventRecord extends FirestoreRecord {
     _ubicacionLatLng = snapshotData['ubicacionLatLng'] as LatLng?;
     _categorys = getDataList(snapshotData['categorys']);
     _id = castToType<int>(snapshotData['id']);
+    _fechaStr = snapshotData['fechaStr'] as String?;
+    _isHoraInicio = snapshotData['isHoraInicio'] as bool?;
+    _isHoraFin = snapshotData['isHoraFin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -196,6 +214,9 @@ Map<String, dynamic> createEventRecordData({
   int? cantVisualizaciones,
   LatLng? ubicacionLatLng,
   int? id,
+  String? fechaStr,
+  bool? isHoraInicio,
+  bool? isHoraFin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -216,6 +237,9 @@ Map<String, dynamic> createEventRecordData({
       'cantVisualizaciones': cantVisualizaciones,
       'ubicacionLatLng': ubicacionLatLng,
       'id': id,
+      'fechaStr': fechaStr,
+      'isHoraInicio': isHoraInicio,
+      'isHoraFin': isHoraFin,
     }.withoutNulls,
   );
 
@@ -248,7 +272,10 @@ class EventRecordDocumentEquality implements Equality<EventRecord> {
         e1?.cantVisualizaciones == e2?.cantVisualizaciones &&
         e1?.ubicacionLatLng == e2?.ubicacionLatLng &&
         listEquality.equals(e1?.categorys, e2?.categorys) &&
-        e1?.id == e2?.id;
+        e1?.id == e2?.id &&
+        e1?.fechaStr == e2?.fechaStr &&
+        e1?.isHoraInicio == e2?.isHoraInicio &&
+        e1?.isHoraFin == e2?.isHoraFin;
   }
 
   @override
@@ -273,7 +300,10 @@ class EventRecordDocumentEquality implements Equality<EventRecord> {
         e?.cantVisualizaciones,
         e?.ubicacionLatLng,
         e?.categorys,
-        e?.id
+        e?.id,
+        e?.fechaStr,
+        e?.isHoraInicio,
+        e?.isHoraFin
       ]);
 
   @override

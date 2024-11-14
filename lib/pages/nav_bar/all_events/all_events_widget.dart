@@ -308,7 +308,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                             FontAwesomeIcons.music),
                                         ChipData(
                                             FFLocalizations.of(context).getText(
-                                              'whs1vl4p' /* Turismo */,
+                                              'd3125el1' /* Turismo */,
                                             ),
                                             FontAwesomeIcons.tree),
                                         ChipData(
@@ -318,7 +318,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                             Icons.work),
                                         ChipData(
                                             FFLocalizations.of(context).getText(
-                                              '11c7i2xq' /* Infantil */,
+                                              '4zk4may3' /* Infantil */,
                                             ),
                                             FontAwesomeIcons.child),
                                         ChipData(
@@ -776,7 +776,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                                       safeSetState(() {});
                                                     } else {
                                                       context.pushNamed(
-                                                          'CreateEvent');
+                                                          'CrearEvento1');
                                                     }
                                                   },
                                                   child: ClipRRect(
@@ -906,7 +906,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                               false;
                                           safeSetState(() {});
 
-                                          context.pushNamed('CreateEvent');
+                                          context.pushNamed('CrearEvento1');
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,

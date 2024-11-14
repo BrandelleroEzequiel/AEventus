@@ -399,37 +399,35 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       15.0, 45.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: 45.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Align(
-                                          alignment: const AlignmentDirectional(
-                                              -1.08, -0.14),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 3.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.safePop();
-                                              },
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.safePop();
+                                    },
+                                    child: Container(
+                                      width: 45.0,
+                                      height: 45.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                -1.08, -0.14),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 3.0, 0.0, 0.0),
                                               child: Icon(
                                                 Icons.arrow_back,
                                                 color:
@@ -439,8 +437,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -464,7 +462,8 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                           ),
                           if ((myEventDetailEventRecord.fechaInicio != null) ||
                               (myEventDetailEventRecord.horaInicio != null) ||
-                              (myEventDetailEventRecord.horaFin != null))
+                              (myEventDetailEventRecord.horaFin != null) ||
+                              (myEventDetailEventRecord.fechaStr != ''))
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 20.0, 20.0, 10.0),
@@ -477,8 +476,10 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    if (myEventDetailEventRecord.fechaInicio !=
-                                        null)
+                                    if ((myEventDetailEventRecord.fechaInicio !=
+                                            null) ||
+                                        (myEventDetailEventRecord.fechaStr !=
+                                                ''))
                                       Flexible(
                                         child: Container(
                                           constraints: const BoxConstraints(
@@ -518,34 +519,82 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                       .alternate,
                                                 ),
                                               ),
-                                              Expanded(
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    dateTimeFormat(
-                                                      "d/M/y",
-                                                      myEventDetailEventRecord
-                                                          .fechaInicio,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    ),
-                                                    '24/10/2024',
+                                              Flexible(
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Stack(
+                                                    children: [
+                                                      if (myEventDetailEventRecord
+                                                              .fechaInicio !=
+                                                          null)
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Text(
+                                                            dateTimeFormat(
+                                                              "d/M/y",
+                                                              myEventDetailEventRecord
+                                                                  .fechaInicio!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend Deca',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      if (myEventDetailEventRecord
+                                                                  .fechaStr !=
+                                                              '')
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Text(
+                                                            myEventDetailEventRecord
+                                                                .fechaStr,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend Deca',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  lineHeight:
+                                                                      1.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Lexend Deca',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
                                                 ),
                                               ),
                                             ]
@@ -2304,15 +2353,15 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                   ),
                                   onPressed: () async {
                                     context.pushNamed(
-                                      'EditEvent',
+                                      'EditarEvento',
                                       queryParameters: {
-                                        'eventoEdit': serializeParam(
+                                        'eventCreado': serializeParam(
                                           myEventDetailEventRecord,
                                           ParamType.Document,
                                         ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
-                                        'eventoEdit': myEventDetailEventRecord,
+                                        'eventCreado': myEventDetailEventRecord,
                                       },
                                     );
                                   },

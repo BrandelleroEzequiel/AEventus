@@ -3104,8 +3104,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                       true;
                                                   safeSetState(() {});
                                                 } else {
-                                                  context
-                                                      .pushNamed('CreateEvent');
+                                                  context.pushNamed(
+                                                      'CrearEvento1');
                                                 }
                                               },
                                               child: ClipRRect(
@@ -3677,7 +3677,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                       FFAppState().IsProfesionalCreando = false;
                                       safeSetState(() {});
 
-                                      context.pushNamed('CreateEvent');
+                                      context.pushNamed('CrearEvento1');
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,

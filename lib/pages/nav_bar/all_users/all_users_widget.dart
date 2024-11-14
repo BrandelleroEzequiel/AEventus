@@ -580,7 +580,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                        'CreateEvent');
+                                                        'CrearEvento1');
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:

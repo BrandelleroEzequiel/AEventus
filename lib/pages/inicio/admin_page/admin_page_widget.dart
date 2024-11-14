@@ -850,17 +850,17 @@ class _AdminPageWidgetState extends State<AdminPageWidget>
                                                                             () async {
                                                                           context
                                                                               .pushNamed(
-                                                                            'EditEvent',
+                                                                            'EditarEvento',
                                                                             queryParameters:
                                                                                 {
-                                                                              'eventoEdit': serializeParam(
+                                                                              'eventCreado': serializeParam(
                                                                                 eventitemItem,
                                                                                 ParamType.Document,
                                                                               ),
                                                                             }.withoutNulls,
                                                                             extra: <String,
                                                                                 dynamic>{
-                                                                              'eventoEdit': eventitemItem,
+                                                                              'eventCreado': eventitemItem,
                                                                             },
                                                                           );
                                                                         },

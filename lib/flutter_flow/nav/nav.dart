@@ -124,12 +124,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CreateEvent',
-          path: '/createEvent',
-          requireAuth: true,
-          builder: (context, params) => const CreateEventWidget(),
-        ),
-        FFRoute(
           name: 'CreatePromocion',
           path: '/createPromocion',
           requireAuth: true,
@@ -191,20 +185,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const MyProfileWidget(),
         ),
         FFRoute(
-          name: 'EditEvent',
-          path: '/editEvent',
-          requireAuth: true,
-          asyncParams: {
-            'eventoEdit': getDoc(['event'], EventRecord.fromSnapshot),
-          },
-          builder: (context, params) => EditEventWidget(
-            eventoEdit: params.getParam(
-              'eventoEdit',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'UserDetail',
           path: '/userDetail',
           requireAuth: true,
@@ -255,6 +235,53 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.DocumentReference,
               isList: false,
               collectionNamePath: ['event'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'CrearEvento1',
+          path: '/crearEvento1',
+          requireAuth: true,
+          builder: (context, params) => const CrearEvento1Widget(),
+        ),
+        FFRoute(
+          name: 'CrearEvento2',
+          path: '/crearEvento2',
+          requireAuth: true,
+          builder: (context, params) => CrearEvento2Widget(
+            eventCreado: params.getParam(
+              'eventCreado',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['event'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'CrearEvento3',
+          path: '/crearEvento3',
+          requireAuth: true,
+          asyncParams: {
+            'eventCreado': getDoc(['event'], EventRecord.fromSnapshot),
+          },
+          builder: (context, params) => CrearEvento3Widget(
+            eventCreado: params.getParam(
+              'eventCreado',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'EditarEvento',
+          path: '/editarEvento',
+          requireAuth: true,
+          asyncParams: {
+            'eventCreado': getDoc(['event'], EventRecord.fromSnapshot),
+          },
+          builder: (context, params) => EditarEventoWidget(
+            eventCreado: params.getParam(
+              'eventCreado',
+              ParamType.Document,
             ),
           ),
         )

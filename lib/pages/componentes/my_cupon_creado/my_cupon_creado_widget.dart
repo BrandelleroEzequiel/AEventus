@@ -165,10 +165,31 @@ class _MyCuponCreadoWidgetState extends State<MyCuponCreadoWidget> {
                       _model.optionLocalState = !_model.optionLocalState;
                       safeSetState(() {});
                     },
-                    child: Icon(
-                      Icons.more_vert,
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      size: 27.0,
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 2.0,
+                      shape: const CircleBorder(),
+                      child: Container(
+                        width: 22.0,
+                        height: 22.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                        ),
+                        child: Align(
+                          alignment: const AlignmentDirectional(1.0, -1.0),
+                          child: Icon(
+                            Icons.more_vert,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 20.0,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

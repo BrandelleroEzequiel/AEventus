@@ -1922,6 +1922,7 @@ class _CreatePromocionWidgetState extends State<CreatePromocionWidget> {
                                   FFLocalizations.of(context).getText(
                                 '5flofpdn' /* ‎  */,
                               );
+
                               _model.descriptionTextController?.text =
                                   FFLocalizations.of(context).getText(
                                 '5ee3mfly' /* ‎  */,

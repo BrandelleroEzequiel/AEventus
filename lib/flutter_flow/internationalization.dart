@@ -435,161 +435,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // CreateEvent
-  {
-    'u6ruipoc': {
-      'es': 'Crear nuevo evento',
-      'en': '',
-    },
-    '52e6oiz9': {
-      'es': 'Título del evento',
-      'en': '',
-    },
-    '494xurqa': {
-      'es': '',
-      'en': '',
-    },
-    'caeolq4x': {
-      'es': 'Descripción',
-      'en': '',
-    },
-    'mt1l21b9': {
-      'es': 'Seleccionar una categoría',
-      'en': '',
-    },
-    'pr0eo5km': {
-      'es': 'Fiestas',
-      'en': '',
-    },
-    'jrcr1ewh': {
-      'es': 'Deportes',
-      'en': '',
-    },
-    '1j9x31x4': {
-      'es': 'Gastronomía',
-      'en': '',
-    },
-    'jkxgvj5u': {
-      'es': 'Educación',
-      'en': '',
-    },
-    'f126cqd1': {
-      'es': 'Caridad',
-      'en': '',
-    },
-    '5fge2vfc': {
-      'es': 'Teatro',
-      'en': '',
-    },
-    'y38lo30x': {
-      'es': 'Música',
-      'en': '',
-    },
-    'fgjexy2c': {
-      'es': 'Turismo',
-      'en': '',
-    },
-    '2ei0bf5w': {
-      'es': 'Empresarial',
-      'en': '',
-    },
-    'v3a6fkl8': {
-      'es': 'Infantil',
-      'en': '',
-    },
-    'dsyr5m44': {
-      'es': 'Otros',
-      'en': '',
-    },
-    '2qv41fia': {
-      'es': 'Fiestas',
-      'en': '',
-    },
-    '9br7ibhc': {
-      'es': 'Create Product',
-      'en': '',
-    },
-    'grtv2tcr': {
-      'es': '¿El evento tiene fecha de realización?',
-      'en': '',
-    },
-    'wubk2uy8': {
-      'es': '¿El evento tiene horario?',
-      'en': '',
-    },
-    '7ulomhnt': {
-      'es': 'Inicio',
-      'en': '',
-    },
-    '8ecltf31': {
-      'es': 'Fin',
-      'en': '',
-    },
-    '2agvwvju': {
-      'es': '¿Permitir a los usuarios unirse al evento?',
-      'en': '',
-    },
-    '0gn8vemb': {
-      'es': 'Seleccione la visibilidad del evento',
-      'en': '',
-    },
-    'wnbm12q0': {
-      'es': 'Publico',
-      'en': '',
-    },
-    'fs92vfo7': {
-      'es': 'Privado',
-      'en': '',
-    },
-    'r81k6foh': {
-      'es': 'Oculto',
-      'en': '',
-    },
-    'viz09tuv': {
-      'es': 'Publico',
-      'en': '',
-    },
-    'd9ycatg3': {
-      'es': 'Create Product',
-      'en': '',
-    },
-    'b6kg5im3': {
-      'es': 'Imagenes adicionales del evento',
-      'en': '',
-    },
-    'dww9j7ry': {
-      'es': 'Crear evento',
-      'en': '',
-    },
-    'n8ydgt1h': {
-      'es': 'Campo obligatorio!',
-      'en': '',
-    },
-    'txgwrg7n': {
-      'es': '¡Ingrese un titulo!',
-      'en': '',
-    },
-    '3fxr00cq': {
-      'es': 'El titulo no puede superar los 50 caracteres!',
-      'en': '',
-    },
-    'yf6izzf6': {
-      'es': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    '3syhljxo': {
-      'es': 'Field is required',
-      'en': '',
-    },
-    '26tbaz67': {
-      'es': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    'j7ettxh9': {
-      'es': 'Home',
-      'en': '',
-    },
-  },
   // CreatePromocion
   {
     'grfxsh51': {
@@ -917,7 +762,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Música',
       'en': '',
     },
-    '8oq9dops': {
+    'd3125el1': {
       'es': 'Turismo',
       'en': '',
     },
@@ -925,7 +770,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Empresarial',
       'en': '',
     },
-    'jhequbm8': {
+    '4zk4may3': {
       'es': 'Infantil',
       'en': '',
     },
@@ -1078,7 +923,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Todos mis cupones guardados',
       'en': '',
     },
-    '2wtmtwvi': {
+    't7xq5rfa': {
       'es': 'Home',
       'en': '',
     },
@@ -1206,161 +1051,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'h9wp1lmc': {
-      'es': 'Home',
-      'en': '',
-    },
-  },
-  // EditEvent
-  {
-    'fbpmzi7v': {
-      'es': 'Editar evento',
-      'en': '',
-    },
-    'l4hygrhu': {
-      'es': 'Título del evento',
-      'en': '',
-    },
-    'u6pr85dz': {
-      'es': '',
-      'en': '',
-    },
-    'jj6bf47u': {
-      'es': 'Descripción',
-      'en': '',
-    },
-    '2fkabt1m': {
-      'es': 'Seleccionar una categoría',
-      'en': '',
-    },
-    'pgs9pqxk': {
-      'es': 'Create Product',
-      'en': '',
-    },
-    'b5ki6hr4': {
-      'es': 'Fiestas',
-      'en': '',
-    },
-    'z0m3umji': {
-      'es': 'Deportes',
-      'en': '',
-    },
-    '28ylcxky': {
-      'es': 'Gastronomía',
-      'en': '',
-    },
-    'kqtvukz1': {
-      'es': 'Educación',
-      'en': '',
-    },
-    '44qb766s': {
-      'es': 'Caridad',
-      'en': '',
-    },
-    'di4tedra': {
-      'es': 'Teatro',
-      'en': '',
-    },
-    'oa983md7': {
-      'es': 'Música',
-      'en': '',
-    },
-    'lbluidok': {
-      'es': 'Turismo',
-      'en': '',
-    },
-    'n0zbxjqq': {
-      'es': 'Empresarial',
-      'en': '',
-    },
-    'tstb45tt': {
-      'es': 'Infantil',
-      'en': '',
-    },
-    '91qpjzgl': {
-      'es': 'Otros',
-      'en': '',
-    },
-    'qwu75rax': {
-      'es': 'Fiestas',
-      'en': '',
-    },
-    'j3njpul9': {
-      'es': 'Otros',
-      'en': '',
-    },
-    'nptjvc2h': {
-      'es': '¿Agregar fecha de realización?',
-      'en': '',
-    },
-    'ao1tk2ij': {
-      'es': '¿Agregar horario al evento?',
-      'en': '',
-    },
-    'e90spr77': {
-      'es': 'Inicio',
-      'en': '',
-    },
-    'hmznz47b': {
-      'es': 'Fin',
-      'en': '',
-    },
-    'l5v9koiz': {
-      'es': '¿Permitir a los usuarios unirse al evento?',
-      'en': '',
-    },
-    'lsl6gv32': {
-      'es': 'Seleccione la visibilidad del evento',
-      'en': '',
-    },
-    'jvqs05vh': {
-      'es': 'Publico',
-      'en': '',
-    },
-    'gc9umyff': {
-      'es': 'Privado',
-      'en': '',
-    },
-    'af0ma9wx': {
-      'es': 'Oculto',
-      'en': '',
-    },
-    'ltv1bd6j': {
-      'es': 'Create Product',
-      'en': '',
-    },
-    'x85bzir3': {
-      'es': 'Imagenes adicionales del evento',
-      'en': '',
-    },
-    '7imdpwq3': {
-      'es': 'Editar evento',
-      'en': '',
-    },
-    '4qztylsu': {
-      'es': 'Campo obligatorio!',
-      'en': '',
-    },
-    '4hzm3qpf': {
-      'es': '¡Ingrese un titulo!',
-      'en': '',
-    },
-    'uf6lmlvy': {
-      'es': 'El titulo no puede superar los 50 caracteres!',
-      'en': '',
-    },
-    'v8jyth7n': {
-      'es': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    'o344le3o': {
-      'es': 'Field is required',
-      'en': '',
-    },
-    '8gm74ftb': {
-      'es': 'Please choose an option from the dropdown',
-      'en': '',
-    },
-    '7bbu221w': {
       'es': 'Home',
       'en': '',
     },
@@ -1753,6 +1443,452 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     '9tiz7l76': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // CrearEvento1
+  {
+    '8y3wd5w3': {
+      'es': 'Crear nuevo evento',
+      'en': '',
+    },
+    'i1p9epp0': {
+      'es': 'Título del evento',
+      'en': '',
+    },
+    '9bvdcqxx': {
+      'es': '',
+      'en': '',
+    },
+    '1rq81tq8': {
+      'es': 'Descripción',
+      'en': '',
+    },
+    'pxxl43u1': {
+      'es': 'Seleccione una o más categorías',
+      'en': '',
+    },
+    'u4nv3av7': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    'eggwy1i3': {
+      'es': 'Deportes',
+      'en': '',
+    },
+    'h0d1rxn7': {
+      'es': 'Gastronomía',
+      'en': '',
+    },
+    '1s7678yu': {
+      'es': 'Educación',
+      'en': '',
+    },
+    'jp43snob': {
+      'es': 'Caridad',
+      'en': '',
+    },
+    'bvkq0nt4': {
+      'es': 'Teatro',
+      'en': '',
+    },
+    'y8rd6tfx': {
+      'es': 'Música',
+      'en': '',
+    },
+    '1ykn168k': {
+      'es': 'Turismo',
+      'en': '',
+    },
+    't9xp1s9u': {
+      'es': 'Empresarial',
+      'en': '',
+    },
+    'qqbu3l43': {
+      'es': 'Infantil',
+      'en': '',
+    },
+    'd7fw78ug': {
+      'es': 'Otros',
+      'en': '',
+    },
+    'h3hrtv8x': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    '3hezmtq6': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    'cuwl8gj6': {
+      'es': 'Continuar',
+      'en': '',
+    },
+    'v8wl3ywn': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // CrearEvento2
+  {
+    'g7403eqz': {
+      'es': 'Configurando evento nuevo',
+      'en': '',
+    },
+    'iak6f5au': {
+      'es': '¿El evento tiene una ubicación exacta?',
+      'en': '',
+    },
+    '6ffs2qmm': {
+      'es': '¿El evento tiene una fecha?',
+      'en': '',
+    },
+    'lh15a4pw': {
+      'es': 'Sin fecha',
+      'en': '',
+    },
+    'vo3k029d': {
+      'es': 'Fecha\nexacta',
+      'en': '',
+    },
+    '2uzvc0z4': {
+      'es': 'Fecha\nperiódica',
+      'en': '',
+    },
+    'v0ovssa2': {
+      'es': 'Ingrese la fecha exacta del evento',
+      'en': '',
+    },
+    'r5hwqz4q': {
+      'es': 'Eliga una opción',
+      'en': '',
+    },
+    'isz5lfho': {
+      'es': 'Los Lunes',
+      'en': '',
+    },
+    'on3dhy2a': {
+      'es': 'Los Martes',
+      'en': '',
+    },
+    'a0hqoshx': {
+      'es': 'Los Miércoles',
+      'en': '',
+    },
+    'zs9hx35o': {
+      'es': 'Los Jueves',
+      'en': '',
+    },
+    '7fg3isw5': {
+      'es': 'Los Viernes',
+      'en': '',
+    },
+    '32urr21t': {
+      'es': 'Los Sábados',
+      'en': '',
+    },
+    '303nmsz9': {
+      'es': 'Los Domingos',
+      'en': '',
+    },
+    'qzikvkki': {
+      'es': 'Fines de semana',
+      'en': '',
+    },
+    'px96mecg': {
+      'es': 'Todos los dias',
+      'en': '',
+    },
+    'kaf95cwm': {
+      'es': 'Seleccione aqui',
+      'en': '',
+    },
+    '2xdaycr0': {
+      'es': 'Search...',
+      'en': '',
+    },
+    'exc3imc6': {
+      'es': '¿El evento tiene horario de inicio?',
+      'en': '',
+    },
+    'i0cy4d0c': {
+      'es': 'Inicio',
+      'en': '',
+    },
+    's5u8x5x8': {
+      'es': '¿El evento tiene horario de fin?',
+      'en': '',
+    },
+    '0993via6': {
+      'es': 'Fin',
+      'en': '',
+    },
+    'skzkwxj6': {
+      'es': 'Continuar',
+      'en': '',
+    },
+    'n9lxx3h7': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // CrearEvento3
+  {
+    '9xx91xhu': {
+      'es': 'Terminamos la configuración',
+      'en': '',
+    },
+    '3t81tmwu': {
+      'es': '¿Quiere agregar imagenes al evento?',
+      'en': '',
+    },
+    'vk1ez6rf': {
+      'es': '¿Desea utilizar alguna funcionalidad?',
+      'en': '',
+    },
+    'tds6e92m': {
+      'es':
+          'Permitir unirse al evento y visualizar el listado de participantes unidos',
+      'en': '',
+    },
+    '9egnwfyd': {
+      'es': 'Enlace de una meet o link',
+      'en': '',
+    },
+    '4pl3e5a6': {
+      'es': 'Tickets',
+      'en': '',
+    },
+    'fmo9kdmp': {
+      'es': 'Reservas',
+      'en': '',
+    },
+    '7tdeh9nb': {
+      'es': 'Playlist',
+      'en': '',
+    },
+    '1jdq41jk': {
+      'es': 'El titulo del evento es obligatorio',
+      'en': '',
+    },
+    's00q6r17': {
+      'es': 'El titulo del evento es obligatorio',
+      'en': '',
+    },
+    'gayzjys3': {
+      'es': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'evit9wao': {
+      'es': 'Field is required',
+      'en': '',
+    },
+    'vy5istmw': {
+      'es': 'Please choose an option from the dropdown',
+      'en': '',
+    },
+    'fq5tucs4': {
+      'es': 'Crear evento',
+      'en': '',
+    },
+    'duohs6b1': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // EditarEvento
+  {
+    'u3lknu4t': {
+      'es': 'Editar evento',
+      'en': '',
+    },
+    'x0korhvb': {
+      'es': '¿Quiere agregar imagenes al evento?',
+      'en': '',
+    },
+    '4ziyfcvm': {
+      'es': 'Título del evento',
+      'en': '',
+    },
+    'h3v39lqe': {
+      'es': '',
+      'en': '',
+    },
+    'va59tvvh': {
+      'es': 'Descripción',
+      'en': '',
+    },
+    'q0v3z3gl': {
+      'es': 'Ubicacion exacta del evento',
+      'en': '',
+    },
+    'eqjwmagt': {
+      'es': 'Fecha del evento',
+      'en': '',
+    },
+    'kv8vwikk': {
+      'es': 'Sin fecha',
+      'en': '',
+    },
+    'da4mzl8s': {
+      'es': 'Fecha\nexacta',
+      'en': '',
+    },
+    'qfz3u1i1': {
+      'es': 'Fecha\nperiódica',
+      'en': '',
+    },
+    'g8ifx3gx': {
+      'es': 'Fecha exacta del evento',
+      'en': '',
+    },
+    'ycuivowp': {
+      'es': 'Eliga la opción que corresponda',
+      'en': '',
+    },
+    'mwwemsx9': {
+      'es': 'Los Lunes',
+      'en': '',
+    },
+    'gprnz2hg': {
+      'es': 'Los Martes',
+      'en': '',
+    },
+    '9ipn1rsl': {
+      'es': 'Los Miércoles',
+      'en': '',
+    },
+    'px3ph4s3': {
+      'es': 'Los Jueves',
+      'en': '',
+    },
+    'l6rpf2s2': {
+      'es': 'Los Viernes',
+      'en': '',
+    },
+    'uo61jzjp': {
+      'es': 'Los Sábados',
+      'en': '',
+    },
+    'j2uq6xel': {
+      'es': 'Los Domingos',
+      'en': '',
+    },
+    'i5v7376h': {
+      'es': 'Fines de semana',
+      'en': '',
+    },
+    'avhikknj': {
+      'es': 'Todos los dias',
+      'en': '',
+    },
+    'ohefk4j1': {
+      'es': 'Seleccione aqui',
+      'en': '',
+    },
+    'ze94u3pk': {
+      'es': 'Search...',
+      'en': '',
+    },
+    '680sb2ua': {
+      'es': 'Horario de inicio del evento',
+      'en': '',
+    },
+    'jaunohs7': {
+      'es': 'Inicio',
+      'en': '',
+    },
+    'gnozqc3p': {
+      'es': 'Horario de fin del evento',
+      'en': '',
+    },
+    'kn5z1l9i': {
+      'es': 'Fin',
+      'en': '',
+    },
+    'mpms5204': {
+      'es': 'Seleccione una o más categorías',
+      'en': '',
+    },
+    'ebml977f': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    'cp05cxad': {
+      'es': 'Deportes',
+      'en': '',
+    },
+    'gc94meqp': {
+      'es': 'Gastronomía',
+      'en': '',
+    },
+    'mdi1g58e': {
+      'es': 'Educación',
+      'en': '',
+    },
+    'cvezslz2': {
+      'es': 'Caridad',
+      'en': '',
+    },
+    '3cwlgrxw': {
+      'es': 'Teatro',
+      'en': '',
+    },
+    '7d0z49ab': {
+      'es': 'Música',
+      'en': '',
+    },
+    'fh9er8t7': {
+      'es': 'Turismo',
+      'en': '',
+    },
+    'ntumzs2d': {
+      'es': 'Empresarial',
+      'en': '',
+    },
+    'mjxq10vv': {
+      'es': 'Infantil',
+      'en': '',
+    },
+    'dm5lhf3r': {
+      'es': 'Otros',
+      'en': '',
+    },
+    'bp3wi5mf': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    'g7w103ag': {
+      'es': 'Otros',
+      'en': '',
+    },
+    'lzwtg8xb': {
+      'es': 'Seleccione las funcionalidades que desee',
+      'en': '',
+    },
+    'lkm9q68p': {
+      'es':
+          'Permitir unirse al evento y visualizar el listado de participantes unidos',
+      'en': '',
+    },
+    'bajqyt8c': {
+      'es': 'Continuar',
+      'en': '',
+    },
+    'mb7yypcm': {
+      'es': '¿Confirma editar este evento?',
+      'en': '',
+    },
+    'm84d3de6': {
+      'es': 'Cancelar',
+      'en': '',
+    },
+    'f8c35d4t': {
+      'es': 'Confirmar',
+      'en': '',
+    },
+    'p66arv9g': {
       'es': 'Home',
       'en': '',
     },

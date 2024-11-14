@@ -285,7 +285,7 @@ class _MisCuponesWidgetState extends State<MisCuponesWidget> {
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                        'CreateEvent');
+                                                        'CrearEvento1');
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:

@@ -60,22 +60,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed('Home');
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'assets/images/Aeventus_sin_fondo_4_(1).png',
-                        width: 216.0,
-                        height: 250.0,
-                        fit: BoxFit.contain,
-                      ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Aeventus_sin_fondo_4_(1).png',
+                      width: 216.0,
+                      height: 250.0,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -110,7 +101,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
+                                    0.0, 0.0, 8.0, 2.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -237,7 +228,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       scrollDirection: Axis.horizontal,
                                       itemCount: listViewEventRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(width: 8.0),
+                                          const SizedBox(width: 6.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewEventRecord =
                                             listViewEventRecordList[
@@ -298,7 +289,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       scrollDirection: Axis.horizontal,
                                       itemCount: listViewEventRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(width: 8.0),
+                                          const SizedBox(width: 6.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewEventRecord =
                                             listViewEventRecordList[
@@ -323,7 +314,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   },
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(const SizedBox(height: 6.0)),
                           ),
                         ),
                       ),
@@ -478,7 +469,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       itemCount:
                                           listViewPromocionRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(width: 8.0),
+                                          const SizedBox(width: 6.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewPromocionRecord =
                                             listViewPromocionRecordList[
@@ -660,7 +651,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       scrollDirection: Axis.horizontal,
                                       itemCount: listViewUserRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(width: 8.0),
+                                          const SizedBox(width: 6.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewUserRecord =
                                             listViewUserRecordList[
@@ -1117,8 +1108,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       true;
                                                   safeSetState(() {});
                                                 } else {
-                                                  context
-                                                      .pushNamed('CreateEvent');
+                                                  context.pushNamed(
+                                                      'CrearEvento1');
                                                 }
                                               },
                                               child: ClipRRect(
@@ -1262,7 +1253,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       FFAppState().IsProfesionalCreando = false;
                                       safeSetState(() {});
 
-                                      context.pushNamed('CreateEvent');
+                                      context.pushNamed('CrearEvento1');
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,

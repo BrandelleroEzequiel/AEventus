@@ -227,4 +227,10 @@ class FFAppState extends ChangeNotifier {
   set fechaFin(DateTime? value) {
     _fechaFin = value;
   }
+
+  String _fechaStr = '';
+  String get fechaStr => _fechaStr;
+  set fechaStr(String value) {
+    _fechaStr = value;
+  }
 }

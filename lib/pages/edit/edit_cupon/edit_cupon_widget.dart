@@ -2161,6 +2161,7 @@ class _EditCuponWidgetState extends State<EditCuponWidget> {
                                               widget.cuponEdit?.name,
                                               'NAME',
                                             );
+
                                             _model.descripcionTextController
                                                     ?.text =
                                                 widget.cuponEdit!.description;

@@ -697,7 +697,7 @@ class _AllCuponesWidgetState extends State<AllCuponesWidget> {
                                                       safeSetState(() {});
                                                     } else {
                                                       context.pushNamed(
-                                                          'CreateEvent');
+                                                          'CrearEvento1');
                                                     }
                                                   },
                                                   child: ClipRRect(
@@ -838,7 +838,7 @@ class _AllCuponesWidgetState extends State<AllCuponesWidget> {
                                               false;
                                           safeSetState(() {});
 
-                                          context.pushNamed('CreateEvent');
+                                          context.pushNamed('CrearEvento1');
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,

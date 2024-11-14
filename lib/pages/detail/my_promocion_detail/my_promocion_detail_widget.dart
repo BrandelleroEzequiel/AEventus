@@ -153,34 +153,35 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 45.0, 0.0, 0.0),
-                                child: Container(
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.08, -0.14),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 3.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.safePop();
-                                            },
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.safePop();
+                                  },
+                                  child: Container(
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -1.08, -0.14),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 3.0, 0.0, 0.0),
                                             child: Icon(
                                               Icons.arrow_back,
                                               color:
@@ -190,11 +191,11 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ]
-                                        .divide(const SizedBox(width: 5.0))
-                                        .addToStart(const SizedBox(width: 9.0))
-                                        .addToEnd(const SizedBox(width: 9.0)),
+                                      ]
+                                          .divide(const SizedBox(width: 5.0))
+                                          .addToStart(const SizedBox(width: 9.0))
+                                          .addToEnd(const SizedBox(width: 9.0)),
+                                    ),
                                   ),
                                 ),
                               ),
