@@ -324,7 +324,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'cadwwne0': {
-      'es': 'Participantes unidos al evento',
+      'es': 'Participantes del evento',
       'en': '',
     },
     'f4eh9f4p': {
@@ -832,18 +832,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Crear cuenta',
       'en': '',
     },
-    'goexqlge': {
-      'es': 'Continuar con Google',
-      'en': '',
-    },
-    'a4kfbu62': {
-      'es': 'Continuar con Facebook',
-      'en': '',
-    },
-    'joappzs0': {
-      'es': 'Continuar con Apple',
-      'en': '',
-    },
     'fd5f6di3': {
       'es': 'Home',
       'en': '',
@@ -889,27 +877,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'f3yh2wnc': {
       'es': 'Inicia sesión',
-      'en': '',
-    },
-    'hxprfcbg': {
-      'es': 'Continuar con Google',
-      'en': '',
-    },
-    'unpbax0v': {
-      'es': 'Continuar con Facebook',
-      'en': '',
-    },
-    'm4twyfke': {
-      'es': 'Continuar con Apple',
-      'en': '',
-    },
-    'eum2rd3o': {
-      'es': '',
-      'en': '',
-    },
-    'x9a9emla': {
-      'es':
-          'Acepta los terminos y condiciones para seguir con el registro de usuario ',
       'en': '',
     },
     'gadevcwj': {
@@ -970,15 +937,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Mis cupones guardados',
       'en': '',
     },
-    's8o4cazi': {
+    '8kh5x7xf': {
       'es': 'Eventos',
       'en': '',
     },
-    'bfavmyb6': {
+    'igoped54': {
       'es': 'Seguidores',
       'en': '',
     },
-    'n4frqf62': {
+    'x5l77zi9': {
       'es': 'Seguidos',
       'en': '',
     },
@@ -1030,6 +997,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Mis eventos',
       'en': '',
     },
+    '8bxdqqri': {
+      'es': 'Ver todos',
+      'en': '',
+    },
     '6j59k182': {
       'es': 'Listado de seguidores',
       'en': '',
@@ -1048,6 +1019,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'kr3t7jtu': {
       'es': 'Crear cupòn',
+      'en': '',
+    },
+    'cqq9b6wz': {
+      'es': 'Listado de eventos',
       'en': '',
     },
     'h9wp1lmc': {
@@ -1095,6 +1070,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ohn2hqgv': {
       'es': 'Tik Tok',
+      'en': '',
+    },
+    '0ke03pjq': {
+      'es': 'Imagenes del usuario',
+      'en': '',
+    },
+    '7wi4o77h': {
+      'es': 'Eventos creados por el usuario',
+      'en': '',
+    },
+    'ymt7sl6x': {
+      'es': 'Eventos a los que esta unido el usuario',
+      'en': '',
+    },
+    'i42h3k0m': {
+      'es': 'Eventos que guardo el usuario',
       'en': '',
     },
     '4v3wyq2z': {
@@ -1161,6 +1152,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Eventos',
       'en': '',
     },
+    'fs1pxv23': {
+      'es': 'Ver todos',
+      'en': '',
+    },
     'bal64g15': {
       'es': 'Listado de seguidores',
       'en': '',
@@ -1171,6 +1166,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'wks7izw5': {
       'es': 'Listado de cupones',
+      'en': '',
+    },
+    '4bd2ncm4': {
+      'es': 'Listado de eventos',
       'en': '',
     },
     'icz95rbl': {
@@ -1426,20 +1425,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Ver todos',
       'en': '',
     },
-    'vav4l9n8': {
-      'es': 'Listado de participantes',
-      'en': '',
-    },
-    '33tfjso5': {
-      'es': 'Listado de cupones del lugar',
-      'en': '',
-    },
     '5qkd7xav': {
       'es': 'Ver participantes unidos',
       'en': '',
     },
     'k4p83r9g': {
       'es': 'Usuarios que guardaron el evento',
+      'en': '',
+    },
+    'vav4l9n8': {
+      'es': 'Listado de participantes',
+      'en': '',
+    },
+    '33tfjso5': {
+      'es': 'Listado de cupones del lugar',
       'en': '',
     },
     '9tiz7l76': {

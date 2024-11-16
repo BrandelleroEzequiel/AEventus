@@ -148,7 +148,7 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                   alignment: const AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 7.0),
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 7.0),
                     child: Container(
                       width: 25.0,
                       height: 25.0,
@@ -203,7 +203,7 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                   alignment: const AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(53.0, 0.0, 0.0, 13.0),
+                        const EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 13.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -255,13 +255,13 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                   alignment: const AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 40.0),
+                        const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 38.0),
                     child: Text(
                       valueOrDefault<String>(
                         widget.cuponParam?.name,
                         'name',
                       ).maybeHandleOverflow(
-                        maxChars: 38,
+                        maxChars: 34,
                         replacement: '…',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(

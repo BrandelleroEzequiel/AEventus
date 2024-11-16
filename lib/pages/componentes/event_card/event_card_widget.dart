@@ -132,7 +132,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
             Align(
               alignment: const AlignmentDirectional(-1.0, 1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 55.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 50.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -188,7 +188,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
             Align(
               alignment: const AlignmentDirectional(-1.0, 1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 8.0),
                 child: StreamBuilder<UserRecord>(
                   stream:
                       UserRecord.getDocument(widget.eventParam!.userCreator!),
@@ -328,7 +328,7 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 10.0)),
+                          ].divide(const SizedBox(width: 9.0)),
                         ),
                       ],
                     );

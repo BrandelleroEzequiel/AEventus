@@ -2239,6 +2239,7 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
+                              showLoadingIndicator: false,
                             ).animateOnPageLoad(
                                 animationsMap['buttonOnPageLoadAnimation']!),
                           ),

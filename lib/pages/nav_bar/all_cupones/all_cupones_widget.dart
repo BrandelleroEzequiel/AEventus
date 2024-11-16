@@ -637,7 +637,21 @@ class _AllCuponesWidgetState extends State<AllCuponesWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed('Home');
+                                                    context.pushNamed(
+                                                      'Home',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .leftToRight,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -661,8 +675,21 @@ class _AllCuponesWidgetState extends State<AllCuponesWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context
-                                                        .pushNamed('AllEvents');
+                                                    context.pushNamed(
+                                                      'AllEvents',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .leftToRight,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -758,8 +785,21 @@ class _AllCuponesWidgetState extends State<AllCuponesWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context
-                                                        .pushNamed('MyProfile');
+                                                    context.pushNamed(
+                                                      'MyProfile',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .rightToLeft,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:

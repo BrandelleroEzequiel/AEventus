@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,19 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyPromocionDetailModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().ViewImg =
+          'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+      FFAppState().banderaBooleana = false;
+      FFAppState().banderaBoleana2 = false;
+      FFAppState().banderaBooleana3 = false;
+      FFAppState().listSeguidoresColapse = false;
+      FFAppState().listSeguidosColapse = false;
+      FFAppState().listUserUnidosColapse = false;
+      safeSetState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -732,6 +746,7 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
+                                  showLoadingIndicator: false,
                                 ),
                               ),
                               FlutterFlowIconButton(
@@ -1306,7 +1321,9 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                 20.0, 0.0, 20.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              height: 550.0,
+                              constraints: const BoxConstraints(
+                                maxHeight: 450.0,
+                              ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -1316,7 +1333,7 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                 ),
                               ),
                               child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
@@ -1344,24 +1361,12 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                             ),
                                             child: Padding(
                                               padding: const EdgeInsets.all(4.0),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  FFAppState().banderaBoleana2 =
-                                                      false;
-                                                  safeSetState(() {});
-                                                },
-                                                child: Icon(
-                                                  Icons.close,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  size: 20.0,
-                                                ),
+                                              child: Icon(
+                                                Icons.close,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                size: 20.0,
                                               ),
                                             ),
                                           ),
@@ -1409,14 +1414,13 @@ class _MyPromocionDetailWidgetState extends State<MyPromocionDetailWidget> {
                                           16.0, 0.0, 16.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 480.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                         ),
                                         child: SingleChildScrollView(
                                           child: Column(
-                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisSize: MainAxisSize.min,
                                             children: [
                                               Builder(
                                                 builder: (context) {

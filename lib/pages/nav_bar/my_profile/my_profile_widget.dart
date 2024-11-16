@@ -3,6 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/componentes/event_card_small/event_card_small_widget.dart';
+import '/pages/componentes/imagen_detail/imagen_detail_widget.dart';
 import '/pages/componentes/list_cupones_profile/list_cupones_profile_widget.dart';
 import '/pages/componentes/list_seguidores/list_seguidores_widget.dart';
 import '/pages/componentes/list_seguidos/list_seguidos_widget.dart';
@@ -10,6 +12,7 @@ import '/pages/componentes/my_cupon_creado/my_cupon_creado_widget.dart';
 import '/pages/componentes/myevent_creado/myevent_creado_widget.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +35,19 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyProfileModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().estado = 'IMAGENES';
+      FFAppState().ViewImg =
+          'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+      FFAppState().banderaBooleana = false;
+      FFAppState().banderaBoleana2 = false;
+      FFAppState().banderaBooleana3 = false;
+      FFAppState().listSeguidoresColapse = false;
+      FFAppState().listSeguidosColapse = false;
+      safeSetState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -88,25 +104,40 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                             alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 20.0, 0.0),
+                                  20.0, 20.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
-                                    width: 85.0,
-                                    height: 85.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.network(
-                                      valueOrDefault<String>(
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().ViewImg =
+                                          valueOrDefault<String>(
                                         currentUserPhoto,
-                                        'https://media.istockphoto.com/id/871752462/vector/default-gray-placeholder-man.jpg?s=612x612&w=0&k=20&c=4aUt99MQYO4dyo-rPImH2kszYe1EcuROC6f2iMQmn8o=',
+                                        'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                      );
+                                      FFAppState().banderaBooleana3 = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: 85.0,
+                                      height: 85.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
                                       ),
-                                      fit: BoxFit.cover,
+                                      child: Image.network(
+                                        valueOrDefault<String>(
+                                          currentUserPhoto,
+                                          'https://media.istockphoto.com/id/871752462/vector/default-gray-placeholder-man.jpg?s=612x612&w=0&k=20&c=4aUt99MQYO4dyo-rPImH2kszYe1EcuROC6f2iMQmn8o=',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                   Row(
@@ -408,6 +439,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                       ),
+                                      showLoadingIndicator: false,
                                     ),
                                     Expanded(
                                       child: Align(
@@ -471,7 +503,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 20.0, 20.0),
+                                20.0, 10.0, 20.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: const BoxDecoration(),
@@ -698,11 +730,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                 ],
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 2.0,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
@@ -960,41 +987,69 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                 final imagenesAddItem =
                                                     imagenesAdd[
                                                         imagenesAddIndex];
-                                                return Container(
-                                                  width: 220.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        const BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20.0),
-                                                      bottomRight:
-                                                          Radius.circular(20.0),
-                                                      topLeft:
-                                                          Radius.circular(20.0),
-                                                      topRight:
-                                                          Radius.circular(20.0),
-                                                    ),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.network(
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState().ViewImg =
                                                         valueOrDefault<String>(
-                                                          imagenesAddItem,
-                                                          'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
+                                                      imagenesAddItem,
+                                                      'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                    );
+                                                    FFAppState()
+                                                            .banderaBooleana3 =
+                                                        true;
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Container(
+                                                    width: 220.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          const BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(
+                                                                20.0),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                20.0),
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                20.0),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                20.0),
+                                                      ),
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            imagenesAddItem,
+                                                            'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
+                                                          ),
+                                                          width:
+                                                              double.infinity,
+                                                          height:
+                                                              double.infinity,
+                                                          fit: BoxFit.cover,
                                                         ),
-                                                        width: double.infinity,
-                                                        height: double.infinity,
-                                                        fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                   ),
@@ -1155,195 +1210,22 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                 final contenidoEventosUnidoEventRecord =
                                                     contenidoEventosUnidoEventRecordList[
                                                         contenidoEventosUnidoIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'EventDetail',
-                                                      queryParameters: {
-                                                        'eventReference':
-                                                            serializeParam(
-                                                          contenidoEventosUnidoEventRecord
-                                                              .reference,
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: 220.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                20.0),
-                                                      ),
+                                                return wrapWithModel(
+                                                  model: _model
+                                                      .eventCardSmallModels1
+                                                      .getModel(
+                                                    contenidoEventosUnidoEventRecord
+                                                        .reference.id,
+                                                    contenidoEventosUnidoIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: EventCardSmallWidget(
+                                                    key: Key(
+                                                      'Key1r0_${contenidoEventosUnidoEventRecord.reference.id}',
                                                     ),
-                                                    child: SizedBox(
-                                                      width: double.infinity,
-                                                      height: double.infinity,
-                                                      child: Stack(
-                                                        children: [
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  const BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                              ),
-                                                              child:
-                                                                  Image.network(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  contenidoEventosUnidoEventRecord
-                                                                      .imagenesAdicionales
-                                                                      .first,
-                                                                  'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                                ),
-                                                                width: double
-                                                                    .infinity,
-                                                                height: double
-                                                                    .infinity,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    0.0, 1.0),
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 80.0,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                gradient:
-                                                                    LinearGradient(
-                                                                  colors: [
-                                                                    Color(
-                                                                        0x0057636C),
-                                                                    Color(
-                                                                        0x4E14181B)
-                                                                  ],
-                                                                  stops: [
-                                                                    0.0,
-                                                                    1.0
-                                                                  ],
-                                                                  begin:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          -1.0),
-                                                                  end:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          1.0),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0, 1.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          20.0),
-                                                              child: Text(
-                                                                contenidoEventosUnidoEventRecord
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                  fontFamily:
-                                                                      'Lexend',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  shadows: [
-                                                                    const Shadow(
-                                                                      color: Color(
-                                                                          0x7857636C),
-                                                                      offset: Offset(
-                                                                          2.0,
-                                                                          2.0),
-                                                                      blurRadius:
-                                                                          2.0,
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
+                                                    eventReference:
+                                                        contenidoEventosUnidoEventRecord,
                                                   ),
                                                 );
                                               },
@@ -1509,195 +1391,22 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                 final contenidoEventosGuardadosEventRecord =
                                                     contenidoEventosGuardadosEventRecordList[
                                                         contenidoEventosGuardadosIndex];
-                                                return InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'EventDetail',
-                                                      queryParameters: {
-                                                        'eventReference':
-                                                            serializeParam(
-                                                          contenidoEventosGuardadosEventRecord
-                                                              .reference,
-                                                          ParamType
-                                                              .DocumentReference,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: 220.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                20.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                20.0),
-                                                      ),
+                                                return wrapWithModel(
+                                                  model: _model
+                                                      .eventCardSmallModels2
+                                                      .getModel(
+                                                    contenidoEventosGuardadosEventRecord
+                                                        .reference.id,
+                                                    contenidoEventosGuardadosIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: EventCardSmallWidget(
+                                                    key: Key(
+                                                      'Keyoua_${contenidoEventosGuardadosEventRecord.reference.id}',
                                                     ),
-                                                    child: SizedBox(
-                                                      width: double.infinity,
-                                                      height: double.infinity,
-                                                      child: Stack(
-                                                        children: [
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  const BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                              ),
-                                                              child:
-                                                                  Image.network(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  contenidoEventosGuardadosEventRecord
-                                                                      .imagenesAdicionales
-                                                                      .first,
-                                                                  'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                                ),
-                                                                width: double
-                                                                    .infinity,
-                                                                height: double
-                                                                    .infinity,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    0.0, 1.0),
-                                                            child: Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: 80.0,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                gradient:
-                                                                    LinearGradient(
-                                                                  colors: [
-                                                                    Color(
-                                                                        0x0057636C),
-                                                                    Color(
-                                                                        0x4B14181B)
-                                                                  ],
-                                                                  stops: [
-                                                                    0.0,
-                                                                    1.0
-                                                                  ],
-                                                                  begin:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          -1.0),
-                                                                  end:
-                                                                      AlignmentDirectional(
-                                                                          0,
-                                                                          1.0),
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .only(
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          0.0),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0, 1.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          20.0),
-                                                              child: Text(
-                                                                contenidoEventosGuardadosEventRecord
-                                                                    .name,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                  fontFamily:
-                                                                      'Lexend',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  shadows: [
-                                                                    const Shadow(
-                                                                      color: Color(
-                                                                          0x7857636C),
-                                                                      offset: Offset(
-                                                                          2.0,
-                                                                          2.0),
-                                                                      blurRadius:
-                                                                          2.0,
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
+                                                    eventReference:
+                                                        contenidoEventosGuardadosEventRecord,
                                                   ),
                                                 );
                                               },
@@ -1750,13 +1459,13 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 178.0,
+                            height: 200.0,
                             decoration: const BoxDecoration(),
                             child: Stack(
                               children: [
                                 Container(
                                   width: double.infinity,
-                                  height: 151.0,
+                                  height: 170.0,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       fit: BoxFit.fill,
@@ -1772,260 +1481,324 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                     ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, 1.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 85.0,
-                                      height: 85.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        valueOrDefault<String>(
-                                          currentUserPhoto,
-                                          'https://media.istockphoto.com/id/871752462/vector/default-gray-placeholder-man.jpg?s=612x612&w=0&k=20&c=4aUt99MQYO4dyo-rPImH2kszYe1EcuROC6f2iMQmn8o=',
-                                        ),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(1.0, 1.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 16.0, 30.0),
-                                    child: Container(
-                                      width: 243.0,
-                                      height: 50.0,
-                                      decoration: const BoxDecoration(),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Text(
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(-1.0, 1.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().ViewImg =
                                                 valueOrDefault<String>(
-                                                  formatNumber(
-                                                    vistaUserProfesionalCount,
-                                                    formatType:
-                                                        FormatType.compact,
-                                                  ),
-                                                  '1.2K',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                  fontFamily: 'Lexend',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  shadows: [
-                                                    const Shadow(
-                                                      color: Color(0x7857636C),
-                                                      offset: Offset(2.0, 2.0),
-                                                      blurRadius: 2.0,
-                                                    )
-                                                  ],
-                                                ),
+                                              currentUserPhoto,
+                                              'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                            );
+                                            FFAppState().banderaBooleana3 =
+                                                true;
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            width: 85.0,
+                                            height: 85.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              valueOrDefault<String>(
+                                                currentUserPhoto,
+                                                'https://media.istockphoto.com/id/871752462/vector/default-gray-placeholder-man.jpg?s=612x612&w=0&k=20&c=4aUt99MQYO4dyo-rPImH2kszYe1EcuROC6f2iMQmn8o=',
                                               ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  's8o4cazi' /* Eventos */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                  fontFamily: 'Lexend',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  shadows: [
-                                                    const Shadow(
-                                                      color: Color(0x7857636C),
-                                                      offset: Offset(2.0, 2.0),
-                                                      blurRadius: 2.0,
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState()
-                                                  .listSeguidoresColapse = true;
-                                              safeSetState(() {});
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    formatNumber(
-                                                      (currentUserDocument
-                                                                  ?.seguidores
-                                                                  .toList() ??
-                                                              [])
-                                                          .length,
-                                                      formatType:
-                                                          FormatType.compact,
-                                                    ),
-                                                    '1.2K',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily: 'Lexend',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    fontSize: 20.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    shadows: [
-                                                      const Shadow(
-                                                        color:
-                                                            Color(0x7857636C),
-                                                        offset:
-                                                            Offset(2.0, 2.0),
-                                                        blurRadius: 2.0,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'bfavmyb6' /* Seguidores */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily: 'Lexend',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    shadows: [
-                                                      const Shadow(
-                                                        color:
-                                                            Color(0x7857636C),
-                                                        offset:
-                                                            Offset(2.0, 2.0),
-                                                        blurRadius: 2.0,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState().listSeguidosColapse =
-                                                  true;
-                                              safeSetState(() {});
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    formatNumber(
-                                                      (currentUserDocument
-                                                                  ?.siguiendo
-                                                                  .toList() ??
-                                                              [])
-                                                          .length,
-                                                      formatType:
-                                                          FormatType.compact,
-                                                    ),
-                                                    '1.2K',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily: 'Lexend',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    fontSize: 20.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    shadows: [
-                                                      const Shadow(
-                                                        color:
-                                                            Color(0x7857636C),
-                                                        offset:
-                                                            Offset(2.0, 2.0),
-                                                        blurRadius: 2.0,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'n4frqf62' /* Seguidos */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                    fontFamily: 'Lexend',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    shadows: [
-                                                      const Shadow(
-                                                        color:
-                                                            Color(0x7857636C),
-                                                        offset:
-                                                            Offset(2.0, 2.0),
-                                                        blurRadius: 2.0,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(width: 10.0)),
+                                        ),
                                       ),
-                                    ),
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              const AlignmentDirectional(1.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 30.0),
+                                            child: Container(
+                                              height: 50.0,
+                                              decoration: const BoxDecoration(),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          formatNumber(
+                                                            vistaUserProfesionalCount,
+                                                            formatType:
+                                                                FormatType
+                                                                    .compact,
+                                                          ),
+                                                          '1.2K',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                          fontFamily: 'Lexend',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          shadows: [
+                                                            const Shadow(
+                                                              color: Color(
+                                                                  0x7857636C),
+                                                              offset: Offset(
+                                                                  2.0, 2.0),
+                                                              blurRadius: 2.0,
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '8kh5x7xf' /* Eventos */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                          fontFamily: 'Lexend',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          shadows: [
+                                                            const Shadow(
+                                                              color: Color(
+                                                                  0x7857636C),
+                                                              offset: Offset(
+                                                                  2.0, 2.0),
+                                                              blurRadius: 2.0,
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                              .listSeguidoresColapse =
+                                                          true;
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              (currentUserDocument
+                                                                          ?.seguidores
+                                                                          .toList() ??
+                                                                      [])
+                                                                  .length,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .compact,
+                                                            ),
+                                                            '1.2K',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                                'Lexend',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            shadows: [
+                                                              const Shadow(
+                                                                color: Color(
+                                                                    0x7857636C),
+                                                                offset: Offset(
+                                                                    2.0, 2.0),
+                                                                blurRadius: 2.0,
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'igoped54' /* Seguidores */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                                'Lexend',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            shadows: [
+                                                              const Shadow(
+                                                                color: Color(
+                                                                    0x7857636C),
+                                                                offset: Offset(
+                                                                    2.0, 2.0),
+                                                                blurRadius: 2.0,
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState()
+                                                              .listSeguidosColapse =
+                                                          true;
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            formatNumber(
+                                                              (currentUserDocument
+                                                                          ?.siguiendo
+                                                                          .toList() ??
+                                                                      [])
+                                                                  .length,
+                                                              formatType:
+                                                                  FormatType
+                                                                      .compact,
+                                                            ),
+                                                            '1.2K',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                                'Lexend',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            shadows: [
+                                                              const Shadow(
+                                                                color: Color(
+                                                                    0x7857636C),
+                                                                offset: Offset(
+                                                                    2.0, 2.0),
+                                                                blurRadius: 2.0,
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'x5l77zi9' /* Seguidos */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                                'Lexend',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            shadows: [
+                                                              const Shadow(
+                                                                color: Color(
+                                                                    0x7857636C),
+                                                                offset: Offset(
+                                                                    2.0, 2.0),
+                                                                blurRadius: 2.0,
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ].divide(const SizedBox(width: 10.0)),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -2243,7 +2016,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 7.0, 20.0, 15.0),
+                                20.0, 10.0, 20.0, 15.0),
                             child: Container(
                               width: double.infinity,
                               decoration: const BoxDecoration(),
@@ -2544,31 +2317,49 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             final imagenesAdicionalesItem =
                                                 imagenesAdicionales[
                                                     imagenesAdicionalesIndex];
-                                            return Container(
-                                              width: 155.0,
-                                              height: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                image: DecorationImage(
-                                                  fit: BoxFit.cover,
-                                                  image: Image.network(
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                FFAppState().ViewImg =
                                                     valueOrDefault<String>(
-                                                      imagenesAdicionalesItem,
-                                                      'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                                                    ),
-                                                  ).image,
-                                                ),
-                                                borderRadius: const BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                  imagenesAdicionalesItem,
+                                                  'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                );
+                                                FFAppState().banderaBooleana3 =
+                                                    true;
+                                                safeSetState(() {});
+                                              },
+                                              child: Container(
+                                                width: 155.0,
+                                                height: 100.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.network(
+                                                      valueOrDefault<String>(
+                                                        imagenesAdicionalesItem,
+                                                        'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
+                                                      ),
+                                                    ).image,
+                                                  ),
+                                                  borderRadius:
+                                                      const BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(12.0),
+                                                    bottomRight:
+                                                        Radius.circular(12.0),
+                                                    topLeft:
+                                                        Radius.circular(12.0),
+                                                    topRight:
+                                                        Radius.circular(12.0),
+                                                  ),
                                                 ),
                                               ),
                                             );
@@ -2582,7 +2373,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                             ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
+                                0.0, 0.0, 0.0, 20.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -2595,7 +2386,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                   alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 10.0, 0.0, 5.0),
+                                        16.0, 20.0, 0.0, 5.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'humoncn1' /* Ubicación del lugar */,
@@ -2667,7 +2458,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 10.0, 16.0, 5.0),
+                                    16.0, 20.0, 8.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -2719,7 +2510,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                         fontFamily: 'Lexend',
                                                         color:
                                                             const Color(0x80000000),
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -2727,7 +2518,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                           const Icon(
                                             Icons.arrow_forward,
                                             color: Color(0x7F000000),
-                                            size: 17.0,
+                                            size: 14.0,
                                           ),
                                         ],
                                       ),
@@ -2768,7 +2559,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 10.0),
+                                                  16.0, 0.0, 0.0, 20.0),
                                           child: Container(
                                             width: double.infinity,
                                             height: 100.0,
@@ -2818,7 +2609,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                       listViewPromocionRecordList
                                                           .length,
                                                   separatorBuilder: (_, __) =>
-                                                      const SizedBox(width: 9.0),
+                                                      const SizedBox(width: 6.0),
                                                   itemBuilder:
                                                       (context, listViewIndex) {
                                                     final listViewPromocionRecord =
@@ -2885,7 +2676,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 10.0, 16.0, 5.0),
+                                    16.0, 20.0, 8.0, 5.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -2904,6 +2695,51 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        FFAppState().banderaBoleana2 = true;
+                                        safeSetState(() {});
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 5.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '8bxdqqri' /* Ver todos */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Lexend',
+                                                        color:
+                                                            const Color(0x80000000),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                          const Icon(
+                                            Icons.arrow_forward,
+                                            color: Color(0x7F000000),
+                                            size: 14.0,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -3054,7 +2890,20 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('Home');
+                                                context.pushNamed(
+                                                  'Home',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .leftToRight,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -3074,7 +2923,20 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('AllEvents');
+                                                context.pushNamed(
+                                                  'AllEvents',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .leftToRight,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -3126,7 +2988,20 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('AllCupones');
+                                                context.pushNamed(
+                                                  'AllCupones',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .leftToRight,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -3204,186 +3079,51 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
             if (FFAppState().listSeguidoresColapse)
               Align(
                 alignment: const AlignmentDirectional(-1.0, -1.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 2.0,
-                    sigmaY: 2.0,
-                  ),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                      child: Wrap(
-                        spacing: 0.0,
-                        runSpacing: 0.0,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              constraints: const BoxConstraints(
-                                minHeight: 200.0,
-                                maxHeight: 600.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(24.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 5.0, 16.0, 15.0),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 12.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(4.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    FFAppState()
-                                                            .listSeguidoresColapse =
-                                                        false;
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Icon(
-                                                    Icons.close,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    size: 20.0,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '6j59k182' /* Listado de seguidores */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Lexend',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.listSeguidoresModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: ListSeguidoresWidget(
-                                          userReference: currentUserReference!,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().listSeguidoresColapse = false;
+                    safeSetState(() {});
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
                     ),
-                  ),
-                ),
-              ),
-            if (FFAppState().listSeguidosColapse)
-              Align(
-                alignment: const AlignmentDirectional(-1.0, -1.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 2.0,
-                    sigmaY: 2.0,
-                  ),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                      child: Wrap(
-                        spacing: 0.0,
-                        runSpacing: 0.0,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: StreamBuilder<UserRecord>(
-                              stream:
-                                  UserRecord.getDocument(currentUserReference!),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      child: SpinKitPulse(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 40.0,
-                                      ),
-                                    ),
-                                  );
-                                }
-
-                                final containerUserRecord = snapshot.data!;
-
-                                return Container(
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
+                        child: Wrap(
+                          spacing: 0.0,
+                          runSpacing: 0.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  FFAppState().listSeguidoresColapse = true;
+                                  safeSetState(() {});
+                                },
+                                child: Container(
                                   width: double.infinity,
                                   constraints: const BoxConstraints(
                                     minHeight: 200.0,
-                                    maxHeight: 600.0,
+                                    maxHeight: 450.0,
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -3408,31 +3148,32 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(4.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        FFAppState()
-                                                                .listSeguidosColapse =
-                                                            false;
-                                                        safeSetState(() {});
-                                                      },
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState()
+                                                            .listSeguidoresColapse =
+                                                        false;
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(4.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color: FlutterFlowTheme
@@ -3455,7 +3196,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'vfx7jiso' /* Listado de seguidos */,
+                                                          '6j59k182' /* Listado de seguidores */,
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -3475,23 +3216,213 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                             ),
                                           ),
                                           wrapWithModel(
-                                            model: _model.listSeguidosModel,
+                                            model: _model.listSeguidoresModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: ListSeguidosWidget(
-                                              userParam:
-                                                  containerUserRecord.reference,
+                                            child: ListSeguidoresWidget(
+                                              userReference:
+                                                  currentUserReference!,
                                             ),
                                           ),
                                         ],
                                       ),
                                     ),
                                   ),
-                                );
-                              },
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            if (FFAppState().listSeguidosColapse)
+              Align(
+                alignment: const AlignmentDirectional(-1.0, -1.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().listSeguidosColapse = false;
+                    safeSetState(() {});
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
+                        child: Wrap(
+                          spacing: 0.0,
+                          runSpacing: 0.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: StreamBuilder<UserRecord>(
+                                stream: UserRecord.getDocument(
+                                    currentUserReference!),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 40.0,
+                                        height: 40.0,
+                                        child: SpinKitPulse(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 40.0,
+                                        ),
+                                      ),
+                                    );
+                                  }
+
+                                  final containerUserRecord = snapshot.data!;
+
+                                  return InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().listSeguidosColapse = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 200.0,
+                                        maxHeight: 450.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 5.0, 16.0, 15.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 16.0, 8.0, 12.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .listSeguidosColapse =
+                                                            false;
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            size: 20.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'vfx7jiso' /* Listado de seguidos */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend',
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              wrapWithModel(
+                                                model: _model.listSeguidosModel,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child: ListSeguidosWidget(
+                                                  userParam: containerUserRecord
+                                                      .reference,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -3500,65 +3431,76 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
             if (FFAppState().banderaBooleana)
               Align(
                 alignment: const AlignmentDirectional(-1.0, -1.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 2.0,
-                    sigmaY: 2.0,
-                  ),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                      child: Wrap(
-                        spacing: 0.0,
-                        runSpacing: 0.0,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              constraints: const BoxConstraints(
-                                minHeight: 200.0,
-                                maxHeight: 600.0,
-                              ),
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(24.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 5.0, 16.0, 15.0),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 16.0, 8.0, 12.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(4.0),
-                                                child: InkWell(
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().banderaBooleana = false;
+                    safeSetState(() {});
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            12.0, 0.0, 12.0, 0.0),
+                        child: Wrap(
+                          spacing: 0.0,
+                          runSpacing: 0.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  FFAppState().banderaBooleana = true;
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  constraints: const BoxConstraints(
+                                    minHeight: 200.0,
+                                    maxHeight: 450.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 5.0, 16.0, 15.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 16.0, 8.0, 12.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                InkWell(
                                                   splashColor:
                                                       Colors.transparent,
                                                   focusColor:
@@ -3573,57 +3515,77 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                                         false;
                                                     safeSetState(() {});
                                                   },
-                                                  child: Icon(
-                                                    Icons.close,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    size: 20.0,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(4.0),
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        size: 20.0,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '1s1pnak4' /* Listado de mis cupones */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Lexend',
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
+                                                Expanded(
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '1s1pnak4' /* Listado de mis cupones */,
                                                         ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Lexend',
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                          wrapWithModel(
+                                            model:
+                                                _model.listCuponesProfileModel,
+                                            updateCallback: () =>
+                                                safeSetState(() {}),
+                                            child: ListCuponesProfileWidget(
+                                              userReference:
+                                                  currentUserReference!,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      wrapWithModel(
-                                        model: _model.listCuponesProfileModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: ListCuponesProfileWidget(
-                                          userReference: currentUserReference!,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -3747,6 +3709,281 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ],
                             ),
                           ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            if (FFAppState().banderaBoleana2)
+              Align(
+                alignment: const AlignmentDirectional(-1.0, -1.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().banderaBoleana2 = false;
+                    safeSetState(() {});
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Wrap(
+                        spacing: 0.0,
+                        runSpacing: 0.0,
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.start,
+                        verticalDirection: VerticalDirection.down,
+                        clipBehavior: Clip.none,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 12.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  FFAppState().banderaBoleana2 = true;
+                                  safeSetState(() {});
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  constraints: const BoxConstraints(
+                                    minHeight: 200.0,
+                                    maxHeight: 450.0,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(24.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 5.0, 16.0, 15.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 16.0, 8.0, 12.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    FFAppState()
+                                                            .banderaBoleana2 =
+                                                        false;
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(4.0),
+                                                      child: Icon(
+                                                        Icons.close,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        size: 20.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'cqq9b6wz' /* Listado de eventos */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Lexend',
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    1.0, 0.0, 0.0, 0.0),
+                                            child: StreamBuilder<
+                                                List<EventRecord>>(
+                                              stream: queryEventRecord(
+                                                queryBuilder: (eventRecord) =>
+                                                    eventRecord.where(
+                                                  'user_creator',
+                                                  isEqualTo:
+                                                      currentUserReference,
+                                                ),
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 80.0,
+                                                      height: 80.0,
+                                                      child:
+                                                          SpinKitDoubleBounce(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        size: 80.0,
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                List<EventRecord>
+                                                    gridViewEventRecordList =
+                                                    snapshot.data!;
+                                                if (gridViewEventRecordList
+                                                    .isEmpty) {
+                                                  return Center(
+                                                    child: Image.asset(
+                                                      'assets/images/404_eventos_no_guardados.png',
+                                                      width: 250.0,
+                                                    ),
+                                                  );
+                                                }
+
+                                                return GridView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  gridDelegate:
+                                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                                    crossAxisCount: 2,
+                                                    crossAxisSpacing: 6.0,
+                                                    mainAxisSpacing: 6.0,
+                                                    childAspectRatio: 1.0,
+                                                  ),
+                                                  primary: false,
+                                                  shrinkWrap: true,
+                                                  scrollDirection:
+                                                      Axis.vertical,
+                                                  itemCount:
+                                                      gridViewEventRecordList
+                                                          .length,
+                                                  itemBuilder:
+                                                      (context, gridViewIndex) {
+                                                    final gridViewEventRecord =
+                                                        gridViewEventRecordList[
+                                                            gridViewIndex];
+                                                    return wrapWithModel(
+                                                      model: _model
+                                                          .eventCardSmallModels3
+                                                          .getModel(
+                                                        gridViewEventRecord
+                                                            .reference.id,
+                                                        gridViewIndex,
+                                                      ),
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child:
+                                                          EventCardSmallWidget(
+                                                        key: Key(
+                                                          'Keyesm_${gridViewEventRecord.reference.id}',
+                                                        ),
+                                                        eventReference:
+                                                            gridViewEventRecord,
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            if (FFAppState().banderaBooleana3)
+              Align(
+                alignment: const AlignmentDirectional(-1.0, -1.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().banderaBooleana3 = false;
+                    FFAppState().ViewImg =
+                        'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+                    safeSetState(() {});
+                  },
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: wrapWithModel(
+                      model: _model.imagenDetailModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ImagenDetailWidget(
+                        imagen: valueOrDefault<String>(
+                          FFAppState().ViewImg,
+                          'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080',
                         ),
                       ),
                     ),

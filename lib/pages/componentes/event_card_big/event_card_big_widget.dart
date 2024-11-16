@@ -62,6 +62,13 @@ class _EventCardBigWidgetState extends State<EventCardBigWidget> {
                   ParamType.DocumentReference,
                 ),
               }.withoutNulls,
+              extra: <String, dynamic>{
+                kTransitionInfoKey: const TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.rightToLeft,
+                  duration: Duration(milliseconds: 300),
+                ),
+              },
             );
           } else {
             context.pushNamed(
@@ -72,6 +79,13 @@ class _EventCardBigWidgetState extends State<EventCardBigWidget> {
                   ParamType.DocumentReference,
                 ),
               }.withoutNulls,
+              extra: <String, dynamic>{
+                kTransitionInfoKey: const TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.rightToLeft,
+                  duration: Duration(milliseconds: 300),
+                ),
+              },
             );
           }
         },

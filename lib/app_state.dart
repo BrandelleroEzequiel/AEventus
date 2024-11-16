@@ -233,4 +233,11 @@ class FFAppState extends ChangeNotifier {
   set fechaStr(String value) {
     _fechaStr = value;
   }
+
+  String _ViewImg =
+      'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+  String get ViewImg => _ViewImg;
+  set ViewImg(String value) {
+    _ViewImg = value;
+  }
 }

@@ -522,6 +522,7 @@ class _CrearEvento3WidgetState extends State<CrearEvento3Widget> {
                             ),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
+                          showLoadingIndicator: false,
                         ),
                       ),
                     ],

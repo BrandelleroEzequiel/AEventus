@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class AEventusFireBaseFirebaseUser extends BaseAuthUser {
-  AEventusFireBaseFirebaseUser(this.user);
+class AEventusFirebaseUser extends BaseAuthUser {
+  AEventusFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -55,18 +55,17 @@ class AEventusFireBaseFirebaseUser extends BaseAuthUser {
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
   static BaseAuthUser fromFirebaseUser(User? user) =>
-      AEventusFireBaseFirebaseUser(user);
+      AEventusFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> aEventusFireBaseFirebaseUserStream() =>
-    FirebaseAuth.instance
+Stream<BaseAuthUser> aEventusFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = AEventusFireBaseFirebaseUser(user);
+        currentUser = AEventusFirebaseUser(user);
         return currentUser!;
       },
     );

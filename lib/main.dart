@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = aEventusFireBaseFirebaseUserStream()
+    userStream = aEventusFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'AEventus-FireBase',
+      title: 'AEventus',
       localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

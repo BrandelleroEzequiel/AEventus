@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(a_eventus_fire_base LANGUAGES CXX)
+project(a_eventus LANGUAGES CXX)
 
-set(BINARY_NAME "a_eventus_fire_base")
+set(BINARY_NAME "a_eventus")
 
 cmake_policy(SET CMP0063 NEW)
 

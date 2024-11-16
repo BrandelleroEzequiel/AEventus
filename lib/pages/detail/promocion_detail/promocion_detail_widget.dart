@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'promocion_detail_model.dart';
@@ -31,6 +32,19 @@ class _PromocionDetailWidgetState extends State<PromocionDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PromocionDetailModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().ViewImg =
+          'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+      FFAppState().banderaBooleana = false;
+      FFAppState().banderaBoleana2 = false;
+      FFAppState().banderaBooleana3 = false;
+      FFAppState().listSeguidoresColapse = false;
+      FFAppState().listSeguidosColapse = false;
+      FFAppState().listUserUnidosColapse = false;
+      safeSetState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -591,6 +605,7 @@ class _PromocionDetailWidgetState extends State<PromocionDetailWidget> {
                                                       BorderRadius.circular(
                                                           8.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                             if (containerUserRecord.seguidores
                                                 .contains(currentUserReference))
@@ -665,6 +680,7 @@ class _PromocionDetailWidgetState extends State<PromocionDetailWidget> {
                                                       BorderRadius.circular(
                                                           8.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                           ],
                                         ),
@@ -1054,6 +1070,7 @@ class _PromocionDetailWidgetState extends State<PromocionDetailWidget> {
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
+                                        showLoadingIndicator: false,
                                       ),
                                     ),
                                   ].divide(const SizedBox(width: 8.0)),
@@ -1168,24 +1185,12 @@ class _PromocionDetailWidgetState extends State<PromocionDetailWidget> {
                                           ),
                                           child: Padding(
                                             padding: const EdgeInsets.all(4.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState().banderaBoleana2 =
-                                                    false;
-                                                safeSetState(() {});
-                                              },
-                                              child: Icon(
-                                                Icons.close,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                size: 20.0,
-                                              ),
+                                            child: Icon(
+                                              Icons.close,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              size: 20.0,
                                             ),
                                           ),
                                         ),

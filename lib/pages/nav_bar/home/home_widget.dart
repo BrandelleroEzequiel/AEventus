@@ -146,8 +146,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 transitionType:
                                                     PageTransitionType
                                                         .rightToLeft,
-                                                duration: Duration(
-                                                    milliseconds: 1000),
+                                                duration:
+                                                    Duration(milliseconds: 300),
                                               ),
                                             },
                                           );
@@ -174,15 +174,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           fontFamily: 'Lexend',
                                                           color:
                                                               const Color(0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward,
-                                              color: Color(0x7F000000),
-                                              size: 17.0,
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                              child: Icon(
+                                                Icons.arrow_forward,
+                                                color: Color(0x7F000000),
+                                                size: 14.0,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -320,7 +324,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 20.0, 0.0, 20.0),
+                            16.0, 30.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -383,8 +387,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 transitionType:
                                                     PageTransitionType
                                                         .rightToLeft,
-                                                duration: Duration(
-                                                    milliseconds: 1000),
+                                                duration:
+                                                    Duration(milliseconds: 300),
                                               ),
                                             },
                                           );
@@ -411,15 +415,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           fontFamily: 'Lexend',
                                                           color:
                                                               const Color(0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward,
-                                              color: Color(0x7F000000),
-                                              size: 17.0,
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                              child: Icon(
+                                                Icons.arrow_forward,
+                                                color: Color(0x7F000000),
+                                                size: 14.0,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -499,15 +507,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                       ),
-                      const Divider(
-                        thickness: 1.0,
-                        indent: 20.0,
-                        endIndent: 20.0,
-                        color: Color(0x1E000000),
-                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 20.0, 0.0, 20.0),
+                            16.0, 30.0, 0.0, 15.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -570,8 +572,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 transitionType:
                                                     PageTransitionType
                                                         .rightToLeft,
-                                                duration: Duration(
-                                                    milliseconds: 1000),
+                                                duration:
+                                                    Duration(milliseconds: 300),
                                               ),
                                             },
                                           );
@@ -598,15 +600,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           fontFamily: 'Lexend',
                                                           color:
                                                               const Color(0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward,
-                                              color: Color(0x7F000000),
-                                              size: 17.0,
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                              child: Icon(
+                                                Icons.arrow_forward,
+                                                color: Color(0x7F000000),
+                                                size: 14.0,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -686,17 +692,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                         color: Color(0x1E000000),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 70.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16.0, 15.0, 16.0, 80.0),
                         child: Container(
-                          height: 453.0,
+                          constraints: const BoxConstraints(
+                            maxWidth: 800.0,
+                          ),
                           decoration: const BoxDecoration(),
                           child: Column(
-                            mainAxisSize: MainAxisSize.max,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 20.0, 8.0, 10.0),
+                                    0.0, 0.0, 0.0, 10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -747,8 +755,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 transitionType:
                                                     PageTransitionType
                                                         .rightToLeft,
-                                                duration: Duration(
-                                                    milliseconds: 1000),
+                                                duration:
+                                                    Duration(milliseconds: 300),
                                               ),
                                             },
                                           );
@@ -775,7 +783,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           fontFamily: 'Lexend',
                                                           color:
                                                               const Color(0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -783,7 +791,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             const Icon(
                                               Icons.arrow_forward,
                                               color: Color(0x7F000000),
-                                              size: 17.0,
+                                              size: 14.0,
                                             ),
                                           ],
                                         ),
@@ -792,63 +800,63 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Container(
                                   decoration: const BoxDecoration(),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 16.0, 0.0),
-                                    child: StreamBuilder<List<EventRecord>>(
-                                      stream: queryEventRecord(
-                                        queryBuilder: (eventRecord) =>
-                                            eventRecord.where(
-                                          'iscreatorProfesional',
-                                          isEqualTo: false,
-                                        ),
-                                        limit: 5,
+                                  child: StreamBuilder<List<EventRecord>>(
+                                    stream: queryEventRecord(
+                                      queryBuilder: (eventRecord) =>
+                                          eventRecord.where(
+                                        'iscreatorProfesional',
+                                        isEqualTo: false,
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 40.0,
-                                              height: 40.0,
-                                              child: SpinKitPulse(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 40.0,
-                                              ),
+                                      limit: 5,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            child: SpinKitPulse(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              size: 40.0,
                                             ),
-                                          );
-                                        }
-                                        List<EventRecord>
-                                            listViewEventRecordList =
-                                            snapshot.data!;
+                                          ),
+                                        );
+                                      }
+                                      List<EventRecord>
+                                          listViewEventRecordList =
+                                          snapshot.data!;
 
-                                        return ListView.separated(
-                                          padding: EdgeInsets.zero,
-                                          primary: false,
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.vertical,
-                                          itemCount:
-                                              listViewEventRecordList.length,
-                                          separatorBuilder: (_, __) =>
-                                              const SizedBox(height: 8.0),
-                                          itemBuilder:
-                                              (context, listViewIndex) {
-                                            final listViewEventRecord =
-                                                listViewEventRecordList[
-                                                    listViewIndex];
-                                            return Container(
-                                              decoration: const BoxDecoration(),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
+                                      return ListView.separated(
+                                        padding: EdgeInsets.zero,
+                                        primary: false,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount:
+                                            listViewEventRecordList.length,
+                                        separatorBuilder: (_, __) =>
+                                            const SizedBox(height: 8.0),
+                                        itemBuilder: (context, listViewIndex) {
+                                          final listViewEventRecord =
+                                              listViewEventRecordList[
+                                                  listViewIndex];
+                                          return Container(
+                                            width: 320.0,
+                                            decoration: const BoxDecoration(),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Container(
                                                     width: 378.0,
                                                     height: 60.0,
                                                     decoration: BoxDecoration(
@@ -952,18 +960,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  const Divider(
-                                                    height: 1.0,
-                                                    thickness: 1.0,
-                                                    color: Color(0x3557636C),
-                                                  ),
-                                                ].divide(const SizedBox(height: 8.0)),
-                                              ),
-                                            );
-                                          },
-                                        );
-                                      },
-                                    ),
+                                                ),
+                                                const Divider(
+                                                  height: 1.0,
+                                                  thickness: 1.0,
+                                                  color: Color(0x3557636C),
+                                                ),
+                                              ].divide(const SizedBox(height: 8.0)),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
@@ -1078,7 +1086,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('AllEvents');
+                                                context.pushNamed(
+                                                  'AllEvents',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .rightToLeft,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -1130,7 +1151,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('AllCupones');
+                                                context.pushNamed(
+                                                  'AllCupones',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .rightToLeft,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -1150,7 +1184,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                context.pushNamed('MyProfile');
+                                                context.pushNamed(
+                                                  'MyProfile',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .rightToLeft,
+                                                      duration: Duration(
+                                                          milliseconds: 300),
+                                                    ),
+                                                  },
+                                                );
                                               },
                                               child: ClipRRect(
                                                 borderRadius:

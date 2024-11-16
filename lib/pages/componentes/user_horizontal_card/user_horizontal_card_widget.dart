@@ -198,6 +198,7 @@ class _UserHorizontalCardWidgetState extends State<UserHorizontalCardWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
+                                showLoadingIndicator: false,
                               ),
                             if (widget.userParam?.seguidores
                                     .contains(currentUserReference) ==
@@ -251,6 +252,7 @@ class _UserHorizontalCardWidgetState extends State<UserHorizontalCardWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
+                                showLoadingIndicator: false,
                               ),
                           ],
                         ),

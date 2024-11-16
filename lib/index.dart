@@ -26,11 +26,11 @@ export '/pages/detail/my_promocion_detail/my_promocion_detail_widget.dart'
     show MyPromocionDetailWidget;
 export '/pages/detail/my_event_detail/my_event_detail_widget.dart'
     show MyEventDetailWidget;
-export '/create_event/crear_evento1/crear_evento1_widget.dart'
+export '/pages/create_event/crear_evento1/crear_evento1_widget.dart'
     show CrearEvento1Widget;
-export '/create_event/crear_evento2/crear_evento2_widget.dart'
+export '/pages/create_event/crear_evento2/crear_evento2_widget.dart'
     show CrearEvento2Widget;
-export '/create_event/crear_evento3/crear_evento3_widget.dart'
+export '/pages/create_event/crear_evento3/crear_evento3_widget.dart'
     show CrearEvento3Widget;
-export '/create_event/editar_evento/editar_evento_widget.dart'
+export '/pages/create_event/editar_evento/editar_evento_widget.dart'
     show EditarEventoWidget;

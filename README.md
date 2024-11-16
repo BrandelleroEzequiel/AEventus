@@ -1,4 +1,4 @@
-# AEventus-FireBase
+# AEventus
 
 A new Flutter project.
 

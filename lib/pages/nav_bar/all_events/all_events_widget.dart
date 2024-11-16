@@ -341,11 +341,12 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .info,
+                                              fontSize: 13.0,
                                               letterSpacing: 0.0,
                                             ),
                                         iconColor:
                                             FlutterFlowTheme.of(context).info,
-                                        iconSize: 18.0,
+                                        iconSize: 13.0,
                                         elevation: 2.0,
                                         borderColor:
                                             FlutterFlowTheme.of(context)
@@ -378,8 +379,8 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
-                                      chipSpacing: 8.0,
-                                      rowSpacing: 12.0,
+                                      chipSpacing: 7.0,
+                                      rowSpacing: 2.0,
                                       multiselect: false,
                                       initialized:
                                           _model.choiceChipsValue != null,
@@ -389,7 +390,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                               FormFieldController<List<String>>(
                                         [widget.choiceChips],
                                       ),
-                                      wrapped: true,
+                                      wrapped: false,
                                     ),
                                   ),
                                 ),
@@ -690,7 +691,21 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.pushNamed('Home');
+                                                    context.pushNamed(
+                                                      'Home',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .leftToRight,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -802,7 +817,20 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                        'AllCupones');
+                                                      'AllCupones',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .rightToLeft,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -826,8 +854,21 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context
-                                                        .pushNamed('MyProfile');
+                                                    context.pushNamed(
+                                                      'MyProfile',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .rightToLeft,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: ClipRRect(
                                                     borderRadius:

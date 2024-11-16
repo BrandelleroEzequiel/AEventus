@@ -48,6 +48,16 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().ViewImg =
+          'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzdGFycnklMjBuaWdodHxlbnwwfHx8fDE3MzA5OTcyMTF8MA&ixlib=rb-4.0.3&q=80&w=1080';
+      FFAppState().banderaBooleana = false;
+      FFAppState().banderaBoleana2 = false;
+      FFAppState().banderaBooleana3 = false;
+      FFAppState().listSeguidoresColapse = false;
+      FFAppState().listSeguidosColapse = false;
+      FFAppState().listUserUnidosColapse = false;
+      safeSetState(() {});
+
       await widget.eventReference!.update({
         ...mapToFirestore(
           {
@@ -365,7 +375,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                     alignment: const AlignmentDirectional(1.0, 1.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 8.0),
+                                          0.0, 0.0, 16.0, 8.0),
                                       child: Container(
                                         constraints: const BoxConstraints(
                                           maxWidth: 52.0,
@@ -567,7 +577,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 10.0),
+                                20.0, 20.0, 20.0, 5.0),
                             child: Text(
                               eventDetailEventRecord.name,
                               style: FlutterFlowTheme.of(context)
@@ -1129,6 +1139,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                       BorderRadius.circular(
                                                           8.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                             if (columnContenidoUserRecord
                                                 .seguidores
@@ -1204,6 +1215,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                       BorderRadius.circular(
                                                           8.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                           ],
                                         ),
@@ -1391,7 +1403,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    'cadwwne0' /* Participantes unidos al evento */,
+                                                    'cadwwne0' /* Participantes del evento */,
                                                   ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
@@ -1547,7 +1559,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        25.0, 8.0, 25.0, 30.0),
+                                        25.0, 8.0, 25.0, 35.0),
                                     child: Stack(
                                       children: [
                                         if (!eventDetailEventRecord.usersUnidos
@@ -1626,6 +1638,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                       BorderRadius.circular(
                                                           10.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                             ),
                                           ),
@@ -1695,6 +1708,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                       BorderRadius.circular(
                                                           10.0),
                                                 ),
+                                                showLoadingIndicator: false,
                                               ),
                                             ),
                                           ),
@@ -1743,7 +1757,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 30.0, 20.0, 10.0),
+                                          20.0, 30.0, 8.0, 10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1800,7 +1814,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                   padding:
                                                       const EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
-                                                              5.0, 0.0),
+                                                              2.0, 0.0),
                                                   child: Text(
                                                     FFLocalizations.of(
                                                             context)
@@ -1815,15 +1829,21 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                               'Lexend',
                                                           color: const Color(
                                                               0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
-                                                const Icon(
-                                                  Icons.arrow_forward,
-                                                  color: Color(0x7F000000),
-                                                  size: 17.0,
+                                                const Padding(
+                                                  padding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 2.0,
+                                                              0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.arrow_forward,
+                                                    color: Color(0x7F000000),
+                                                    size: 14.0,
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -1940,7 +1960,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                               children: [
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 30.0, 20.0, 10.0),
+                                      20.0, 30.0, 8.0, 10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1998,7 +2018,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(0.0, 0.0, 2.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -2011,15 +2031,19 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                           fontFamily: 'Lexend',
                                                           color:
                                                               const Color(0x80000000),
-                                                          fontSize: 14.0,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
-                                            const Icon(
-                                              Icons.arrow_forward,
-                                              color: Color(0x7F000000),
-                                              size: 17.0,
+                                            const Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                              child: Icon(
+                                                Icons.arrow_forward,
+                                                color: Color(0x7F000000),
+                                                size: 14.0,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -2029,7 +2053,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 20.0, 0.0),
+                                      20.0, 0.0, 0.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
                                     height: 200.0,
@@ -2077,7 +2101,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                           itemCount:
                                               listViewEventRecordList.length,
                                           separatorBuilder: (_, __) =>
-                                              const SizedBox(width: 9.0),
+                                              const SizedBox(width: 6.0),
                                           itemBuilder:
                                               (context, listViewIndex) {
                                             final listViewEventRecord =
@@ -2116,67 +2140,77 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                 if (FFAppState().listUserUnidosColapse)
                   Align(
                     alignment: const AlignmentDirectional(-1.0, -1.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 2.0,
-                        sigmaY: 2.0,
-                      ),
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Wrap(
-                            spacing: 0.0,
-                            runSpacing: 0.0,
-                            alignment: WrapAlignment.start,
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.start,
-                            verticalDirection: VerticalDirection.down,
-                            clipBehavior: Clip.none,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  constraints: const BoxConstraints(
-                                    minHeight: 200.0,
-                                    maxHeight: 600.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(24.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 16.0, 8.0, 12.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(4.0),
-                                                  child: InkWell(
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().listUserUnidosColapse = false;
+                        safeSetState(() {});
+                      },
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 2.0,
+                          sigmaY: 2.0,
+                        ),
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Wrap(
+                              spacing: 0.0,
+                              runSpacing: 0.0,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().listUserUnidosColapse = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 200.0,
+                                        maxHeight: 450.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      8.0, 16.0, 8.0, 12.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  InkWell(
                                                     splashColor:
                                                         Colors.transparent,
                                                     focusColor:
@@ -2191,61 +2225,77 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                           false;
                                                       safeSetState(() {});
                                                     },
-                                                    child: Icon(
-                                                      Icons.close,
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      size: 20.0,
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets.all(4.0),
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          size: 20.0,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'vsg6mshc' /* Listado de participantes */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend',
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
+                                                  Expanded(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'vsg6mshc' /* Listado de participantes */,
                                                           ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend',
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                            wrapWithModel(
+                                              model: _model
+                                                  .listParticipantesUnidosModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child:
+                                                  ListParticipantesUnidosWidget(
+                                                objEventParam:
+                                                    eventDetailEventRecord,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        wrapWithModel(
-                                          model: _model
-                                              .listParticipantesUnidosModel,
-                                          updateCallback: () =>
-                                              safeSetState(() {}),
-                                          child: ListParticipantesUnidosWidget(
-                                            objEventParam:
-                                                eventDetailEventRecord,
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -2290,68 +2340,78 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                 if (FFAppState().banderaBooleana)
                   Align(
                     alignment: const AlignmentDirectional(-1.0, -1.0),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 2.0,
-                        sigmaY: 2.0,
-                      ),
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          child: Wrap(
-                            spacing: 0.0,
-                            runSpacing: 0.0,
-                            alignment: WrapAlignment.start,
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.start,
-                            verticalDirection: VerticalDirection.down,
-                            clipBehavior: Clip.none,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  constraints: const BoxConstraints(
-                                    minHeight: 200.0,
-                                    maxHeight: 600.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(24.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 5.0, 16.0, 15.0),
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 16.0, 8.0, 12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(4.0),
-                                                    child: InkWell(
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().banderaBooleana = false;
+                        safeSetState(() {});
+                      },
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 2.0,
+                          sigmaY: 2.0,
+                        ),
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Wrap(
+                              spacing: 0.0,
+                              runSpacing: 0.0,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().banderaBooleana = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 200.0,
+                                        maxHeight: 450.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 5.0, 8.0, 15.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 16.0, 16.0, 12.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    InkWell(
                                                       splashColor:
                                                           Colors.transparent,
                                                       focusColor:
@@ -2366,65 +2426,82 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                             false;
                                                         safeSetState(() {});
                                                       },
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        size: 20.0,
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            size: 20.0,
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '18xu8mh5' /* Listado de cupones del lugar */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Lexend',
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
+                                                    Expanded(
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '18xu8mh5' /* Listado de cupones del lugar */,
                                                             ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend',
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              wrapWithModel(
+                                                model: _model
+                                                    .listCuponesUserDetailModel,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    ListCuponesUserDetailWidget(
+                                                  userReference:
+                                                      eventDetailEventRecord
+                                                          .userCreator!,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          wrapWithModel(
-                                            model: _model
-                                                .listCuponesUserDetailModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: ListCuponesUserDetailWidget(
-                                              userReference:
-                                                  eventDetailEventRecord
-                                                      .userCreator!,
-                                            ),
-                                          ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),

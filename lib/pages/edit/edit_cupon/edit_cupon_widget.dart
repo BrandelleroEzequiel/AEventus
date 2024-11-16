@@ -2218,6 +2218,7 @@ class _EditCuponWidgetState extends State<EditCuponWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
+                                      showLoadingIndicator: false,
                                     ),
                                   ),
                                 ],

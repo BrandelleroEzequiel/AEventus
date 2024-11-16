@@ -317,7 +317,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                           itemCount:
                                               listViewUserRecordList.length,
                                           separatorBuilder: (_, __) =>
-                                              const SizedBox(width: 8.0),
+                                              const SizedBox(width: 6.0),
                                           itemBuilder:
                                               (context, listViewIndex) {
                                             final listViewUserRecord =
@@ -384,7 +384,7 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                             scrollDirection: Axis.vertical,
                                             itemCount: user.length,
                                             separatorBuilder: (_, __) =>
-                                                const SizedBox(height: 8.0),
+                                                const SizedBox(height: 3.0),
                                             itemBuilder: (context, userIndex) {
                                               final userItem = user[userIndex];
                                               return wrapWithModel(
@@ -431,12 +431,14 @@ class _AllUsersWidgetState extends State<AllUsersWidget> {
                                         );
                                       }
 
-                                      return ListView.builder(
+                                      return ListView.separated(
                                         padding: EdgeInsets.zero,
                                         primary: false,
                                         shrinkWrap: true,
                                         scrollDirection: Axis.vertical,
                                         itemCount: userBusqueda.length,
+                                        separatorBuilder: (_, __) =>
+                                            const SizedBox(height: 3.0),
                                         itemBuilder:
                                             (context, userBusquedaIndex) {
                                           final userBusquedaItem =

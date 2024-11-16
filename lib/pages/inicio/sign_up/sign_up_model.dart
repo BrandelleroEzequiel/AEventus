@@ -21,8 +21,6 @@ class SignUpModel extends FlutterFlowModel<SignUpWidget> {
   late bool passwordCreateVisibility;
   String? Function(BuildContext, String?)?
       passwordCreateTextControllerValidator;
-  // State field(s) for CheckboxListTile widget.
-  bool? checkboxListTileValue;
 
   @override
   void initState(BuildContext context) {

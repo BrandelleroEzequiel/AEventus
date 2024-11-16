@@ -1611,6 +1611,7 @@ periódica */
                             ),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
+                          showLoadingIndicator: false,
                         ),
                       ),
                     ),
