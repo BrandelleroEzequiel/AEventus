@@ -203,7 +203,7 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                   alignment: const AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 0.0, 13.0),
+                        const EdgeInsetsDirectional.fromSTEB(46.0, 0.0, 0.0, 13.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -236,14 +236,14 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                           fontFamily: 'Lexend Deca',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 12.0,
+                          fontSize: 11.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                           shadows: [
                             const Shadow(
-                              color: Color(0x7857636C),
+                              color: Color(0xFF57636C),
                               offset: Offset(2.0, 2.0),
-                              blurRadius: 2.0,
+                              blurRadius: 1.0,
                             )
                           ],
                         ),
@@ -267,14 +267,14 @@ class _CuponCardWidgetState extends State<CuponCardWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lexend',
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontSize: 15.0,
+                        fontSize: 14.0,
                         letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         shadows: [
                           const Shadow(
-                            color: Color(0x7857636C),
+                            color: Color(0xFF57636C),
                             offset: Offset(2.0, 2.0),
-                            blurRadius: 2.0,
+                            blurRadius: 1.0,
                           )
                         ],
                       ),

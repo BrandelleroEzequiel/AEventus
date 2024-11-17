@@ -45,52 +45,52 @@ class _EventCardWidgetState extends State<EventCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 320.0,
-      height: 200.0,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(12.0),
-          bottomRight: Radius.circular(12.0),
-          topLeft: Radius.circular(12.0),
-          topRight: Radius.circular(12.0),
+    return InkWell(
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: () async {
+        if (widget.eventParam?.userCreator == currentUserReference) {
+          context.pushNamed(
+            'MyEventDetail',
+            queryParameters: {
+              'eventReference': serializeParam(
+                widget.eventParam?.reference,
+                ParamType.DocumentReference,
+              ),
+            }.withoutNulls,
+          );
+        } else {
+          context.pushNamed(
+            'EventDetail',
+            queryParameters: {
+              'eventReference': serializeParam(
+                widget.eventParam?.reference,
+                ParamType.DocumentReference,
+              ),
+            }.withoutNulls,
+          );
+        }
+      },
+      child: Container(
+        width: 320.0,
+        height: 200.0,
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(12.0),
+            bottomRight: Radius.circular(12.0),
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
+          ),
         ),
-      ),
-      child: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Stack(
-          children: [
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
-                if (widget.eventParam?.userCreator == currentUserReference) {
-                  context.pushNamed(
-                    'MyEventDetail',
-                    queryParameters: {
-                      'eventReference': serializeParam(
-                        widget.eventParam?.reference,
-                        ParamType.DocumentReference,
-                      ),
-                    }.withoutNulls,
-                  );
-                } else {
-                  context.pushNamed(
-                    'EventDetail',
-                    queryParameters: {
-                      'eventReference': serializeParam(
-                        widget.eventParam?.reference,
-                        ParamType.DocumentReference,
-                      ),
-                    }.withoutNulls,
-                  );
-                }
-              },
-              child: ClipRRect(
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Stack(
+            children: [
+              ClipRRect(
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(12.0),
                   bottomRight: Radius.circular(12.0),
@@ -107,180 +107,130 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                   fit: BoxFit.cover,
                 ),
               ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(0.0, 1.0),
-              child: Container(
-                width: double.infinity,
-                height: 90.0,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0x0057636C), Color(0x4814181B)],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12.0),
-                    bottomRight: Radius.circular(12.0),
-                    topLeft: Radius.circular(0.0),
-                    topRight: Radius.circular(0.0),
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(-1.0, 1.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 50.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    if (widget.eventParam?.userCreator ==
-                        currentUserReference) {
-                      context.pushNamed(
-                        'MyEventDetail',
-                        queryParameters: {
-                          'eventReference': serializeParam(
-                            widget.eventParam?.reference,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
-                    } else {
-                      context.pushNamed(
-                        'EventDetail',
-                        queryParameters: {
-                          'eventReference': serializeParam(
-                            widget.eventParam?.reference,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
-                    }
-                  },
-                  child: Text(
-                    valueOrDefault<String>(
-                      widget.eventParam?.name,
-                      'name event',
+              Align(
+                alignment: const AlignmentDirectional(0.0, 1.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 90.0,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color(0x0057636C), Color(0x4814181B)],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Lexend',
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                      shadows: [
-                        const Shadow(
-                          color: Color(0x7857636C),
-                          offset: Offset(2.0, 2.0),
-                          blurRadius: 2.0,
-                        )
-                      ],
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(12.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(0.0),
                     ),
                   ),
                 ),
               ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(-1.0, 1.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 8.0),
-                child: StreamBuilder<UserRecord>(
-                  stream:
-                      UserRecord.getDocument(widget.eventParam!.userCreator!),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 40.0,
-                          height: 40.0,
-                          child: SpinKitPulse(
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 40.0,
-                          ),
-                        ),
-                      );
-                    }
-
-                    final wrapUserRecord = snapshot.data!;
-
-                    return Wrap(
-                      spacing: 0.0,
-                      runSpacing: 0.0,
-                      alignment: WrapAlignment.start,
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      direction: Axis.horizontal,
-                      runAlignment: WrapAlignment.start,
-                      verticalDirection: VerticalDirection.down,
-                      clipBehavior: Clip.none,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 35.0,
-                              height: 35.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(40.0),
-                                  bottomRight: Radius.circular(40.0),
-                                  topLeft: Radius.circular(40.0),
-                                  topRight: Radius.circular(40.0),
-                                ),
-                              ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (wrapUserRecord.reference ==
-                                      currentUserReference) {
-                                    context.pushNamed('MyProfile');
-                                  } else {
-                                    context.pushNamed(
-                                      'UserDetail',
-                                      queryParameters: {
-                                        'objUserParam': serializeParam(
-                                          wrapUserRecord,
-                                          ParamType.Document,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        'objUserParam': wrapUserRecord,
-                                      },
-                                    );
-                                  }
-                                },
-                                child: Container(
-                                  width: 120.0,
-                                  height: 120.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      wrapUserRecord.photoUrl,
-                                      'https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg',
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
+              Align(
+                alignment: const AlignmentDirectional(-1.0, 1.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 45.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      if (widget.eventParam?.userCreator ==
+                          currentUserReference) {
+                        context.pushNamed(
+                          'MyEventDetail',
+                          queryParameters: {
+                            'eventReference': serializeParam(
+                              widget.eventParam?.reference,
+                              ParamType.DocumentReference,
                             ),
-                            Expanded(
-                              child: Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                          }.withoutNulls,
+                        );
+                      } else {
+                        context.pushNamed(
+                          'EventDetail',
+                          queryParameters: {
+                            'eventReference': serializeParam(
+                              widget.eventParam?.reference,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
+                        );
+                      }
+                    },
+                    child: Text(
+                      valueOrDefault<String>(
+                        widget.eventParam?.name,
+                        'name event',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Lexend',
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        fontSize: 15.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          const Shadow(
+                            color: Color(0xFF57636C),
+                            offset: Offset(2.0, 2.0),
+                            blurRadius: 1.0,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(-1.0, 1.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 8.0),
+                  child: StreamBuilder<UserRecord>(
+                    stream: UserRecord.getDocument(
+                        widget.eventParam!.userCreator!),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 40.0,
+                            height: 40.0,
+                            child: SpinKitPulse(
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 40.0,
+                            ),
+                          ),
+                        );
+                      }
+
+                      final wrapUserRecord = snapshot.data!;
+
+                      return Wrap(
+                        spacing: 0.0,
+                        runSpacing: 0.0,
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.start,
+                        verticalDirection: VerticalDirection.down,
+                        clipBehavior: Clip.none,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 29.0,
+                                height: 29.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  shape: BoxShape.circle,
+                                ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -305,38 +255,81 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                                       );
                                     }
                                   },
-                                  child: Text(
-                                    wrapUserRecord.displayName,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                      fontFamily: 'Lexend',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      shadows: [
-                                        const Shadow(
-                                          color: Color(0x7857636C),
-                                          offset: Offset(2.0, 2.0),
-                                          blurRadius: 2.0,
-                                        )
-                                      ],
+                                  child: Container(
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        wrapUserRecord.photoUrl,
+                                        'https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg',
+                                      ),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ].divide(const SizedBox(width: 9.0)),
-                        ),
-                      ],
-                    );
-                  },
+                              Expanded(
+                                child: Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (wrapUserRecord.reference ==
+                                          currentUserReference) {
+                                        context.pushNamed('MyProfile');
+                                      } else {
+                                        context.pushNamed(
+                                          'UserDetail',
+                                          queryParameters: {
+                                            'objUserParam': serializeParam(
+                                              wrapUserRecord,
+                                              ParamType.Document,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            'objUserParam': wrapUserRecord,
+                                          },
+                                        );
+                                      }
+                                    },
+                                    child: Text(
+                                      wrapUserRecord.displayName,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                        fontFamily: 'Lexend',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        fontSize: 11.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                        shadows: [
+                                          const Shadow(
+                                            color: Color(0xFF57636C),
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 1.0,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ].divide(const SizedBox(width: 6.0)),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

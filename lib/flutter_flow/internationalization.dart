@@ -193,6 +193,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AllCupones
   {
+    '9t3icsm2': {
+      'es': 'Todos los cupones',
+      'en': '',
+    },
     'o4jkrvxj': {
       'es': '    Buscar...',
       'en': '',
@@ -251,10 +255,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'l9uz56dz': {
       'es': 'All',
-      'en': '',
-    },
-    '7q3r93gl': {
-      'es': 'Todos los cupones',
       'en': '',
     },
     'upowz9gz': {
@@ -718,6 +718,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AllEvents
   {
+    'w4t6uk9d': {
+      'es': 'Todos los eventos',
+      'en': '',
+    },
     'hug8p2ey': {
       'es': '    Buscar...',
       'en': '',
@@ -780,10 +784,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'iyq3nkaa': {
       'es': 'All',
-      'en': '',
-    },
-    '3f68st9b': {
-      'es': 'Todos los eventos',
       'en': '',
     },
     'jqaf4nil': {
@@ -933,8 +933,48 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Instagram',
       'en': '',
     },
+    'laq4owqj': {
+      'es': 'Mis imagenes',
+      'en': '',
+    },
+    'cr0br54w': {
+      'es': 'Mis eventos creados ',
+      'en': '',
+    },
+    '2i23v956': {
+      'es': '(',
+      'en': '',
+    },
+    'dy3fi95y': {
+      'es': ')',
+      'en': '',
+    },
+    'nv12p14l': {
+      'es': 'Eventos a los que estoy unido ',
+      'en': '',
+    },
+    'fheebhho': {
+      'es': '(',
+      'en': '',
+    },
+    'n2mfak26': {
+      'es': ')',
+      'en': '',
+    },
     'szmk3y5o': {
       'es': 'Mis cupones guardados',
+      'en': '',
+    },
+    'y4yk6qps': {
+      'es': 'Eventos guardados ',
+      'en': '',
+    },
+    'oi1q6v7m': {
+      'es': '(',
+      'en': '',
+    },
+    '3yzc27y9': {
+      'es': ')',
       'en': '',
     },
     '8kh5x7xf': {
@@ -1077,15 +1117,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     '7wi4o77h': {
-      'es': 'Eventos creados por el usuario',
+      'es': 'Eventos creados por el usuario ',
+      'en': '',
+    },
+    '7jpfxj95': {
+      'es': '(',
+      'en': '',
+    },
+    'hwrna9qm': {
+      'es': ')',
       'en': '',
     },
     'ymt7sl6x': {
-      'es': 'Eventos a los que esta unido el usuario',
+      'es': 'Eventos a los que esta unido el usuario ',
       'en': '',
     },
-    'i42h3k0m': {
-      'es': 'Eventos que guardo el usuario',
+    'jpzt5h1e': {
+      'es': '(',
+      'en': '',
+    },
+    'm0g0uj9i': {
+      'es': ')',
+      'en': '',
+    },
+    'vmdd0ncf': {
+      'es': 'Eventos que guardo el usuario ',
+      'en': '',
+    },
+    'd9w5xyla': {
+      'es': '(',
+      'en': '',
+    },
+    'ufv5gnq8': {
+      'es': ')',
       'en': '',
     },
     '4v3wyq2z': {

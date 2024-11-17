@@ -502,12 +502,12 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                         .secondaryBackground,
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w800,
+                                                fontWeight: FontWeight.bold,
                                                 shadows: [
                                                   const Shadow(
-                                                    color: Color(0x7857636C),
+                                                    color: Color(0xFF57636C),
                                                     offset: Offset(2.0, 2.0),
-                                                    blurRadius: 2.0,
+                                                    blurRadius: 1.0,
                                                   )
                                                 ],
                                               ),
@@ -577,16 +577,16 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 5.0),
+                                20.0, 20.0, 20.0, 12.0),
                             child: Text(
                               eventDetailEventRecord.name,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Lexend Deca',
-                                    fontSize: 21.0,
+                                    fontFamily: 'Lexend',
+                                    fontSize: 18.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -596,7 +596,7 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                               (eventDetailEventRecord.fechaStr != ''))
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 10.0),
+                                  20.0, 0.0, 20.0, 10.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 42.0,
@@ -1941,12 +1941,6 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                           },
                                         ),
                                       ),
-                                    ),
-                                    Divider(
-                                      height: 1.0,
-                                      thickness: 2.0,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
                                     ),
                                   ],
                                 );

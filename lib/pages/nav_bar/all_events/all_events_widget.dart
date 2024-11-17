@@ -89,545 +89,558 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: Stack(
               children: [
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 55.0, 16.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  FFAppState().buscando = false;
-                                  safeSetState(() {});
-                                  context.safePop();
-                                },
-                                child: const Icon(
-                                  Icons.arrow_back,
-                                  color: Color(0x8014181B),
-                                  size: 28.0,
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Container(
-                                height: 40.0,
-                                decoration: const BoxDecoration(),
-                                child: TextFormField(
-                                  controller: _model.textController,
-                                  focusNode: _model.textFieldFocusNode,
-                                  onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.textController',
-                                    const Duration(milliseconds: 100),
-                                    () async {
-                                      safeSetState(() {
-                                        _model.simpleSearchResults = TextSearch(
-                                          allEventsEventRecordList
-                                              .map(
-                                                (record) =>
-                                                    TextSearchItem.fromTerms(
-                                                        record, [record.name]),
-                                              )
-                                              .toList(),
-                                        )
-                                            .search(_model.textController.text)
-                                            .map((r) => r.object)
-                                            .toList();
-                                      });
-                                      FFAppState().buscando = true;
-                                      safeSetState(() {});
-                                    },
-                                  ),
-                                  autofocus: false,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      'hug8p2ey' /*     Buscar... */,
-                                    ),
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Lexend',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          letterSpacing: 0.0,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Lexend',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  validator: _model.textControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                            if (FFAppState().buscando == true)
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      safeSetState(() {
-                                        _model.textController?.clear();
-                                      });
-                                      FFAppState().buscando = false;
-                                      safeSetState(() {});
-                                    },
-                                    child: const Icon(
-                                      Icons.close,
-                                      color: Color(0x8014181B),
-                                      size: 28.0,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      if (!FFAppState().buscando)
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 0.0, 0.0),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 8.0),
-                                    child: FlutterFlowChoiceChips(
-                                      options: [
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'ofu1gwyp' /* Todos */,
-                                            ),
-                                            Icons.public),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              '1m4ky5z9' /* Comunidad */,
-                                            ),
-                                            Icons.people_alt_sharp),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'r6qr2tb1' /* Fiestas */,
-                                            ),
-                                            FontAwesomeIcons.cocktail),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              's80d6rfl' /* Deportes */,
-                                            ),
-                                            Icons.sports_football),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'xf0ofdku' /* Gastronomía */,
-                                            ),
-                                            Icons.fastfood_rounded),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              '31w6uvcr' /* Educación */,
-                                            ),
-                                            FontAwesomeIcons.school),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'ed5g8325' /* Caridad */,
-                                            ),
-                                            FontAwesomeIcons.handHoldingHeart),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'qv7vmq3b' /* Teatro */,
-                                            ),
-                                            FontAwesomeIcons.splotch),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'avmchl7k' /* Música */,
-                                            ),
-                                            FontAwesomeIcons.music),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'd3125el1' /* Turismo */,
-                                            ),
-                                            FontAwesomeIcons.tree),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              'g6ym55qq' /* Empresarial */,
-                                            ),
-                                            Icons.work),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              '4zk4may3' /* Infantil */,
-                                            ),
-                                            FontAwesomeIcons.child),
-                                        ChipData(
-                                            FFLocalizations.of(context).getText(
-                                              '3zdxgj2a' /* Otros */,
-                                            ),
-                                            Icons.notes)
-                                      ],
-                                      onChanged: (val) => safeSetState(() =>
-                                          _model.choiceChipsValue =
-                                              val?.firstOrNull),
-                                      selectedChipStyle: ChipStyle(
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                              fontSize: 13.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        iconColor:
-                                            FlutterFlowTheme.of(context).info,
-                                        iconSize: 13.0,
-                                        elevation: 2.0,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .accent1,
-                                        borderWidth: 1.0,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      unselectedChipStyle: ChipStyle(
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        iconColor: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        iconSize: 18.0,
-                                        elevation: 0.0,
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                        borderWidth: 1.0,
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      chipSpacing: 7.0,
-                                      rowSpacing: 2.0,
-                                      multiselect: false,
-                                      initialized:
-                                          _model.choiceChipsValue != null,
-                                      alignment: WrapAlignment.start,
-                                      controller:
-                                          _model.choiceChipsValueController ??=
-                                              FormFieldController<List<String>>(
-                                        [widget.choiceChips],
-                                      ),
-                                      wrapped: false,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      if (FFAppState().buscando == false)
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 75.0, 0.0, 0.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 8.0, 0.0, 8.0),
+                                16.0, 0.0, 0.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '3f68st9b' /* Todos los eventos */,
+                                'w4t6uk9d' /* Todos los eventos */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Lexend',
-                                    fontSize: 20.0,
+                                    fontSize: 21.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
                         ),
-                      Stack(
-                        children: [
-                          if ((FFAppState().buscando == false) &&
-                              (_model.choiceChipsValue == 'Todos'))
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Builder(
-                                  builder: (context) {
-                                    final eventos = allEventsEventRecordList
-                                        .map((e) => e)
-                                        .toList();
-                                    if (eventos.isEmpty) {
-                                      return Image.asset(
-                                        'assets/images/404_eventos_no_encontrados_categoria2.png',
-                                      );
-                                    }
-
-                                    return ListView.separated(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: eventos.length,
-                                      separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 20.0),
-                                      itemBuilder: (context, eventosIndex) {
-                                        final eventosItem =
-                                            eventos[eventosIndex];
-                                        return wrapWithModel(
-                                          model: _model.eventCardBigModels1
-                                              .getModel(
-                                            eventosItem.reference.id,
-                                            eventosIndex,
-                                          ),
-                                          updateCallback: () =>
-                                              safeSetState(() {}),
-                                          child: EventCardBigWidget(
-                                            key: Key(
-                                              'Keyiny_${eventosItem.reference.id}',
-                                            ),
-                                            eventParam: eventosItem,
-                                          ),
-                                        );
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  height: 40.0,
+                                  decoration: const BoxDecoration(),
+                                  child: TextFormField(
+                                    controller: _model.textController,
+                                    focusNode: _model.textFieldFocusNode,
+                                    onChanged: (_) => EasyDebounce.debounce(
+                                      '_model.textController',
+                                      const Duration(milliseconds: 100),
+                                      () async {
+                                        safeSetState(() {
+                                          _model
+                                              .simpleSearchResults = TextSearch(
+                                            allEventsEventRecordList
+                                                .map(
+                                                  (record) =>
+                                                      TextSearchItem.fromTerms(
+                                                          record,
+                                                          [record.name]),
+                                                )
+                                                .toList(),
+                                          )
+                                              .search(
+                                                  _model.textController.text)
+                                              .map((r) => r.object)
+                                              .toList();
+                                        });
+                                        FFAppState().buscando = true;
+                                        safeSetState(() {});
                                       },
-                                    );
-                                  },
+                                    ),
+                                    autofocus: false,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'hug8p2ey' /*     Buscar... */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Lexend',
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            letterSpacing: 0.0,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(14.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(14.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(14.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(14.0),
+                                      ),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
+                                  ),
                                 ),
-                              ],
-                            ),
-                          if ((FFAppState().buscando == false) &&
-                              (_model.choiceChipsValue != 'Todos') &&
-                              (_model.choiceChipsValue != 'Comunidad'))
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Builder(
-                                  builder: (context) {
-                                    final eventos = allEventsEventRecordList
-                                        .map((e) => e)
-                                        .toList()
-                                        .where((e) =>
-                                            e.categorys.contains(
-                                                _model.choiceChipsValue) ==
-                                            true)
-                                        .toList();
-                                    if (eventos.isEmpty) {
-                                      return Image.asset(
-                                        'assets/images/404_eventos_no_encontrados_categoria2.png',
-                                      );
-                                    }
-
-                                    return ListView.separated(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: eventos.length,
-                                      separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 20.0),
-                                      itemBuilder: (context, eventosIndex) {
-                                        final eventosItem =
-                                            eventos[eventosIndex];
-                                        return wrapWithModel(
-                                          model: _model.eventCardBigModels2
-                                              .getModel(
-                                            eventosItem.reference.id,
-                                            eventosIndex,
-                                          ),
-                                          updateCallback: () =>
-                                              safeSetState(() {}),
-                                          child: EventCardBigWidget(
-                                            key: Key(
-                                              'Keyju9_${eventosItem.reference.id}',
-                                            ),
-                                            eventParam: eventosItem,
-                                          ),
-                                        );
+                              ),
+                              if (FFAppState().buscando == true)
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 0.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        safeSetState(() {
+                                          _model.textController?.clear();
+                                        });
+                                        FFAppState().buscando = false;
+                                        safeSetState(() {});
                                       },
-                                    );
-                                  },
+                                      child: const Icon(
+                                        Icons.close,
+                                        color: Color(0x8014181B),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ],
-                            ),
-                          if ((FFAppState().buscando == false) &&
-                              (_model.choiceChipsValue == 'Comunidad'))
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Builder(
-                                  builder: (context) {
-                                    final eventos = allEventsEventRecordList
-                                        .map((e) => e)
-                                        .toList()
-                                        .where((e) =>
-                                            e.iscreatorProfesional == false)
-                                        .toList();
-                                    if (eventos.isEmpty) {
-                                      return Image.asset(
-                                        'assets/images/404_eventos_no_encontrados_categoria2.png',
-                                      );
-                                    }
-
-                                    return ListView.separated(
-                                      padding: EdgeInsets.zero,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: eventos.length,
-                                      separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 20.0),
-                                      itemBuilder: (context, eventosIndex) {
-                                        final eventosItem =
-                                            eventos[eventosIndex];
-                                        return wrapWithModel(
-                                          model: _model.eventCardBigModels3
-                                              .getModel(
-                                            eventosItem.reference.id,
-                                            eventosIndex,
-                                          ),
-                                          updateCallback: () =>
-                                              safeSetState(() {}),
-                                          child: EventCardBigWidget(
-                                            key: Key(
-                                              'Keyb21_${eventosItem.reference.id}',
-                                            ),
-                                            eventParam: eventosItem,
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          if (FFAppState().buscando == true)
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 16.0, 0.0, 0.0),
-                              child: Column(
+                            ],
+                          ),
+                        ),
+                        if (!FFAppState().buscando)
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 0.0, 0.0),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Builder(
-                                    builder: (context) {
-                                      final eventos = _model.simpleSearchResults
-                                          .map((e) => e)
-                                          .toList();
-                                      if (eventos.isEmpty) {
-                                        return Image.asset(
-                                          'assets/images/404_eventos_busqueda.png',
-                                        );
-                                      }
-
-                                      return ListView.separated(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: eventos.length,
-                                        separatorBuilder: (_, __) =>
-                                            const SizedBox(height: 20.0),
-                                        itemBuilder: (context, eventosIndex) {
-                                          final eventosItem =
-                                              eventos[eventosIndex];
-                                          return wrapWithModel(
-                                            model: _model.eventCardBigModels4
-                                                .getModel(
-                                              eventosItem.reference.id,
-                                              eventosIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: EventCardBigWidget(
-                                              key: Key(
-                                                'Key1o1_${eventosItem.reference.id}',
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 8.0),
+                                      child: FlutterFlowChoiceChips(
+                                        options: [
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ofu1gwyp' /* Todos */,
                                               ),
-                                              eventParam: eventosItem,
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
+                                              Icons.public),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '1m4ky5z9' /* Comunidad */,
+                                              ),
+                                              Icons.people_alt_sharp),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'r6qr2tb1' /* Fiestas */,
+                                              ),
+                                              FontAwesomeIcons.cocktail),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                's80d6rfl' /* Deportes */,
+                                              ),
+                                              Icons.sports_football),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'xf0ofdku' /* Gastronomía */,
+                                              ),
+                                              Icons.fastfood_rounded),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '31w6uvcr' /* Educación */,
+                                              ),
+                                              FontAwesomeIcons.school),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ed5g8325' /* Caridad */,
+                                              ),
+                                              FontAwesomeIcons
+                                                  .handHoldingHeart),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'qv7vmq3b' /* Teatro */,
+                                              ),
+                                              FontAwesomeIcons.splotch),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'avmchl7k' /* Música */,
+                                              ),
+                                              FontAwesomeIcons.music),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'd3125el1' /* Turismo */,
+                                              ),
+                                              FontAwesomeIcons.tree),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'g6ym55qq' /* Empresarial */,
+                                              ),
+                                              Icons.work),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '4zk4may3' /* Infantil */,
+                                              ),
+                                              FontAwesomeIcons.child),
+                                          ChipData(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '3zdxgj2a' /* Otros */,
+                                              ),
+                                              Icons.notes)
+                                        ],
+                                        onChanged: (val) => safeSetState(() =>
+                                            _model.choiceChipsValue =
+                                                val?.firstOrNull),
+                                        selectedChipStyle: ChipStyle(
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                fontSize: 13.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          iconColor:
+                                              FlutterFlowTheme.of(context).info,
+                                          iconSize: 13.0,
+                                          elevation: 2.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .accent1,
+                                          borderWidth: 1.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        unselectedChipStyle: ChipStyle(
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Lexend Deca',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          iconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                          iconSize: 18.0,
+                                          elevation: 0.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          borderWidth: 1.0,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        chipSpacing: 5.0,
+                                        rowSpacing: 2.0,
+                                        multiselect: false,
+                                        initialized:
+                                            _model.choiceChipsValue != null,
+                                        alignment: WrapAlignment.start,
+                                        controller: _model
+                                                .choiceChipsValueController ??=
+                                            FormFieldController<List<String>>(
+                                          [widget.choiceChips],
+                                        ),
+                                        wrapped: false,
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
-                        ],
-                      ),
-                    ].addToEnd(const SizedBox(height: 70.0)),
+                          ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 20.0, 10.0, 0.0),
+                          child: Stack(
+                            children: [
+                              if ((FFAppState().buscando == false) &&
+                                  (_model.choiceChipsValue == 'Todos'))
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        final eventos = allEventsEventRecordList
+                                            .map((e) => e)
+                                            .toList();
+                                        if (eventos.isEmpty) {
+                                          return Image.asset(
+                                            'assets/images/404_eventos_no_encontrados_categoria2.png',
+                                          );
+                                        }
+
+                                        return ListView.separated(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: eventos.length,
+                                          separatorBuilder: (_, __) =>
+                                              const SizedBox(height: 20.0),
+                                          itemBuilder: (context, eventosIndex) {
+                                            final eventosItem =
+                                                eventos[eventosIndex];
+                                            return wrapWithModel(
+                                              model: _model.eventCardBigModels1
+                                                  .getModel(
+                                                eventosItem.reference.id,
+                                                eventosIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: EventCardBigWidget(
+                                                key: Key(
+                                                  'Keyiny_${eventosItem.reference.id}',
+                                                ),
+                                                eventParam: eventosItem,
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              if ((FFAppState().buscando == false) &&
+                                  (_model.choiceChipsValue != 'Todos') &&
+                                  (_model.choiceChipsValue != 'Comunidad'))
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        final eventos = allEventsEventRecordList
+                                            .map((e) => e)
+                                            .toList()
+                                            .where((e) =>
+                                                e.categorys.contains(
+                                                    _model.choiceChipsValue) ==
+                                                true)
+                                            .toList();
+                                        if (eventos.isEmpty) {
+                                          return Image.asset(
+                                            'assets/images/404_eventos_no_encontrados_categoria2.png',
+                                          );
+                                        }
+
+                                        return ListView.separated(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: eventos.length,
+                                          separatorBuilder: (_, __) =>
+                                              const SizedBox(height: 20.0),
+                                          itemBuilder: (context, eventosIndex) {
+                                            final eventosItem =
+                                                eventos[eventosIndex];
+                                            return wrapWithModel(
+                                              model: _model.eventCardBigModels2
+                                                  .getModel(
+                                                eventosItem.reference.id,
+                                                eventosIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: EventCardBigWidget(
+                                                key: Key(
+                                                  'Keyju9_${eventosItem.reference.id}',
+                                                ),
+                                                eventParam: eventosItem,
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              if ((FFAppState().buscando == false) &&
+                                  (_model.choiceChipsValue == 'Comunidad'))
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        final eventos = allEventsEventRecordList
+                                            .map((e) => e)
+                                            .toList()
+                                            .where((e) =>
+                                                e.iscreatorProfesional == false)
+                                            .toList();
+                                        if (eventos.isEmpty) {
+                                          return Image.asset(
+                                            'assets/images/404_eventos_no_encontrados_categoria2.png',
+                                          );
+                                        }
+
+                                        return ListView.separated(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: eventos.length,
+                                          separatorBuilder: (_, __) =>
+                                              const SizedBox(height: 20.0),
+                                          itemBuilder: (context, eventosIndex) {
+                                            final eventosItem =
+                                                eventos[eventosIndex];
+                                            return wrapWithModel(
+                                              model: _model.eventCardBigModels3
+                                                  .getModel(
+                                                eventosItem.reference.id,
+                                                eventosIndex,
+                                              ),
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: EventCardBigWidget(
+                                                key: Key(
+                                                  'Keyb21_${eventosItem.reference.id}',
+                                                ),
+                                                eventParam: eventosItem,
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              if (FFAppState().buscando == true)
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Builder(
+                                        builder: (context) {
+                                          final eventos = _model
+                                              .simpleSearchResults
+                                              .map((e) => e)
+                                              .toList();
+                                          if (eventos.isEmpty) {
+                                            return Image.asset(
+                                              'assets/images/404_eventos_busqueda.png',
+                                            );
+                                          }
+
+                                          return ListView.separated(
+                                            padding: EdgeInsets.zero,
+                                            primary: false,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: eventos.length,
+                                            separatorBuilder: (_, __) =>
+                                                const SizedBox(height: 20.0),
+                                            itemBuilder:
+                                                (context, eventosIndex) {
+                                              final eventosItem =
+                                                  eventos[eventosIndex];
+                                              return wrapWithModel(
+                                                model: _model
+                                                    .eventCardBigModels4
+                                                    .getModel(
+                                                  eventosItem.reference.id,
+                                                  eventosIndex,
+                                                ),
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child: EventCardBigWidget(
+                                                  key: Key(
+                                                    'Key1o1_${eventosItem.reference.id}',
+                                                  ),
+                                                  eventParam: eventosItem,
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ].addToEnd(const SizedBox(height: 70.0)),
+                    ),
                   ),
                 ),
                 Align(

@@ -457,7 +457,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 5.0),
+                                20.0, 20.0, 20.0, 12.0),
                             child: Text(
                               myEventDetailEventRecord.name,
                               style: FlutterFlowTheme.of(context)
@@ -476,7 +476,7 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                               (myEventDetailEventRecord.fechaStr != ''))
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 10.0),
+                                  20.0, 0.0, 20.0, 10.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 42.0,
@@ -1071,6 +1071,11 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                               ].divide(const SizedBox(height: 12.0)),
                             ),
                           ),
+                          Divider(
+                            height: 5.0,
+                            thickness: 1.0,
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
                           if (myEventDetailEventRecord.isParticipar)
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -1078,12 +1083,6 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Divider(
-                                    height: 5.0,
-                                    thickness: 1.0,
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                  ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 30.0, 20.0, 30.0),
@@ -1593,6 +1592,12 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                       ],
                                     ),
                                   ),
+                                  Divider(
+                                    height: 1.0,
+                                    thickness: 2.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
                                 ],
                               ),
                             ),
@@ -1629,12 +1634,6 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Divider(
-                                        height: 1.0,
-                                        thickness: 2.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                      ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 30.0, 8.0, 8.0),
@@ -1817,12 +1816,6 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Divider(
-                                  height: 1.0,
-                                  thickness: 2.0,
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 30.0, 8.0, 8.0),

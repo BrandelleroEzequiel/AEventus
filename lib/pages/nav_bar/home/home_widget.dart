@@ -75,7 +75,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             Align(
               alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 90.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -118,7 +118,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Lexend',
-                                              fontSize: 16.0,
+                                              fontSize: 17.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -324,7 +324,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 30.0, 0.0, 0.0),
+                            16.0, 50.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -359,7 +359,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Lexend',
-                                              fontSize: 16.0,
+                                              fontSize: 17.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -509,7 +509,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 30.0, 0.0, 15.0),
+                            14.0, 50.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -527,7 +527,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 8.0, 0.0),
+                                    3.0, 0.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -544,7 +544,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Lexend',
-                                              fontSize: 16.0,
+                                              fontSize: 17.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -687,13 +687,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                       ),
-                      const Divider(
-                        thickness: 1.0,
-                        color: Color(0x1E000000),
-                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 15.0, 16.0, 80.0),
+                            16.0, 50.0, 16.0, 80.0),
                         child: Container(
                           constraints: const BoxConstraints(
                             maxWidth: 800.0,
