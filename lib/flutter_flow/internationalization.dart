@@ -295,10 +295,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // EventDetail
   {
-    'ydwxf1p2': {
-      'es': 'Evento activo',
-      'en': '',
-    },
     '0m628f7r': {
       'es': ' - ',
       'en': '',
@@ -340,7 +336,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'i8mw5fr0': {
-      'es': 'Cupones activos del lugar',
+      'es': 'Cupones activos del usuario',
       'en': '',
     },
     'q4oxr5b4': {
@@ -1197,7 +1193,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'ri9d7mfy': {
-      'es': 'Ubicación del lugar',
+      'es': 'Ubicación',
       'en': '',
     },
     'fay73723': {
@@ -1474,7 +1470,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     '59q8e7ym': {
-      'es': 'Cupones activos del lugar',
+      'es': 'Cupones activos del usuario',
       'en': '',
     },
     'u5fs9g9x': {

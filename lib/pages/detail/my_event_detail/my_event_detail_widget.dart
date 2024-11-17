@@ -1601,215 +1601,203 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                 ],
                               ),
                             ),
-                          if (true /* Warning: Trying to access variable not yet defined. */)
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 30.0),
-                              child: FutureBuilder<int>(
-                                future: queryPromocionRecordCount(
-                                  queryBuilder: (promocionRecord) =>
-                                      promocionRecord.where(
-                                    'user_creator',
-                                    isEqualTo:
-                                        columnContenidoUserRecord.reference,
+                          FutureBuilder<int>(
+                            future: queryPromocionRecordCount(
+                              queryBuilder: (promocionRecord) =>
+                                  promocionRecord.where(
+                                'user_creator',
+                                isEqualTo: columnContenidoUserRecord.reference,
+                              ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    child: SpinKitPulse(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 40.0,
+                                    ),
                                   ),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        child: SpinKitPulse(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 40.0,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  int cuponesCount = snapshot.data!;
+                                );
+                              }
+                              int cuponesCount = snapshot.data!;
 
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 30.0, 8.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                    'CreatePromocion');
-                                              },
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '59q8e7ym' /* Cupones activos del lugar */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  if ((cuponesCount > 0) &&
+                                      columnContenidoUserRecord.profesional)
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 30.0, 8.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context
+                                                  .pushNamed('CreatePromocion');
+                                            },
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '59q8e7ym' /* Cupones activos del usuario */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyLarge
+                                                  .override(
+                                                    fontFamily: 'Lexend',
+                                                    color: const Color(0xFF15161E),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              FFAppState().banderaBooleana =
+                                                  true;
+                                              safeSetState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'u5fs9g9x' /* Ver todos */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Lexend',
                                                           color:
-                                                              const Color(0xFF15161E),
-                                                          fontSize: 16.0,
+                                                              const Color(0x80000000),
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
                                                         ),
-                                              ),
-                                            ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState().banderaBooleana =
-                                                    true;
-                                                safeSetState(() {});
-                                              },
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                5.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'u5fs9g9x' /* Ver todos */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Lexend',
-                                                            color: const Color(
-                                                                0x80000000),
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
                                                   ),
-                                                  const Icon(
-                                                    Icons.arrow_forward,
-                                                    color: Color(0x7F000000),
-                                                    size: 14.0,
-                                                  ),
-                                                ],
-                                              ),
+                                                ),
+                                                const Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Color(0x7F000000),
+                                                  size: 14.0,
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 0.0, 0.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
                                           ),
-                                          child: StreamBuilder<
-                                              List<PromocionRecord>>(
-                                            stream: queryPromocionRecord(
-                                              queryBuilder: (promocionRecord) =>
-                                                  promocionRecord.where(
-                                                'user_creator',
-                                                isEqualTo:
-                                                    columnContenidoUserRecord
-                                                        .reference,
-                                              ),
+                                        ],
+                                      ),
+                                    ),
+                                  if ((cuponesCount > 0) &&
+                                      columnContenidoUserRecord.profesional)
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: StreamBuilder<
+                                            List<PromocionRecord>>(
+                                          stream: queryPromocionRecord(
+                                            queryBuilder: (promocionRecord) =>
+                                                promocionRecord.where(
+                                              'user_creator',
+                                              isEqualTo:
+                                                  columnContenidoUserRecord
+                                                      .reference,
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    child: SpinKitPulse(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 40.0,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 40.0,
+                                                  height: 40.0,
+                                                  child: SpinKitPulse(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    size: 40.0,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            List<PromocionRecord>
+                                                listViewPromocionRecordList =
+                                                snapshot.data!;
+
+                                            return ListView.separated(
+                                              padding: EdgeInsets.zero,
+                                              primary: false,
+                                              scrollDirection: Axis.horizontal,
+                                              itemCount:
+                                                  listViewPromocionRecordList
+                                                      .length,
+                                              separatorBuilder: (_, __) =>
+                                                  const SizedBox(width: 6.0),
+                                              itemBuilder:
+                                                  (context, listViewIndex) {
+                                                final listViewPromocionRecord =
+                                                    listViewPromocionRecordList[
+                                                        listViewIndex];
+                                                return wrapWithModel(
+                                                  model: _model.cuponCardModels
+                                                      .getModel(
+                                                    listViewPromocionRecord
+                                                        .reference.id,
+                                                    listViewIndex,
+                                                  ),
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child: CuponCardWidget(
+                                                    key: Key(
+                                                      'Keyqgn_${listViewPromocionRecord.reference.id}',
                                                     ),
+                                                    cuponParam:
+                                                        listViewPromocionRecord,
                                                   ),
                                                 );
-                                              }
-                                              List<PromocionRecord>
-                                                  listViewPromocionRecordList =
-                                                  snapshot.data!;
-
-                                              return ListView.separated(
-                                                padding: EdgeInsets.zero,
-                                                primary: false,
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount:
-                                                    listViewPromocionRecordList
-                                                        .length,
-                                                separatorBuilder: (_, __) =>
-                                                    const SizedBox(width: 6.0),
-                                                itemBuilder:
-                                                    (context, listViewIndex) {
-                                                  final listViewPromocionRecord =
-                                                      listViewPromocionRecordList[
-                                                          listViewIndex];
-                                                  return wrapWithModel(
-                                                    model: _model
-                                                        .cuponCardModels
-                                                        .getModel(
-                                                      listViewPromocionRecord
-                                                          .reference.id,
-                                                      listViewIndex,
-                                                    ),
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child: CuponCardWidget(
-                                                      key: Key(
-                                                        'Keyqgn_${listViewPromocionRecord.reference.id}',
-                                                      ),
-                                                      cuponParam:
-                                                          listViewPromocionRecord,
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            },
-                                          ),
+                                              },
+                                            );
+                                          },
                                         ),
                                       ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
+                                    ),
+                                ],
+                              );
+                            },
+                          ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 20.0),

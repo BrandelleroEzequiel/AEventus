@@ -3321,118 +3321,114 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                   ),
                                 ],
                               ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 20.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Divider(
-                                    thickness: 2.0,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 20.0, 0.0, 8.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ri9d7mfy' /* Ubicación del lugar */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lexend',
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 167.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                          child: Image.network(
-                                            'https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png',
-                                            width: 300.0,
-                                            height: 176.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Divider(
+                                  thickness: 2.0,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
+                                        16.0, 20.0, 0.0, 8.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'fay73723' /* Alvear 800, Rosario, Santa Fe,... */,
+                                        'ri9d7mfy' /* Ubicación */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Lexend',
-                                            fontSize: 13.0,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w300,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                            if (true /* Warning: Trying to access variable not yet defined. */)
-                              FutureBuilder<int>(
-                                future: queryPromocionRecordCount(
-                                  queryBuilder: (promocionRecord) =>
-                                      promocionRecord.where(
-                                    'user_creator',
-                                    isEqualTo: widget.objUserParam?.reference,
-                                  ),
                                 ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        child: SpinKitPulse(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 40.0,
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 167.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                        child: Image.network(
+                                          'https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png',
+                                          width: 300.0,
+                                          height: 176.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    );
-                                  }
-                                  int cuponesCount = snapshot.data!;
-
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Divider(
-                                        thickness: 2.0,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 20.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'fay73723' /* Alvear 800, Rosario, Santa Fe,... */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          fontSize: 13.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 2.0,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                ),
+                              ],
+                            ),
+                            FutureBuilder<int>(
+                              future: queryPromocionRecordCount(
+                                queryBuilder: (promocionRecord) =>
+                                    promocionRecord.where(
+                                  'user_creator',
+                                  isEqualTo: widget.objUserParam?.reference,
+                                ),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      child: SpinKitPulse(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
+                                            .primary,
+                                        size: 40.0,
                                       ),
+                                    ),
+                                  );
+                                }
+                                int cuponesCount = snapshot.data!;
+
+                                return Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    if ((cuponesCount > 0) &&
+                                        userDetailUserRecord.profesional)
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 20.0, 8.0, 8.0),
@@ -3529,9 +3525,11 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                           ],
                                         ),
                                       ),
+                                    if ((cuponesCount > 0) &&
+                                        userDetailUserRecord.profesional)
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 0.0, 10.0),
+                                            16.0, 0.0, 0.0, 30.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 100.0,
@@ -3609,19 +3607,14 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  );
-                                },
-                              ),
+                                  ],
+                                );
+                              },
+                            ),
                             if (userProfesionalCount != 0)
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Divider(
-                                    thickness: 2.0,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 10.0, 8.0, 8.0),
