@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -239,5 +241,15 @@ class FFAppState extends ChangeNotifier {
   String get ViewImg => _ViewImg;
   set ViewImg(String value) {
     _ViewImg = value;
+  }
+
+  EventCreateStruct _eventoCreado = EventCreateStruct();
+  EventCreateStruct get eventoCreado => _eventoCreado;
+  set eventoCreado(EventCreateStruct value) {
+    _eventoCreado = value;
+  }
+
+  void updateEventoCreadoStruct(Function(EventCreateStruct) updateFn) {
+    updateFn(_eventoCreado);
   }
 }

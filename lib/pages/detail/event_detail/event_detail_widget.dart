@@ -866,6 +866,11 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                       categorysItem,
                                                       ParamType.String,
                                                     ),
+                                                    'buttonBack':
+                                                        serializeParam(
+                                                      true,
+                                                      ParamType.bool,
+                                                    ),
                                                   }.withoutNulls,
                                                 );
                                               },
@@ -1984,14 +1989,22 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                     child: StreamBuilder<List<EventRecord>>(
                                       stream: queryEventRecord(
                                         queryBuilder: (eventRecord) =>
-                                            eventRecord.where(
-                                          'categorys',
-                                          arrayContains: valueOrDefault<String>(
-                                            eventDetailEventRecord
-                                                .categorys.first,
-                                            'Musica',
-                                          ),
-                                        ),
+                                            eventRecord
+                                                .where(
+                                                  'categorys',
+                                                  arrayContains:
+                                                      valueOrDefault<String>(
+                                                    eventDetailEventRecord
+                                                        .categorys.first,
+                                                    'Musica',
+                                                  ),
+                                                )
+                                                .where(
+                                                  'name',
+                                                  isNotEqualTo:
+                                                      eventDetailEventRecord
+                                                          .name,
+                                                ),
                                         limit: 15,
                                       ),
                                       builder: (context, snapshot) {
@@ -2013,6 +2026,11 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                         List<EventRecord>
                                             listViewEventRecordList =
                                             snapshot.data!;
+                                        if (listViewEventRecordList.isEmpty) {
+                                          return Image.asset(
+                                            'assets/images/404_eventos_no_encontrados_categoria2.png',
+                                          );
+                                        }
 
                                         return ListView.separated(
                                           padding: EdgeInsets.zero,

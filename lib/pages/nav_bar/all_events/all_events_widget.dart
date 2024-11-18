@@ -20,9 +20,12 @@ class AllEventsWidget extends StatefulWidget {
   const AllEventsWidget({
     super.key,
     String? choiceChips,
-  }) : choiceChips = choiceChips ?? 'Todos';
+    bool? buttonBack,
+  })  : choiceChips = choiceChips ?? 'Todos',
+        buttonBack = buttonBack ?? false;
 
   final String choiceChips;
+  final bool buttonBack;
 
   @override
   State<AllEventsWidget> createState() => _AllEventsWidgetState();
@@ -95,24 +98,48 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, 1.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 10.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'w4t6uk9d' /* Todos los eventos */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Lexend',
-                                    fontSize: 21.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 0.0, 10.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              if (widget.buttonBack)
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 3.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.safePop();
+                                    },
+                                    child: const Icon(
+                                      Icons.arrow_back_ios,
+                                      color: Color(0x8014181B),
+                                      size: 24.0,
+                                    ),
                                   ),
-                            ),
+                                ),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, 1.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'w4t6uk9d' /* Todos los eventos */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Lexend',
+                                        fontSize: 21.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Padding(

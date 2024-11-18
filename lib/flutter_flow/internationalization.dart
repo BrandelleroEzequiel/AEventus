@@ -1520,8 +1520,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
       'en': '',
     },
+    '6ybz2pas': {
+      'es': 'Este campo es obligatorio!',
+      'en': '',
+    },
+    'awq5yqy4': {
+      'es': 'Este campo es obligatorio!',
+      'en': '',
+    },
+    'we3jms3h': {
+      'es': 'Please choose an option from the dropdown',
+      'en': '',
+    },
     '1rq81tq8': {
       'es': 'Descripción',
+      'en': '',
+    },
+    '3603mj9y': {
+      'es': 'Es obligatorio seleccionar al menos una opción',
       'en': '',
     },
     'pxxl43u1': {
@@ -1573,10 +1589,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'h3hrtv8x': {
-      'es': 'Fiestas',
-      'en': '',
-    },
-    '3hezmtq6': {
       'es': 'Fiestas',
       'en': '',
     },

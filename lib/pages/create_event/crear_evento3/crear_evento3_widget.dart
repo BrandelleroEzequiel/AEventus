@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -11,12 +12,7 @@ import 'crear_evento3_model.dart';
 export 'crear_evento3_model.dart';
 
 class CrearEvento3Widget extends StatefulWidget {
-  const CrearEvento3Widget({
-    super.key,
-    required this.eventCreado,
-  });
-
-  final EventRecord? eventCreado;
+  const CrearEvento3Widget({super.key});
 
   @override
   State<CrearEvento3Widget> createState() => _CrearEvento3WidgetState();
@@ -35,7 +31,7 @@ class _CrearEvento3WidgetState extends State<CrearEvento3Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().imgpath =
-          widget.eventCreado!.imagenesAdicionales.toList().cast<String>();
+          FFAppState().eventoCreado.imagenesAdicionales.toList().cast<String>();
       safeSetState(() {});
     });
 
@@ -80,20 +76,12 @@ class _CrearEvento3WidgetState extends State<CrearEvento3Widget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        FFAppState().banderaBooleana = false;
-                        FFAppState().banderaBoleana2 = false;
-                        FFAppState().estado = 'IMAGENES';
-                        FFAppState().removeFromImgpath(
-                            'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg');
-                        safeSetState(() {});
-                        await widget.eventCreado!.reference.delete();
-
-                        context.pushNamed('Home');
+                        context.safePop();
                       },
-                      child: Icon(
-                        Icons.close,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 24.0,
+                      child: const Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Color(0xBC57636C),
+                        size: 21.0,
                       ),
                     ),
                     Expanded(
@@ -478,13 +466,35 @@ class _CrearEvento3WidgetState extends State<CrearEvento3Widget> {
                             16.0, 6.0, 16.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await widget.eventCreado!.reference.update({
+                            await EventRecord.collection.doc().set({
                               ...createEventRecordData(
+                                name: valueOrDefault<String>(
+                                  FFAppState().eventoCreado.name,
+                                  'nameEvent',
+                                ),
+                                description:
+                                    FFAppState().eventoCreado.descripcion,
+                                userCreator: currentUserReference,
+                                active: true,
+                                fechaInicio:
+                                    FFAppState().eventoCreado.fechaInicio,
                                 isParticipar: _model.switchParticipantesValue,
+                                horaInicio:
+                                    FFAppState().eventoCreado.horaInicio,
+                                horaFin: FFAppState().eventoCreado.horaFin,
+                                isHoraInicio:
+                                    FFAppState().eventoCreado.isHoraInicio,
+                                isHoraFin: FFAppState().eventoCreado.isHoraFin,
+                                iscreatorProfesional: valueOrDefault<bool>(
+                                    currentUserDocument?.profesional, false),
+                                fechaStr: FFAppState().eventoCreado.fechaStr,
+                                privacidad: 'Publico',
                               ),
                               ...mapToFirestore(
                                 {
                                   'ImagenesAdicionales': FFAppState().imgpath,
+                                  'categorys':
+                                      FFAppState().eventoCreado.categorias,
                                 },
                               ),
                             });
@@ -493,9 +503,11 @@ class _CrearEvento3WidgetState extends State<CrearEvento3Widget> {
                             FFAppState().estado = 'IMAGENES';
                             FFAppState().removeFromImgpath(
                                 'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg');
+                            FFAppState().banderaBooleana3 = false;
+                            FFAppState().eventoCreado = EventCreateStruct();
                             safeSetState(() {});
 
-                            context.pushNamed('Home');
+                            context.pushNamed('MyProfile');
                           },
                           text: FFLocalizations.of(context).getText(
                             'fq5tucs4' /* Crear evento */,

@@ -154,6 +154,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'choiceChips',
               ParamType.String,
             ),
+            buttonBack: params.getParam(
+              'buttonBack',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
@@ -246,28 +250,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CrearEvento2',
           path: '/crearEvento2',
           requireAuth: true,
-          builder: (context, params) => CrearEvento2Widget(
-            eventCreado: params.getParam(
-              'eventCreado',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['event'],
-            ),
-          ),
+          builder: (context, params) => const CrearEvento2Widget(),
         ),
         FFRoute(
           name: 'CrearEvento3',
           path: '/crearEvento3',
           requireAuth: true,
-          asyncParams: {
-            'eventCreado': getDoc(['event'], EventRecord.fromSnapshot),
-          },
-          builder: (context, params) => CrearEvento3Widget(
-            eventCreado: params.getParam(
-              'eventCreado',
-              ParamType.Document,
-            ),
-          ),
+          builder: (context, params) => const CrearEvento3Widget(),
         ),
         FFRoute(
           name: 'EditarEvento',
@@ -401,6 +390,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -419,6 +409,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

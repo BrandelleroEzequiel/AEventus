@@ -1,6 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,6 +7,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'crear_evento1_model.dart';
 export 'crear_evento1_model.dart';
 
@@ -28,6 +29,12 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
     super.initState();
     _model = createModel(context, () => CrearEvento1Model());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().eventoCreado = EventCreateStruct();
+      safeSetState(() {});
+    });
+
     _model.tituloTextController ??= TextEditingController();
     _model.tituloFocusNode ??= FocusNode();
 
@@ -46,6 +53,8 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -83,6 +92,15 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.safePop();
+                                  FFAppState().banderaBooleana = false;
+                                  FFAppState().banderaBoleana2 = false;
+                                  FFAppState().estado = 'IMAGENES';
+                                  FFAppState().removeFromImgpath(
+                                      'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg');
+                                  FFAppState().banderaBooleana3 = false;
+                                  FFAppState().eventoCreado =
+                                      EventCreateStruct();
+                                  safeSetState(() {});
                                 },
                                 child: Icon(
                                   Icons.close,
@@ -272,105 +290,113 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: TextFormField(
-                                  controller: _model.tituloTextController,
-                                  focusNode: _model.tituloFocusNode,
-                                  autofocus: false,
-                                  textCapitalization: TextCapitalization.none,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      'i1p9epp0' /* Título del evento */,
-                                    ),
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
+                              Form(
+                                key: _model.formKey,
+                                autovalidateMode: AutovalidateMode.disabled,
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 0.0),
+                                  child: TextFormField(
+                                    controller: _model.tituloTextController,
+                                    focusNode: _model.tituloFocusNode,
+                                    autofocus: false,
+                                    textCapitalization: TextCapitalization.none,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText:
+                                          FFLocalizations.of(context).getText(
+                                        'i1p9epp0' /* Título del evento */,
+                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Lexend',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      errorStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            fontSize: 12.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
+                                              .alternate,
+                                          width: 2.0,
                                         ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Lexend',
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
+                                              .primary,
+                                          width: 2.0,
                                         ),
-                                    errorStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
                                               .error,
-                                          fontSize: 12.0,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      contentPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              16.0, 20.0, 16.0, 20.0),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    contentPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 20.0, 16.0, 20.0),
+                                    cursorColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    validator: _model
+                                        .tituloTextControllerValidator
+                                        .asValidator(context),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  validator: _model
-                                      .tituloTextControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 10.0, 0.0, 20.0),
                                 child: TextFormField(
                                   controller: _model.descripcionTextController,
                                   focusNode: _model.descripcionFocusNode,
@@ -460,11 +486,64 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
                                       .asValidator(context),
                                 ),
                               ),
+                              if (FFAppState().banderaBooleana)
+                                Wrap(
+                                  spacing: 0.0,
+                                  runSpacing: 0.0,
+                                  alignment: WrapAlignment.start,
+                                  crossAxisAlignment: WrapCrossAlignment.start,
+                                  direction: Axis.horizontal,
+                                  runAlignment: WrapAlignment.start,
+                                  verticalDirection: VerticalDirection.down,
+                                  clipBehavior: Clip.none,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 5.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Icon(
+                                            Icons.warning_sharp,
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            size: 19.0,
+                                          ),
+                                          Expanded(
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '3603mj9y' /* Es obligatorio seleccionar al ... */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Lexend',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ].divide(const SizedBox(width: 5.0)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 20.0, 0.0, 10.0),
+                                      0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'pxxl43u1' /* Seleccione una o más categoría... */,
@@ -583,11 +662,7 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
                                     controller: _model
                                             .choiceChipsCategoriasValueController ??=
                                         FormFieldController<List<String>>(
-                                      [
-                                        FFLocalizations.of(context).getText(
-                                          '3hezmtq6' /* Fiestas */,
-                                        )
-                                      ],
+                                      [],
                                     ),
                                     wrapped: true,
                                   ),
@@ -608,55 +683,29 @@ class _CrearEvento1WidgetState extends State<CrearEvento1Widget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 6.0, 20.0, 30.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    if (_model.tituloTextController.text != '') {
-                      var eventRecordReference = EventRecord.collection.doc();
-                      await eventRecordReference.set({
-                        ...createEventRecordData(
-                          name: _model.tituloTextController.text,
-                          description: _model.descripcionTextController.text,
-                          userCreator: currentUserReference,
-                          active: true,
-                          iscreatorProfesional: valueOrDefault<bool>(
-                              currentUserDocument?.profesional, false),
-                        ),
-                        ...mapToFirestore(
-                          {
-                            'ImagenesAdicionales': [_model.uploadedFileUrl],
-                            'categorys': _model.choiceChipsCategoriasValues,
-                          },
-                        ),
-                      });
-                      _model.eventoCreadoOutPut =
-                          EventRecord.getDocumentFromData({
-                        ...createEventRecordData(
-                          name: _model.tituloTextController.text,
-                          description: _model.descripcionTextController.text,
-                          userCreator: currentUserReference,
-                          active: true,
-                          iscreatorProfesional: valueOrDefault<bool>(
-                              currentUserDocument?.profesional, false),
-                        ),
-                        ...mapToFirestore(
-                          {
-                            'ImagenesAdicionales': [_model.uploadedFileUrl],
-                            'categorys': _model.choiceChipsCategoriasValues,
-                          },
-                        ),
-                      }, eventRecordReference);
-                      await Future.delayed(const Duration(milliseconds: 1000));
-
-                      context.pushNamed(
-                        'CrearEvento2',
-                        queryParameters: {
-                          'eventCreado': serializeParam(
-                            _model.eventoCreadoOutPut?.reference,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
+                    if (_model.formKey.currentState == null ||
+                        !_model.formKey.currentState!.validate()) {
+                      return;
                     }
+                    if (_model.choiceChipsCategoriasValues!.isNotEmpty) {
+                      FFAppState().updateEventoCreadoStruct(
+                        (e) => e
+                          ..name = _model.tituloTextController.text
+                          ..descripcion = _model.descripcionTextController.text
+                          ..categorias =
+                              _model.choiceChipsCategoriasValues!.toList()
+                          ..updateImagenesAdicionales(
+                            (e) => e.add(_model.uploadedFileUrl),
+                          ),
+                      );
+                      FFAppState().banderaBooleana = false;
+                      safeSetState(() {});
 
-                    safeSetState(() {});
+                      context.pushNamed('CrearEvento2');
+                    } else {
+                      FFAppState().banderaBooleana = true;
+                      safeSetState(() {});
+                    }
                   },
                   text: FFLocalizations.of(context).getText(
                     'cuwl8gj6' /* Continuar */,
