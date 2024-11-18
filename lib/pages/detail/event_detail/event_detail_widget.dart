@@ -1931,6 +1931,10 @@ class _EventDetailWidgetState extends State<EventDetailWidget>
                                                 ),
                                                 ParamType.String,
                                               ),
+                                              'buttonBack': serializeParam(
+                                                true,
+                                                ParamType.bool,
+                                              ),
                                             }.withoutNulls,
                                           );
                                         },

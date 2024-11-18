@@ -453,7 +453,7 @@ class _AllEventsWidgetState extends State<AllEventsWidget> {
                           ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 20.0, 10.0, 0.0),
+                              0.0, 20.0, 0.0, 0.0),
                           child: Stack(
                             children: [
                               if ((FFAppState().buscando == false) &&
