@@ -252,4 +252,10 @@ class FFAppState extends ChangeNotifier {
   void updateEventoCreadoStruct(Function(EventCreateStruct) updateFn) {
     updateFn(_eventoCreado);
   }
+
+  bool _banderaBoleana4 = false;
+  bool get banderaBoleana4 => _banderaBoleana4;
+  set banderaBoleana4(bool value) {
+    _banderaBoleana4 = value;
+  }
 }

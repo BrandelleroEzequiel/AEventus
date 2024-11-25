@@ -2042,10 +2042,6 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                       text: FFLocalizations.of(context).getText(
                                         '5qkd7xav' /* Ver participantes unidos */,
                                       ),
-                                      icon: const Icon(
-                                        Icons.info_outlined,
-                                        size: 19.0,
-                                      ),
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 40.0,
@@ -2075,6 +2071,27 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                     ),
                                   ),
                                 ),
+                              Align(
+                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  borderRadius: 12.0,
+                                  borderWidth: 2.0,
+                                  buttonSize: 40.0,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  icon: Icon(
+                                    Icons.info,
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    size: 22.0,
+                                  ),
+                                  onPressed: () async {
+                                    FFAppState().banderaBoleana4 = false;
+                                    safeSetState(() {});
+                                  },
+                                ),
+                              ),
                               Align(
                                 alignment: const AlignmentDirectional(1.0, 0.0),
                                 child: FlutterFlowIconButton(
@@ -2823,6 +2840,348 @@ class _MyEventDetailWidgetState extends State<MyEventDetailWidget> {
                                                   userReference:
                                                       myEventDetailEventRecord
                                                           .userCreator!,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                if (FFAppState().banderaBoleana4)
+                  Align(
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        FFAppState().banderaBooleana = false;
+                        safeSetState(() {});
+                      },
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 2.0,
+                          sigmaY: 2.0,
+                        ),
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            child: Wrap(
+                              spacing: 0.0,
+                              runSpacing: 0.0,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().banderaBoleana4 = true;
+                                      safeSetState(() {});
+                                    },
+                                    child: Container(
+                                      width: double.infinity,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 200.0,
+                                        maxHeight: 450.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 5.0, 16.0, 15.0),
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 16.0, 8.0, 12.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .banderaBooleana =
+                                                            false;
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  4.0),
+                                                          child: Icon(
+                                                            Icons.close,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            size: 20.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Expanded(
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '1bjny7de' /* Estadisticas del evento */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend',
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 20.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            myEventDetailEventRecord
+                                                                .cantVisualizaciones
+                                                                .toString(),
+                                                            '0',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                fontSize: 22.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'yhqadvh0' /* Visualizaciones */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .banderaBoleana2 =
+                                                            true;
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              myEventDetailEventRecord
+                                                                  .usersLikes
+                                                                  .length
+                                                                  .toString(),
+                                                              '0',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend Deca',
+                                                                  fontSize:
+                                                                      22.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'jne09k63' /* Me gustas */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Lexend Deca',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    if (myEventDetailEventRecord
+                                                        .isParticipar)
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          FFAppState()
+                                                                  .listUserUnidosColapse =
+                                                              true;
+                                                          safeSetState(() {});
+                                                        },
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                myEventDetailEventRecord
+                                                                    .usersUnidos
+                                                                    .length
+                                                                    .toString(),
+                                                                '0',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Lexend Deca',
+                                                                    fontSize:
+                                                                        22.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'om64m0nn' /* Participantes */,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Lexend Deca',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                  ],
                                                 ),
                                               ),
                                             ],

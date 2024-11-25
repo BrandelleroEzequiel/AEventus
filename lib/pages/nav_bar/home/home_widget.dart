@@ -844,7 +844,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   listViewIndex];
                                           return Container(
                                             width: 320.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                              ),
+                                            ),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -915,9 +923,22 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         children: [
                                                           ClipRRect(
                                                             borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
+                                                                const BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      8.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      0.0),
+                                                            ),
                                                             child:
                                                                 Image.network(
                                                               valueOrDefault<
@@ -947,6 +968,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           'Lexend Deca',
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
                                                                     ),
                                                               ),
                                                             ),
@@ -956,11 +980,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                const Divider(
-                                                  height: 1.0,
-                                                  thickness: 1.0,
-                                                  color: Color(0x3557636C),
                                                 ),
                                               ].divide(const SizedBox(height: 8.0)),
                                             ),
@@ -1229,7 +1248,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('AdminPage');
+                                        if (valueOrDefault<bool>(
+                                            currentUserDocument?.isAdmin,
+                                            false)) {
+                                          context.pushNamed('HomeAdmin');
+                                        }
                                       },
                                       child: const Icon(
                                         Icons.admin_panel_settings,

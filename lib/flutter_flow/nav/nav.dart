@@ -141,12 +141,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'AdminPage',
-          path: '/adminPage',
-          requireAuth: true,
-          builder: (context, params) => const AdminPageWidget(),
-        ),
-        FFRoute(
           name: 'AllEvents',
           path: '/eventsPage',
           builder: (context, params) => AllEventsWidget(
@@ -271,6 +265,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.Document,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'TESTS',
+          path: '/tests',
+          builder: (context, params) => const TestsWidget(),
+        ),
+        FFRoute(
+          name: 'HomeAdmin',
+          path: '/homeAdmin',
+          requireAuth: true,
+          builder: (context, params) => const HomeAdminWidget(),
+        ),
+        FFRoute(
+          name: 'EventAdmin',
+          path: '/eventAdmin',
+          requireAuth: true,
+          builder: (context, params) => const EventAdminWidget(),
+        ),
+        FFRoute(
+          name: 'UserAdmin',
+          path: '/userAdmin',
+          builder: (context, params) => const UserAdminWidget(),
+        ),
+        FFRoute(
+          name: 'CuponesAdmin',
+          path: '/cuponesAdmin',
+          builder: (context, params) => const CuponesAdminWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

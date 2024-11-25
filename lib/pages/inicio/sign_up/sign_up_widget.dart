@@ -400,7 +400,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                         .userNameCreateTextController,
                                                     focusNode: _model
                                                         .userNameCreateFocusNode,
-                                                    autofocus: true,
+                                                    autofocus: false,
                                                     autofillHints: const [
                                                       AutofillHints.email
                                                     ],
@@ -510,7 +510,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                       .emailAddressCreateTextController,
                                                   focusNode: _model
                                                       .emailAddressCreateFocusNode,
-                                                  autofocus: true,
+                                                  autofocus: false,
                                                   autofillHints: const [
                                                     AutofillHints.email
                                                   ],
@@ -618,7 +618,7 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                     .passwordCreateTextController,
                                                 focusNode: _model
                                                     .passwordCreateFocusNode,
-                                                autofocus: true,
+                                                autofocus: false,
                                                 autofillHints: const [
                                                   AutofillHints.password
                                                 ],

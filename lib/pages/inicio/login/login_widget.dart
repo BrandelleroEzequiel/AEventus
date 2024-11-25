@@ -211,7 +211,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       .emailAddressTextController,
                                                   focusNode: _model
                                                       .emailAddressFocusNode,
-                                                  autofocus: true,
+                                                  autofocus: false,
                                                   autofillHints: const [
                                                     AutofillHints.email
                                                   ],
@@ -319,7 +319,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     .passwordTextController,
                                                 focusNode:
                                                     _model.passwordFocusNode,
-                                                autofocus: true,
+                                                autofocus: false,
                                                 autofillHints: const [
                                                   AutofillHints.password
                                                 ],

@@ -1087,7 +1087,7 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                                                   labelText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'v1mk9622' /* /numberCelular */,
+                                                                    'v1mk9622' /* numberCelular */,
                                                                   ),
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
@@ -1268,7 +1268,7 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                                                   labelText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'nvl6ttoy' /* /usernameInstagram */,
+                                                                    'nvl6ttoy' /* usernameInstagram */,
                                                                   ),
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
@@ -1451,7 +1451,7 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                                                   labelText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'i909g65i' /* /usernameX */,
+                                                                    'i909g65i' /* usernameX */,
                                                                   ),
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)
@@ -1632,7 +1632,7 @@ class _EditUserWidgetState extends State<EditUserWidget>
                                                                   labelText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '4yxdtkmz' /* /usernameTikTok */,
+                                                                    '4yxdtkmz' /* usernameTikTok */,
                                                                   ),
                                                                   labelStyle: FlutterFlowTheme.of(
                                                                           context)

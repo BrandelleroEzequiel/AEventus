@@ -10,7 +10,6 @@ export '/pages/detail/promocion_detail/promocion_detail_widget.dart'
 export '/pages/create/create_promocion/create_promocion_widget.dart'
     show CreatePromocionWidget;
 export '/pages/edit/edit_user/edit_user_widget.dart' show EditUserWidget;
-export '/pages/inicio/admin_page/admin_page_widget.dart' show AdminPageWidget;
 export '/pages/nav_bar/all_events/all_events_widget.dart' show AllEventsWidget;
 export '/pages/inicio/pantalla_a_eventus/pantalla_a_eventus_widget.dart'
     show PantallaAEventusWidget;
@@ -34,3 +33,8 @@ export '/pages/create_event/crear_evento3/crear_evento3_widget.dart'
     show CrearEvento3Widget;
 export '/pages/create_event/editar_evento/editar_evento_widget.dart'
     show EditarEventoWidget;
+export '/tests/tests_widget.dart' show TestsWidget;
+export '/admin/home_admin/home_admin_widget.dart' show HomeAdminWidget;
+export '/admin/event_admin/event_admin_widget.dart' show EventAdminWidget;
+export '/admin/user_admin/user_admin_widget.dart' show UserAdminWidget;
+export '/admin/cupones_admin/cupones_admin_widget.dart' show CuponesAdminWidget;

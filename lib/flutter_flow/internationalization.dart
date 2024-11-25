@@ -681,37 +681,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // AdminPage
-  {
-    '2h1idmdy': {
-      'es': 'Todos los usuarios',
-      'en': '',
-    },
-    'rnpe8yb9': {
-      'es': '',
-      'en': '',
-    },
-    'dyr8qxz8': {
-      'es': '',
-      'en': '',
-    },
-    'qpnln38v': {
-      'es': 'Todos los eventos',
-      'en': '',
-    },
-    'dxmluap3': {
-      'es': 'Editar',
-      'en': '',
-    },
-    '90xkg3yd': {
-      'es': 'Borrar',
-      'en': '',
-    },
-    'qmeb5kvn': {
-      'es': 'Home',
-      'en': '',
-    },
-  },
   // AllEvents
   {
     'w4t6uk9d': {
@@ -1501,6 +1470,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Listado de cupones del lugar',
       'en': '',
     },
+    '1bjny7de': {
+      'es': 'Estadisticas del evento',
+      'en': '',
+    },
+    'yhqadvh0': {
+      'es': 'Visualizaciones',
+      'en': '',
+    },
+    'jne09k63': {
+      'es': 'Me gustas',
+      'en': '',
+    },
+    'om64m0nn': {
+      'es': 'Participantes',
+      'en': '',
+    },
     '9tiz7l76': {
       'es': 'Home',
       'en': '',
@@ -1943,6 +1928,245 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'p66arv9g': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // TESTS
+  {
+    '5nnqb7z4': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // HomeAdmin
+  {
+    'dqnrzgd2': {
+      'es': 'Todos los usuarios',
+      'en': '',
+    },
+    'oneao3nz': {
+      'es': 'Listado completo de usuarios registrados',
+      'en': '',
+    },
+    'ou4n6fav': {
+      'es': 'Todos los eventos',
+      'en': '',
+    },
+    'o23ot46e': {
+      'es': 'Listado completo de eventos creados',
+      'en': '',
+    },
+    'ppea8m00': {
+      'es': 'Todos los cupones',
+      'en': '',
+    },
+    'irvnp66s': {
+      'es': 'Listado completo de cupones creados',
+      'en': '',
+    },
+    'b4t9hmde': {
+      'es': 'Volver atrás',
+      'en': '',
+    },
+    'ri2fl0eh': {
+      'es': 'Panel de administrador',
+      'en': '',
+    },
+    'ix0lruet': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // EventAdmin
+  {
+    'qayzv3xx': {
+      'es': 'Listado de eventos',
+      'en': '',
+    },
+    'cu7fk8l5': {
+      'es': '    Buscar...',
+      'en': '',
+    },
+    '65pve3bl': {
+      'es': '',
+      'en': '',
+    },
+    '0e5m9ekb': {
+      'es': 'Todos',
+      'en': '',
+    },
+    '5nwzhlep': {
+      'es': 'Comunidad',
+      'en': '',
+    },
+    'hjh3h641': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    'ayap3q2k': {
+      'es': 'Deportes',
+      'en': '',
+    },
+    'bx0mwffq': {
+      'es': 'Gastronomía',
+      'en': '',
+    },
+    'ms6xnlaw': {
+      'es': 'Educación',
+      'en': '',
+    },
+    'kxa0umu7': {
+      'es': 'Caridad',
+      'en': '',
+    },
+    '4l1sk7by': {
+      'es': 'Teatro',
+      'en': '',
+    },
+    'j46x44pn': {
+      'es': 'Música',
+      'en': '',
+    },
+    '7dgv79q6': {
+      'es': 'Turismo',
+      'en': '',
+    },
+    'ct9oncoz': {
+      'es': 'Empresarial',
+      'en': '',
+    },
+    'mdxr3ekq': {
+      'es': 'Infantil',
+      'en': '',
+    },
+    'n8jzttgz': {
+      'es': 'Otros',
+      'en': '',
+    },
+    'veh9y5cn': {
+      'es': 'Todos',
+      'en': '',
+    },
+    '9nsvkt2w': {
+      'es': 'All',
+      'en': '',
+    },
+    '9yo8s9nn': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // UserAdmin
+  {
+    'amduwk76': {
+      'es': 'Listado de usuarios',
+      'en': '',
+    },
+    '5f5phv8j': {
+      'es': '    Buscar...',
+      'en': '',
+    },
+    '5wr0x4gf': {
+      'es': '',
+      'en': '',
+    },
+    'fqopujoc': {
+      'es': 'Todos',
+      'en': '',
+    },
+    '4u2x8yic': {
+      'es': 'Comunidad',
+      'en': '',
+    },
+    'i3tah3py': {
+      'es': 'Profesionales',
+      'en': '',
+    },
+    'tji2qiwt': {
+      'es': 'Todos',
+      'en': '',
+    },
+    'sk4eirez': {
+      'es': 'All',
+      'en': '',
+    },
+    'iazbfh0j': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // CuponesAdmin
+  {
+    '174x1ucg': {
+      'es': 'Listado de cupones',
+      'en': '',
+    },
+    'ek3of3j1': {
+      'es': '    Buscar...',
+      'en': '',
+    },
+    'gzcy3p7u': {
+      'es': '',
+      'en': '',
+    },
+    'geiggfms': {
+      'es': 'Todos',
+      'en': '',
+    },
+    'm7rd4oko': {
+      'es': 'Fiestas',
+      'en': '',
+    },
+    '5raz4m1c': {
+      'es': 'Deportes',
+      'en': '',
+    },
+    '4khvcof0': {
+      'es': 'Gastronomía',
+      'en': '',
+    },
+    'utycb5f9': {
+      'es': 'Educación',
+      'en': '',
+    },
+    '79fwx7gw': {
+      'es': 'Caridad',
+      'en': '',
+    },
+    'dcw0ljj0': {
+      'es': 'Teatro',
+      'en': '',
+    },
+    'o0tl6uo3': {
+      'es': 'Música',
+      'en': '',
+    },
+    '4vetgm6w': {
+      'es': 'Turismo',
+      'en': '',
+    },
+    'bfshchf8': {
+      'es': 'Empresarial',
+      'en': '',
+    },
+    'jxxyttje': {
+      'es': 'Infantil',
+      'en': '',
+    },
+    '2hofxhdb': {
+      'es': 'Otros',
+      'en': '',
+    },
+    'g1hrf99p': {
+      'es': 'Todos',
+      'en': '',
+    },
+    'v008y74k': {
+      'es': 'All',
+      'en': '',
+    },
+    'ffsee2mt': {
       'es': 'Home',
       'en': '',
     },
